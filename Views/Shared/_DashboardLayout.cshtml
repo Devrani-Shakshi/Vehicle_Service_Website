@@ -1,0 +1,228 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ServicePlatform.Models.ApplicationUser> SignInManager
+@inject UserManager<ServicePlatform.Models.ApplicationUser> UserManager
+@{
+    Layout = "_Layout";
+    var user = await UserManager.GetUserAsync(User);
+    var roles = user != null ? await UserManager.GetRolesAsync(user) : new List<string>();
+    var role = roles.FirstOrDefault() ?? "User";
+    var dashTitle = role switch {
+        "Admin" => "Admin Dashboard",
+        "ServiceProvider" => "Service Provider Dashboard",
+        "Shopkeeper" => "Shopkeeper Dashboard",
+        _ => "User Dashboard"
+    };
+}
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h4><i class="fas fa-bolt"></i> ServicePlatform</h4>
+            <small>@dashTitle</small>
+        </div>
+        <ul class="sidebar-nav">
+            @if (role == "Admin")
+            {
+                <li class="sidebar-section-title">Overview</li>
+                <li><a href="@Url.Action("Index", "Admin")" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"><i class="fas fa-chart-pie"></i> Dashboard</a></li>
+                <li class="sidebar-section-title">Management</li>
+                <li><a href="@Url.Action("ServiceRequests", "Admin")"><i class="fas fa-clipboard-list"></i> Service Requests</a></li>
+                <li><a href="@Url.Action("Orders", "Admin")"><i class="fas fa-shopping-bag"></i> Orders</a></li>
+                <li><a href="@Url.Action("Payments", "Admin")"><i class="fas fa-credit-card"></i> Payments</a></li>
+                <li><a href="@Url.Action("Feedbacks", "Admin")"><i class="fas fa-comments"></i> Feedbacks</a></li>
+            }
+            else if (role == "User")
+            {
+                <li class="sidebar-section-title">Overview</li>
+                <li><a href="@Url.Action("Index", "UserDashboard")" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li class="sidebar-section-title">Services</li>
+                <li><a href="@Url.Action("CreateRequest", "UserDashboard")"><i class="fas fa-plus-circle"></i> New Request</a></li>
+                <li><a href="@Url.Action("MyRequests", "UserDashboard")"><i class="fas fa-clipboard-list"></i> My Requests</a></li>
+                <li><a href="@Url.Action("BookAppointment", "UserDashboard")"><i class="fas fa-calendar-alt"></i> Book Appointment</a></li>
+                <li><a href="@Url.Action("MyAppointments", "UserDashboard")"><i class="fas fa-calendar-check"></i> Appointments</a></li>
+                <li class="sidebar-section-title">Shopping</li>
+                <li><a href="@Url.Action("Index", "Shop")"><i class="fas fa-store"></i> Shop</a></li>
+                <li><a href="@Url.Action("Cart", "Shop")"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="@Url.Action("MyOrders", "Shop")"><i class="fas fa-box"></i> My Orders</a></li>
+                <li class="sidebar-section-title">Account</li>
+                <li><a href="@Url.Action("PaymentHistory", "UserDashboard")"><i class="fas fa-receipt"></i> Payment History</a></li>
+                <li><a href="@Url.Action("Feedback", "UserDashboard")"><i class="fas fa-comment-dots"></i> Feedback</a></li>
+                <li><a href="@Url.Action("Policy", "UserDashboard")"><i class="fas fa-shield-alt"></i> Policy</a></li>
+                <li><a href="@Url.Action("Settings", "UserDashboard")"><i class="fas fa-cog"></i> Settings</a></li>
+            }
+            else if (role == "ServiceProvider")
+            {
+                <li class="sidebar-section-title">Overview</li>
+                <li><a href="@Url.Action("Index", "ServiceProvider")" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li class="sidebar-section-title">Requests</li>
+                <li><a href="@Url.Action("PendingRequests", "ServiceProvider")"><i class="fas fa-clock"></i> Pending Requests</a></li>
+                <li><a href="@Url.Action("MyRequests", "ServiceProvider")"><i class="fas fa-tasks"></i> My Requests</a></li>
+                <li><a href="@Url.Action("CompletedRequests", "ServiceProvider")"><i class="fas fa-check-circle"></i> Completed</a></li>
+                <li class="sidebar-section-title">Shopping</li>
+                <li><a href="@Url.Action("Index", "Shop")"><i class="fas fa-store"></i> Shop</a></li>
+                <li><a href="@Url.Action("Cart", "Shop")"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="@Url.Action("MyOrders", "Shop")"><i class="fas fa-box"></i> My Orders</a></li>
+                <li class="sidebar-section-title">Profile</li>
+                <li><a href="@Url.Action("Ratings", "ServiceProvider")"><i class="fas fa-star"></i> Ratings & Reviews</a></li>
+            }
+            else if (role == "Shopkeeper")
+            {
+                <li class="sidebar-section-title">Overview</li>
+                <li><a href="@Url.Action("Index", "Shopkeeper")" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li class="sidebar-section-title">Products</li>
+                <li><a href="@Url.Action("Products", "Shopkeeper")"><i class="fas fa-boxes-stacked"></i> My Products</a></li>
+                <li><a href="@Url.Action("AddProduct", "Shopkeeper")"><i class="fas fa-plus-circle"></i> Add Product</a></li>
+                <li class="sidebar-section-title">Orders</li>
+                <li><a href="@Url.Action("Orders", "Shopkeeper")"><i class="fas fa-shopping-bag"></i> Orders</a></li>
+            }
+
+            <li>
+                <button type="button" style="width:100%;text-align:left;border:none;background:none;padding:12px 20px;color:var(--danger);display:flex;align-items:center;gap:12px;font-size:0.95rem;cursor:pointer;transition:var(--transition);" onclick="showLogoutModal()" onmouseover="this.style.background='rgba(239, 68, 68, 0.1)';" onmouseout="this.style.background='none';">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <nav class="top-navbar">
+            <div style="display:flex;align-items:center;gap:12px;">
+                <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('show')">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h5>@ViewData["Title"]</h5>
+            </div>
+            <div class="nav-actions">
+                <div style="position:relative;">
+                    <button class="notification-bell" onclick="toggleNotifications()" id="notifBell" title="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge" id="notifCount" style="display:none;">0</span>
+                    </button>
+                    <div class="notification-dropdown" id="notifDropdown">
+                        <div style="padding:12px 16px;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;">
+                            <strong style="font-size:0.9rem;">Notifications</strong>
+                            <a href="#" onclick="markAllRead()" style="font-size:0.8rem;">Mark all read</a>
+                        </div>
+                        <div id="notifList">
+                            <div class="empty-state" style="padding:1.5rem;"><p>No notifications</p></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="notification-bell" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+
+                <div style="position:relative;">
+                    <button class="user-profile-btn" onclick="toggleUserProfile()" id="userProfileBtn" style="background:transparent;border:none;display:flex;align-items:center;gap:10px;cursor:pointer;padding:4px 8px;border-radius:var(--radius-sm);transition:var(--transition);">
+                        <div style="width:36px;height:36px;border-radius:50%;background:var(--primary-gradient);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.85rem;">
+                            @(user?.FullName?.Substring(0, 1).ToUpper() ?? "U")
+                        </div>
+                        <div style="text-align:left;">
+                            <div style="font-weight:600;font-size:0.85rem;color:var(--text-primary);">@(user?.FullName ?? "User")</div>
+                            <div style="font-size:0.7rem;color:var(--text-muted);">@role</div>
+                        </div>
+                        <i class="fas fa-chevron-down" style="font-size:0.7rem;color:var(--text-muted);margin-left:4px;"></i>
+                    </button>
+
+                    <div class="notification-dropdown" id="userDropdown" style="width:260px;padding:8px 0;">
+                        <div style="padding:12px 16px;border-bottom:1px solid var(--border-color);display:flex;align-items:center;gap:12px;">
+                            <div style="width:48px;height:48px;border-radius:50%;background:var(--primary-gradient);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.2rem;flex-shrink:0;">
+                                @(user?.FullName?.Substring(0, 1).ToUpper() ?? "U")
+                            </div>
+                            <div style="overflow:hidden;">
+                                <div style="font-weight:600;font-size:0.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">@(user?.FullName ?? "User")</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">@(user?.Email ?? "")</div>
+                                @if(!string.IsNullOrEmpty(user?.Mobile)) {
+                                    <div style="font-size:0.75rem;color:var(--text-muted);"><i class="fas fa-phone" style="font-size:0.65rem;margin-right:4px;"></i>@user.Mobile</div>
+                                }
+                            </div>
+                        </div>
+                        
+                        <div style="padding:8px 0;">
+                            @if(role == "Admin") {
+                                <a href="/Admin/Index" class="user-dropdown-item"><i class="fas fa-chart-pie"></i> Dashboard</a>
+                            } else if(role == "Shopkeeper") {
+                                <a href="/Shopkeeper/Index" class="user-dropdown-item"><i class="fas fa-home"></i> Dashboard</a>
+                            } else if(role == "ServiceProvider") {
+                                <a href="/ServiceProvider/Index" class="user-dropdown-item"><i class="fas fa-home"></i> Dashboard</a>
+                            } else {
+                                <a href="/UserDashboard/Settings" class="user-dropdown-item"><i class="fas fa-cog"></i> Account Settings</a>
+                            }
+                            <hr style="margin:8px 0;border-color:var(--border-color);opacity:0.5;" />
+                            <button type="button" class="user-dropdown-item text-danger" style="width:100%;text-align:left;border:none;background:none;color:var(--danger);" onclick="showLogoutModal()">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="dashboard-content animate-fadeIn">
+            @if (TempData["Success"] != null)
+            {
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        showToast('@TempData["Success"]', 'success');
+                    });
+                </script>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        showToast('@TempData["Error"]', 'error');
+                    });
+                </script>
+            }
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+<!-- Logout Confirmation Modal -->
+<div id="logoutModal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; backdrop-filter:blur(4px); align-items:center; justify-content:center;">
+    <div class="data-card animate-zoomIn" style="width:400px; padding:0; overflow:hidden;">
+        <div class="data-card-header" style="background:var(--danger); color:white; padding:1.25rem;">
+            <h5 style="margin:0;"><i class="fas fa-sign-out-alt" style="margin-right:8px;"></i>Confirm Logout</h5>
+        </div>
+        <div class="data-card-body" style="padding:2rem; text-align:center;">
+            <p style="margin-bottom:2rem; color:var(--text-primary); font-size:1.1rem;">Are you sure you want to logout?</p>
+            <div style="display:flex; gap:1rem; justify-content:center;">
+                <button type="button" class="btn-outline-custom" onclick="hideLogoutModal()" style="padding:10px 24px;">Cancel</button>
+                <form asp-controller="Account" asp-action="Logout" method="post" id="finalLogoutForm">
+                    <button type="submit" class="btn-primary-custom" style="background:var(--danger); padding:10px 24px;">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showLogoutModal() {
+        document.getElementById('logoutModal').style.display = 'flex';
+    }
+    function hideLogoutModal() {
+        document.getElementById('logoutModal').style.display = 'none';
+    }
+    // Close modal on click outside
+    window.onclick = function(event) {
+        let modal = document.getElementById('logoutModal');
+        if (event.target == modal) {
+            hideLogoutModal();
+        }
+    }
+</script>
+
+@section Styles {
+    @RenderSection("Styles", required: false)
+}
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

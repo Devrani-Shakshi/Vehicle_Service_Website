@@ -1,0 +1,91 @@
+@model IEnumerable<ServicePlatform.Models.ServiceRequest>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "All Service Requests"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header" style="display:flex; justify-content:space-between; align-items:center; padding: 1.5rem;">
+        <h5 style="margin:0;"><i class="fas fa-clipboard-list" style="color:var(--primary-light);margin-right:8px;"></i>Service Requests</h5>
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <select id="statusFilter" class="form-select form-select-sm" style="width:130px; border-radius:20px;">
+                <option value="">All Status</option>
+                @foreach (var status in Enum.GetValues(typeof(ServicePlatform.Models.ServiceRequestStatus)))
+                {
+                    <option value="@status.ToString().ToLower()">@status</option>
+                }
+            </select>
+            <select id="categoryFilter" class="form-select form-select-sm" style="width:130px; border-radius:20px;">
+                <option value="">All Categories</option>
+                <option value="plumbing">Plumbing</option>
+                <option value="electrical">Electrical</option>
+                <option value="carpentry">Carpentry</option>
+                <option value="cleaning">Cleaning</option>
+                <option value="painting">Painting</option>
+            </select>
+            <div style="position:relative;">
+                <i class="fas fa-search" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted); font-size:0.9rem;"></i>
+                <input type="text" id="requestsSearch" class="form-control form-control-sm" placeholder="Search..." style="border-radius:24px; padding: 8px 16px 8px 36px; width:200px;" />
+            </div>
+            <button class="btn btn-sm" style="background:var(--primary-gradient);color:white;border:none;border-radius:8px;padding: 8px 16px;font-weight:600;" onclick="exportTableToCSV('requestsTable', 'ServiceRequests.csv')" data-bs-toggle="tooltip" title="Download CSV"><i class="fas fa-download"></i></button>
+        </div>
+    </div>
+    <table class="table-custom" id="requestsTable">
+        <thead><tr><th>Title</th><th>User</th><th>Type</th><th>Category</th><th>Status</th><th>Date</th><th style="text-align:right;">Action</th></tr></thead>
+        <tbody>
+            @foreach (var r in Model)
+            {
+                <tr data-status="@r.Status.ToString().ToLower()" data-category="@(r.Category?.ToLower() ?? "general")">
+                    <td style="font-weight:600;">@r.Title</td>
+                    <td>@r.User.FullName</td>
+                    <td><span class="badge-custom badge-@(r.RequestType.ToString().ToLower() == "urgent" ? "danger" : "primary")">@r.RequestType</span></td>
+                    <td class="cat-cell">@(r.Category ?? "General")</td>
+                    <td><span class="badge-custom badge-@r.Status.ToString().ToLower()">@r.Status</span></td>
+                    <td style="font-size:0.8rem;color:var(--text-muted);">@r.CreatedAt.ToString("MMM dd, yyyy")</td>
+                    <td style="text-align:right;">
+                        <a href="/Admin/ServiceRequestDetails/@r.Id" class="btn btn-xs btn-outline-primary" style="padding:2px 8px; font-size:0.75rem;"><i class="fas fa-eye"></i> View</a>
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="7" class="empty-state"><p>No requests found</p></td></tr> }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('requestsSearch');
+            const statusFilter = document.getElementById('statusFilter');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const table = document.getElementById('requestsTable');
+            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            function filterTable() {
+                const searchText = searchInput.value.toLowerCase();
+                const statusValue = statusFilter.value;
+                const categoryValue = categoryFilter.value;
+
+                for (let row of rows) {
+                    if (row.classList.contains('empty-state-row')) continue;
+                    
+                    const text = row.textContent.toLowerCase();
+                    const status = row.getAttribute('data-status');
+                    const category = row.getAttribute('data-category');
+
+                    const matchesSearch = text.includes(searchText);
+                    const matchesStatus = !statusValue || status === statusValue;
+                    const matchesCategory = !categoryValue || category === categoryValue;
+
+                    if (matchesSearch && matchesStatus && matchesCategory) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            }
+
+            searchInput.addEventListener('input', filterTable);
+            statusFilter.addEventListener('change', filterTable);
+            categoryFilter.addEventListener('change', filterTable);
+        });
+    </script>
+}
+

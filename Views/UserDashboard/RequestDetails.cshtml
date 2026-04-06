@@ -1,0 +1,118 @@
+@model ServicePlatform.Models.ServiceRequest
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Request Details"; }
+
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;">
+    <div>
+        <div class="data-card animate-fadeInUp">
+            <div class="data-card-header">
+                <h5>@Model.Title</h5>
+                <span class="badge-custom badge-@Model.Status.ToString().ToLower()" style="font-size:0.85rem;">@Model.Status</span>
+            </div>
+            <div class="data-card-body">
+                <p style="color:var(--text-secondary);margin-bottom:1.5rem;">@Model.Description</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+                    <div><strong style="color:var(--text-muted);font-size:0.8rem;">TYPE</strong><p style="margin:0;">@Model.RequestType</p></div>
+                    <div><strong style="color:var(--text-muted);font-size:0.8rem;">CATEGORY</strong><p style="margin:0;">@(Model.Category ?? "N/A")</p></div>
+                    <div><strong style="color:var(--text-muted);font-size:0.8rem;">CREATED</strong><p style="margin:0;">@Model.CreatedAt.ToString("MMM dd, yyyy HH:mm")</p></div>
+                    <div><strong style="color:var(--text-muted);font-size:0.8rem;">LOCATION</strong><p style="margin:0;">@(Model.LocationAddress ?? "Not provided")</p></div>
+                </div>
+                @if (Model.ServiceProvider != null)
+                {
+                    <div style="background:var(--bg-primary);border-radius:var(--radius-md);padding:1rem;margin-bottom:1.5rem;">
+                        <strong style="color:var(--text-muted);font-size:0.8rem;display:block;margin-bottom:0.5rem;">SERVICE PROVIDER</strong>
+                        <p style="font-weight:600;margin:0;">@Model.ServiceProvider.FullName</p>
+                        <p style="font-size:0.85rem;color:var(--text-muted);margin:0;">@Model.ServiceProvider.Email • @Model.ServiceProvider.Mobile</p>
+                    </div>
+                }
+                @if (Model.Notes != null)
+                {
+                    <div><strong style="color:var(--text-muted);font-size:0.8rem;">NOTES</strong><p style="color:var(--text-secondary);">@Model.Notes</p></div>
+                }
+            </div>
+        </div>
+
+        <!-- Rating Section (show if completed and no rating given) -->
+        @if (Model.Status == ServicePlatform.Models.ServiceRequestStatus.Completed && Model.ServiceProvider != null && !Model.Ratings.Any())
+        {
+            <div class="data-card animate-fadeInUp-delay-1">
+                <div class="data-card-header"><h5><i class="fas fa-star" style="color:var(--accent);margin-right:8px;"></i>Rate this Service</h5></div>
+                <div class="data-card-body">
+                    <form asp-controller="UserDashboard" asp-action="SubmitRating" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="ServiceRequestId" value="@Model.Id" />
+                        <input type="hidden" name="ServiceProviderId" value="@Model.ServiceProviderId" />
+                        <input type="hidden" name="Stars" id="ratingValue" value="5" />
+                        <div class="star-rating-input" id="starRating" style="margin-bottom:1rem;">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                <i class="fas fa-star @(i <= 5 ? "active" : "")" data-value="@i" onclick="setRating(@i)"></i>
+                            }
+                        </div>
+                        <div class="form-floating-custom">
+                            <label>Your Review</label>
+                            <textarea name="ReviewText" class="form-control" rows="3" placeholder="Share your experience"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary-custom"><i class="fas fa-paper-plane"></i> Submit Rating</button>
+                    </form>
+                </div>
+            </div>
+        }
+
+        @if (Model.Ratings.Any())
+        {
+            <div class="data-card animate-fadeInUp-delay-1">
+                <div class="data-card-header"><h5>Your Rating</h5></div>
+                <div class="data-card-body">
+                    @foreach (var rating in Model.Ratings)
+                    {
+                        <div class="stars" style="margin-bottom:0.5rem;">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                <i class="fas fa-star @(i <= rating.Stars ? "" : "empty")"></i>
+                            }
+                        </div>
+                        <p style="color:var(--text-secondary);">@rating.ReviewText</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Map -->
+    <div>
+        @if (Model.Latitude.HasValue && Model.Longitude.HasValue)
+        {
+            <div class="data-card animate-fadeInUp-delay-2">
+                <div class="data-card-header"><h5><i class="fas fa-map-marker-alt" style="color:var(--danger);margin-right:8px;"></i>Location</h5></div>
+                <div class="data-card-body" style="padding:0;">
+                    <div id="locationMap" class="map-container" style="border-radius:0 0 var(--radius-lg) var(--radius-lg);"></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+}
+
+@section Scripts {
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        function setRating(val) {
+            document.getElementById('ratingValue').value = val;
+            document.querySelectorAll('#starRating i').forEach((star, i) => {
+                star.classList.toggle('active', i < val);
+            });
+        }
+
+        @if (Model.Latitude.HasValue && Model.Longitude.HasValue)
+        {
+            <text>
+            var map = L.map('locationMap').setView([@Model.Latitude, @Model.Longitude], 15);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
+            L.marker([@Model.Latitude, @Model.Longitude]).addTo(map).bindPopup('<strong>@Model.Title</strong><br/>@(Model.LocationAddress ?? "Service Location")').openPopup();
+            </text>
+        }
+    </script>
+}

@@ -1,0 +1,109 @@
+@model ServicePlatform.ViewModels.Service.ServiceRequestViewModel
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "New Service Request"; }
+
+<div style="max-width:700px;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header">
+            <h5><i class="fas fa-plus-circle" style="color:var(--primary-light);margin-right:8px;"></i>Submit Service Request</h5>
+        </div>
+        <div class="data-card-body">
+            <form asp-action="CreateRequest" method="post">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" style="color:var(--danger);font-size:0.85rem;margin-bottom:1rem;"></div>
+
+                <div class="form-floating-custom">
+                    <label asp-for="Title">Request Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Brief description of the issue" />
+                    <span asp-validation-for="Title" style="color:var(--danger);font-size:0.8rem;"></span>
+                </div>
+
+                <div class="form-floating-custom">
+                    <label asp-for="Description">Description</label>
+                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="Provide details about the service needed"></textarea>
+                    <span asp-validation-for="Description" style="color:var(--danger);font-size:0.8rem;"></span>
+                </div>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+                    <div class="form-floating-custom" style="margin-bottom:0;">
+                        <label asp-for="RequestType">Urgency Level</label>
+                        <select asp-for="RequestType" class="form-control" asp-items="Html.GetEnumSelectList<ServicePlatform.Models.ServiceRequestType>()"></select>
+                    </div>
+                    <div class="form-floating-custom" style="margin-bottom:0;">
+                        <label asp-for="Category">Service Category</label>
+                        <select asp-for="Category" class="form-control">
+                            <option value="">Select Category</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Carpentry">Carpentry</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Painting">Painting</option>
+                            <option value="HVAC">HVAC</option>
+                            <option value="Appliance Repair">Appliance Repair</option>
+                            <option value="Pest Control">Pest Control</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-floating-custom">
+                    <label>Location Address</label>
+                    <input asp-for="LocationAddress" class="form-control" placeholder="Enter your address" />
+                </div>
+
+                <!-- Location capture -->
+                <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:1.5rem;align-items:end;margin-bottom:1.5rem;">
+                    <div class="form-floating-custom" style="margin-bottom:0;"><label>Latitude</label><input asp-for="Latitude" id="lat" class="form-control" readonly /></div>
+                    <div class="form-floating-custom" style="margin-bottom:0;"><label>Longitude</label><input asp-for="Longitude" id="lng" class="form-control" readonly /></div>
+                    <button type="button" class="btn-outline-custom" onclick="getLocation()" style="height:56px;padding:0 24px;">
+                        <i class="fas fa-crosshairs"></i> Detect
+                    </button>
+                </div>
+
+                <div id="miniMap" class="map-container" style="height:250px;margin-bottom:1.5rem;display:none;"></div>
+
+                <div class="form-floating-custom">
+                    <label asp-for="Notes">Additional Notes</label>
+                    <textarea asp-for="Notes" class="form-control" rows="2" placeholder="Any additional notes"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;margin-top:0.5rem;">
+                    <i class="fas fa-paper-plane"></i> Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+}
+
+@section Scripts {
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        let miniMap, marker;
+        function getLocation() {
+            if (!navigator.geolocation) { alert('Geolocation not supported'); return; }
+            navigator.geolocation.getCurrentPosition(function(pos) {
+                document.getElementById('lat').value = pos.coords.latitude.toFixed(6);
+                document.getElementById('lng').value = pos.coords.longitude.toFixed(6);
+                showMiniMap(pos.coords.latitude, pos.coords.longitude);
+            }, function() {
+                // Default to Mumbai if denied
+                document.getElementById('lat').value = '19.076090';
+                document.getElementById('lng').value = '72.877426';
+                showMiniMap(19.076090, 72.877426);
+            });
+        }
+        function showMiniMap(lat, lng) {
+            document.getElementById('miniMap').style.display = 'block';
+            if (!miniMap) {
+                miniMap = L.map('miniMap').setView([lat, lng], 15);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(miniMap);
+            } else {
+                miniMap.setView([lat, lng], 15);
+            }
+            if (marker) miniMap.removeLayer(marker);
+            marker = L.marker([lat, lng]).addTo(miniMap).bindPopup('Your Location').openPopup();
+        }
+    </script>
+}

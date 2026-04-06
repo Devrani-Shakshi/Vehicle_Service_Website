@@ -1,0 +1,36 @@
+@model IEnumerable<ServicePlatform.Models.Rating>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Ratings & Reviews"; }
+
+<div class="stats-grid" style="margin-bottom:2rem;">
+    <div class="stat-card animate-fadeInUp">
+        <div class="stat-icon warning"><i class="fas fa-star"></i></div>
+        <div class="stat-info"><h3>@(ViewBag.AverageRating?.ToString("F1") ?? "0.0")</h3><p>Average Rating</p></div>
+    </div>
+    <div class="stat-card animate-fadeInUp-delay-1">
+        <div class="stat-icon primary"><i class="fas fa-comments"></i></div>
+        <div class="stat-info"><h3>@(ViewBag.TotalReviews ?? 0)</h3><p>Total Reviews</p></div>
+    </div>
+</div>
+
+<div class="data-card animate-fadeInUp-delay-2">
+    <div class="data-card-header"><h5><i class="fas fa-star" style="color:var(--accent);margin-right:8px;"></i>Reviews</h5></div>
+    <div class="data-card-body">
+        @foreach (var r in Model)
+        {
+            <div style="padding:1rem 0;border-bottom:1px solid var(--border-color);">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <div style="width:36px;height:36px;border-radius:50%;background:var(--primary-gradient);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;">@r.User.FullName[0]</div>
+                        <strong>@r.User.FullName</strong>
+                    </div>
+                    <div class="stars">
+                        @for (int i = 1; i <= 5; i++) { <i class="fas fa-star @(i <= r.Stars ? "" : "empty")"></i> }
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(r.ReviewText)) { <p style="color:var(--text-secondary);margin:0.25rem 0 0 46px;">@r.ReviewText</p> }
+                <small style="color:var(--text-muted);margin-left:46px;">@r.CreatedAt.ToString("MMM dd, yyyy")</small>
+            </div>
+        }
+        @if (!Model.Any()) { <div class="empty-state"><i class="fas fa-star"></i><p>No reviews yet</p></div> }
+    </div>
+</div>

@@ -1,0 +1,33 @@
+@model ServicePlatform.Models.Payment
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Process Payment"; }
+
+<div style="max-width:600px;margin:0 auto;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header"><h5><i class="fas fa-credit-card" style="color:var(--primary-light);margin-right:8px;"></i>Complete Payment</h5></div>
+        <div class="data-card-body text-center">
+            <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:2rem;margin-bottom:1.5rem;">
+                <p style="color:var(--text-muted);margin-bottom:0.5rem;">Amount to Pay</p>
+                <h2 style="font-size:2.5rem;font-weight:800;color:var(--success);margin:0;">₹@Model.Amount.ToString("N2")</h2>
+                <p style="color:var(--text-muted);font-size:0.85rem;margin-top:0.5rem;">via @Model.Gateway</p>
+            </div>
+
+            <div style="background:rgba(99,102,241,0.05);border:1px dashed var(--primary);border-radius:var(--radius-md);padding:1.5rem;margin-bottom:1.5rem;">
+                <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:0.5rem;">
+                    <i class="fas fa-info-circle"></i> This is a demo payment simulation
+                </p>
+                <p style="color:var(--text-muted);font-size:0.8rem;margin:0;">
+                    In production, this would redirect to @Model.Gateway checkout page
+                </p>
+            </div>
+
+            <form asp-action="CompletePayment" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="paymentId" value="@Model.Id" />
+                <input type="hidden" name="transactionId" value="TXN_@Guid.NewGuid().ToString()[..12].ToUpper()" />
+                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;padding:14px;font-size:1.1rem;">
+                    <i class="fas fa-shield-alt"></i> Confirm Payment ₹@Model.Amount.ToString("N2")
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

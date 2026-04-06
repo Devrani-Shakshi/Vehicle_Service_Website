@@ -1,0 +1,123 @@
+@model ServicePlatform.Models.Order
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Order Details"; }
+
+<div class="animate-fadeIn">
+    <div style="margin-bottom:1.5rem; display:flex; align-items:center; gap:12px;">
+        <a href="/Admin/Orders" class="btn btn-sm btn-outline-secondary" style="border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; padding:0;">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h4 style="margin:0;">Order #@Model.OrderNumber</h4>
+        <span class="badge-custom badge-@Model.Status.ToString().ToLower()" style="margin-left:auto; padding:6px 16px; font-size:0.9rem;">@Model.Status</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 2.5fr 1fr; gap:1.5rem;">
+        <!-- Left: Order Items & Info -->
+        <div style="display:flex; flex-direction:column; gap:1.5rem;">
+            <div class="data-card">
+                <div class="data-card-header">
+                    <h5><i class="fas fa-shopping-bag" style="color:var(--success);margin-right:8px;"></i>Order Items</h5>
+                </div>
+                <div style="padding:0;">
+                    <table class="table-custom">
+                        <thead><tr><th>Product</th><th>Shopkeeper</th><th>Price</th><th>Quantity</th><th>Total</th></tr></thead>
+                        <tbody>
+                            @foreach (var item in Model.OrderItems)
+                            {
+                                <tr>
+                                    <td style="font-weight:600;">@item.Product.Name</td>
+                                    <td>@item.Product.Shopkeeper?.FullName</td>
+                                    <td>₹@item.UnitPrice.ToString("N0")</td>
+                                    <td>@item.Quantity</td>
+                                    <td style="font-weight:700;">₹@item.TotalPrice.ToString("N0")</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" style="text-align:right; font-weight:700;">Total Amount:</td>
+                                <td style="font-weight:800; color:var(--success); font-size:1.1rem;">₹@Model.TotalAmount.ToString("N0")</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <div class="data-card">
+                <div class="data-card-header">
+                    <h5><i class="fas fa-truck" style="color:var(--info);margin-right:8px;"></i>Shipping Information</h5>
+                </div>
+                <div style="padding:1.5rem;">
+                    <div class="mb-3">
+                        <label style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:4px;">Shipping Address</label>
+                        <p style="background:rgba(0,0,0,0.05); padding:1rem; border-radius:8px; margin:0;">@(Model.ShippingAddress ?? "No address provided")</p>
+                    </div>
+                    @if (Model.ExpectedDeliveryDate.HasValue)
+                    {
+                        <div>
+                            <label style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:4px;">Expected Delivery</label>
+                            <div style="font-weight:600;">@Model.ExpectedDeliveryDate.Value.ToString("MMM dd, yyyy")</div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Management -->
+        <div style="display:flex; flex-direction:column; gap:1.5rem;">
+            <div class="data-card">
+                <div class="data-card-header">
+                    <h5><i class="fas fa-user" style="color:var(--primary-light);margin-right:8px;"></i>Customer</h5>
+                </div>
+                <div style="padding:1.5rem;">
+                    <div style="font-weight:600;">@Model.User.FullName</div>
+                    <div style="font-size:0.85rem; color:var(--text-muted);">@Model.User.Email</div>
+                    <div style="font-size:0.85rem; color:var(--text-muted);">@Model.User.PhoneNumber</div>
+                </div>
+            </div>
+
+            <div class="data-card">
+                <div class="data-card-header">
+                    <h5><i class="fas fa-edit" style="color:var(--accent);margin-right:8px;"></i>Update Order</h5>
+                </div>
+                <div style="padding:1.5rem;">
+                    <form asp-action="UpdateOrderStatus" method="post">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <div class="mb-3">
+                            <label class="form-label" style="font-size:0.85rem;">Status</label>
+                            <select name="status" class="form-select" style="margin-bottom:1rem;">
+                                @foreach (var status in Enum.GetValues(typeof(ServicePlatform.Models.OrderStatus)))
+                                {
+                                    <option value="@status" selected="@(status.Equals(Model.Status))">@status</option>
+                                }
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" style="background:var(--primary-gradient); border:none;">Update Status</button>
+                    </form>
+                </div>
+            </div>
+
+            @if (Model.Payment != null)
+            {
+                <div class="data-card">
+                    <div class="data-card-header">
+                        <h5><i class="fas fa-credit-card" style="color:var(--success);margin-right:8px;"></i>Payment</h5>
+                    </div>
+                    <div style="padding:1.5rem;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                            <span>Status:</span>
+                            <span class="badge-custom badge-@Model.Payment.Status.ToString().ToLower()">@Model.Payment.Status</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                            <span>Method:</span>
+                            <span>@Model.Payment.Gateway</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span>Transaction Id:</span>
+                            <span style="font-family:monospace; font-size:0.8rem;">@(Model.Payment.TransactionId ?? "N/A")</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

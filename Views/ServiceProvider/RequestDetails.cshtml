@@ -1,0 +1,55 @@
+@model ServicePlatform.Models.ServiceRequest
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Request Details"; }
+
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header">
+            <h5>@Model.Title</h5>
+            <span class="badge-custom badge-@Model.Status.ToString().ToLower()" style="font-size:0.85rem;">@Model.Status</span>
+        </div>
+        <div class="data-card-body">
+            <p style="color:var(--text-secondary);margin-bottom:1.5rem;">@Model.Description</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+                <div><strong style="color:var(--text-muted);font-size:0.8rem;">TYPE</strong><p>@Model.RequestType</p></div>
+                <div><strong style="color:var(--text-muted);font-size:0.8rem;">CATEGORY</strong><p>@(Model.Category ?? "N/A")</p></div>
+                <div><strong style="color:var(--text-muted);font-size:0.8rem;">REQUESTED BY</strong><p>@Model.User.FullName (@Model.User.Email)</p></div>
+                <div><strong style="color:var(--text-muted);font-size:0.8rem;">LOCATION</strong><p>@(Model.LocationAddress ?? "Not provided")</p></div>
+            </div>
+
+            @if (Model.Status == ServicePlatform.Models.ServiceRequestStatus.Pending)
+            {
+                <div style="display:flex;gap:1rem;">
+                    <form asp-action="AcceptRequest" method="post"><input type="hidden" name="id" value="@Model.Id" />@Html.AntiForgeryToken()<button class="btn-success-custom"><i class="fas fa-check"></i> Accept Request</button></form>
+                    <form asp-action="RejectRequest" method="post"><input type="hidden" name="id" value="@Model.Id" />@Html.AntiForgeryToken()<button class="btn-danger-custom"><i class="fas fa-times"></i> Reject</button></form>
+                </div>
+            }
+            @if (Model.Status == ServicePlatform.Models.ServiceRequestStatus.Accepted || Model.Status == ServicePlatform.Models.ServiceRequestStatus.InProgress)
+            {
+                <form asp-action="CompleteRequest" method="post"><input type="hidden" name="id" value="@Model.Id" />@Html.AntiForgeryToken()<button class="btn-success-custom"><i class="fas fa-check-double"></i> Mark as Completed</button></form>
+            }
+        </div>
+    </div>
+
+    @if (Model.Latitude.HasValue && Model.Longitude.HasValue)
+    {
+        <div class="data-card animate-fadeInUp-delay-1">
+            <div class="data-card-header"><h5><i class="fas fa-map-marker-alt" style="color:var(--danger);margin-right:8px;"></i>Location</h5></div>
+            <div class="data-card-body" style="padding:0;">
+                <div id="detailMap" class="map-container" style="border-radius:0 0 var(--radius-lg) var(--radius-lg);"></div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (Model.Latitude.HasValue && Model.Longitude.HasValue)
+{
+    @section Styles { <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /> }
+    @section Scripts {
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script>
+            var map = L.map('detailMap').setView([@Model.Latitude, @Model.Longitude], 15);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
+            L.marker([@Model.Latitude, @Model.Longitude]).addTo(map).bindPopup('<strong>@Model.Title</strong>').openPopup();
+        </script>
+    }
+}

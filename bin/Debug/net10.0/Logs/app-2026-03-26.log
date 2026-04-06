@@ -1,0 +1,149 @@
+2026-03-26 23:35:57.0207|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:05:57.014 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:35:57.1748|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 401 in 159.9ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:35:59.2038|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:05:59.203 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:35:59.2211|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 401 in 17.9ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:36:09.7354|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:06:09.735 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:36:09.7354|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 401 in 2.0ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:36:40.7347|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:06:40.734 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:36:40.7347|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 401 in 5.3ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:40:52.9264|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 18:10:52.924 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-26 23:40:53.4609|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 536.0ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-26 23:42:12.4553|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Login started at 18:12:12.452 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-26 23:42:14.4231|INFO|ServicePlatform.Controllers.AccountController|User admin@serviceplatform.com logged in successfully|action=Login|controller=Account|url=http://localhost/Account/Login|user=admin@serviceplatform.com
+2026-03-26 23:42:15.3998|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Login responded 302 in 2947.2ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=admin@serviceplatform.com
+2026-03-26 23:42:15.4237|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin started at 18:12:15.423 by Anonymous|action=Index|controller=Admin|url=http://localhost/Admin|user=
+2026-03-26 23:42:15.5105|INFO|ServicePlatform.Controllers.AdminController|Admin dashboard accessed|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-26 23:42:16.5127|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin responded 200 in 1089.1ms|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-26 23:42:17.0994|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:12:17.099 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:42:17.0994|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 18:12:17.106 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-26 23:42:17.1576|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 58.1ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-26 23:42:17.2052|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 18:12:17.205 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-26 23:42:17.3056|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:42:17.6706|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 564.1ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:42:29.9581|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Users started at 18:12:29.958 by Anonymous|action=Users|controller=Admin|url=http://localhost/Admin/Users|user=
+2026-03-26 23:42:30.1597|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Users responded 200 in 201.6ms|action=Users|controller=Admin|url=http://localhost/Admin/Users|user=admin@serviceplatform.com
+2026-03-26 23:42:30.2226|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 13017.4ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-26 23:42:30.3165|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:12:30.316 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:42:30.3209|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 4.3ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-26 23:42:30.3209|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 18:12:30.329 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-26 23:42:30.3459|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 18:12:30.345 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-26 23:42:30.3564|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:42:30.3564|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 29.1ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:42:52.0294|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Admin/ToggleUserStatus started at 18:12:52.029 by Anonymous|action=ToggleUserStatus|controller=Admin|url=http://localhost/Admin/ToggleUserStatus|user=
+2026-03-26 23:42:52.2207|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Admin/ToggleUserStatus responded 302 in 191.3ms|action=ToggleUserStatus|controller=Admin|url=http://localhost/Admin/ToggleUserStatus|user=admin@serviceplatform.com
+2026-03-26 23:42:52.2302|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Users started at 18:12:52.230 by Anonymous|action=Users|controller=Admin|url=http://localhost/Admin/Users|user=
+2026-03-26 23:42:52.2986|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Users responded 200 in 68.4ms|action=Users|controller=Admin|url=http://localhost/Admin/Users|user=admin@serviceplatform.com
+2026-03-26 23:42:52.3087|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 21962.8ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-26 23:42:52.3658|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:12:52.365 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:42:52.3674|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 18:12:52.367 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-26 23:42:52.3674|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 1.7ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-26 23:42:52.3674|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:42:52.3674|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 9.2ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:42:52.4125|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 18:12:52.412 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-26 23:43:10.9437|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin started at 18:13:10.943 by Anonymous|action=Index|controller=Admin|url=http://localhost/Admin|user=
+2026-03-26 23:43:10.9437|INFO|ServicePlatform.Controllers.AdminController|Admin dashboard accessed|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-26 23:43:11.0658|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin responded 200 in 122.2ms|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-26 23:43:11.0763|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 18663.8ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-26 23:43:11.2307|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:13:11.230 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:43:11.2307|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 3.1ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-26 23:43:11.2307|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 18:13:11.234 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-26 23:43:11.2490|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:43:11.2490|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 15.4ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:43:11.2623|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 18:13:11.262 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-26 23:43:31.4318|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/ServiceRequestDetails/5 started at 18:13:31.431 by Anonymous|action=ServiceRequestDetails|controller=Admin|url=http://localhost/Admin/ServiceRequestDetails/5|user=
+2026-03-26 23:43:31.7255|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/ServiceRequestDetails/5 responded 200 in 293.6ms|action=ServiceRequestDetails|controller=Admin|url=http://localhost/Admin/ServiceRequestDetails/5|user=admin@serviceplatform.com
+2026-03-26 23:43:31.7438|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 20481.5ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-26 23:43:31.8090|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:13:31.809 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:43:31.8090|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 1.7ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-26 23:43:31.8090|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 18:13:31.813 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-26 23:43:31.8216|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:43:31.8216|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 8.9ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:43:31.8761|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 18:13:31.876 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-26 23:43:42.2556|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Admin/UpdateRequestStatus started at 18:13:42.255 by Anonymous|action=UpdateRequestStatus|controller=Admin|url=http://localhost/Admin/UpdateRequestStatus|user=
+2026-03-26 23:43:42.3631|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Admin/UpdateRequestStatus responded 302 in 107.5ms|action=UpdateRequestStatus|controller=Admin|url=http://localhost/Admin/UpdateRequestStatus|user=admin@serviceplatform.com
+2026-03-26 23:43:42.3685|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/ServiceRequestDetails/5 started at 18:13:42.368 by Anonymous|action=ServiceRequestDetails|controller=Admin|url=http://localhost/Admin/ServiceRequestDetails/5|user=
+2026-03-26 23:43:42.4128|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/ServiceRequestDetails/5 responded 200 in 44.3ms|action=ServiceRequestDetails|controller=Admin|url=http://localhost/Admin/ServiceRequestDetails/5|user=admin@serviceplatform.com
+2026-03-26 23:43:42.4128|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 10550.0ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-26 23:43:42.4950|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:13:42.495 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:43:42.4950|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 1.0ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-26 23:43:42.4950|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 18:13:42.496 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-26 23:43:42.4950|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:43:42.5056|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 8.9ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:43:42.5245|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 18:13:42.524 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-26 23:43:52.1334|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 18:13:52.133 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-26 23:43:52.1512|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-26 23:43:52.2487|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId], [a0].[Id], [a0].[AccessFailedCount], [a0].[Address], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FullName], [a0].[IsActive], [a0].[IsDeleted], [a0].[Latitude], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[Longitude], [a0].[Mobile], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[ProfileImageUrl], [a0].[SecurityStamp], [a0].[State], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN (
+    SELECT [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[Latitude], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Longitude], [a].[Mobile], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImageUrl], [a].[SecurityStamp], [a].[State], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[IsDeleted] = CAST(0 AS bit)
+) AS [a0] ON [o].[UserId] = [a0].[Id]
+LEFT JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+WHERE [o].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [o].[CreatedAt] DESC, [o].[Id], [a0].[Id]|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-26 23:43:52.2959|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2066da77-9e3b-4f59-862c-6cba89acec30
+Error Number:207,State:1,Class:16|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2066da77-9e3b-4f59-862c-6cba89acec30
+Error Number:207,State:1,Class:16
+2026-03-26 23:43:52.3025|ERROR|ServicePlatform.Controllers.AdminController|Error loading orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.OrderService.GetAllOrdersAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Services\ShopService.cs:line 289
+   at ServicePlatform.Controllers.AdminController.Orders() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\AdminController.cs:line 127
+ClientConnectionId:2066da77-9e3b-4f59-862c-6cba89acec30
+Error Number:207,State:1,Class:16
+2026-03-26 23:43:52.3508|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 200 in 217.4ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-26 23:43:52.3508|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 9835.5ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-26 23:43:52.4547|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:13:52.454 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:43:52.4547|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 18:13:52.458 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-26 23:43:52.4547|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 5.1ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-26 23:43:52.4737|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:43:52.4748|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 16.5ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:43:52.5158|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 18:13:52.515 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-26 23:44:10.2357|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/ServiceRequests started at 18:14:10.235 by Anonymous|action=ServiceRequests|controller=Admin|url=http://localhost/Admin/ServiceRequests|user=
+2026-03-26 23:44:10.2540|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all service requests|action=ServiceRequests|controller=Admin|url=http://localhost/Admin/ServiceRequests|user=admin@serviceplatform.com
+2026-03-26 23:44:10.4342|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/ServiceRequests responded 200 in 198.6ms|action=ServiceRequests|controller=Admin|url=http://localhost/Admin/ServiceRequests|user=admin@serviceplatform.com
+2026-03-26 23:44:10.4625|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 17946.6ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-26 23:44:10.5916|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 18:14:10.591 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-26 23:44:10.5916|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.7ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-26 23:44:10.5916|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 18:14:10.595 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-26 23:44:10.6138|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 18:14:10.613 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-26 23:44:10.6159|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-26 23:44:10.6159|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 22.0ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com

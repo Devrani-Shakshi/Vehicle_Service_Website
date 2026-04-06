@@ -1,0 +1,705 @@
+2026-03-27 00:44:42.7286|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-27 00:44:44.0884|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'CartItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-27 00:44:44.0936|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'LoginHistory'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-27 00:44:44.0936|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'Notification'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-27 00:44:44.0936|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'Order' has a global query filter defined and is the required end of a relationship with the entity 'OrderItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-27 00:44:44.0936|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'Payment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-27 00:44:47.4678|INFO|ServicePlatform.Program|Application started successfully|action=|controller=|url=|user=
+2026-03-27 00:45:08.4890|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.|action=|controller=|url=http://localhost/|user=
+2026-03-27 00:45:08.5859|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / started at 19:15:08.570 by Anonymous|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-27 00:45:08.6381|INFO|ServicePlatform.Controllers.HomeController|Anonymous user accessed home page|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-27 00:45:08.8946|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / responded 200 in 323.4ms|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-27 00:46:26.2153|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 19:16:26.215 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 00:46:26.3932|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 178.0ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 00:47:14.6985|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Login started at 19:17:14.698 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 00:47:15.3638|INFO|ServicePlatform.Controllers.AccountController|User admin@serviceplatform.com logged in successfully|action=Login|controller=Account|url=http://localhost/Account/Login|user=admin@serviceplatform.com
+2026-03-27 00:47:15.8820|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Login responded 302 in 1183.7ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=admin@serviceplatform.com
+2026-03-27 00:47:15.8997|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin started at 19:17:15.899 by Anonymous|action=Index|controller=Admin|url=http://localhost/Admin|user=
+2026-03-27 00:47:16.1330|INFO|ServicePlatform.Controllers.AdminController|Admin dashboard accessed|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-27 00:47:16.9449|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin responded 200 in 1045.1ms|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-27 00:47:17.4075|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:17:17.407 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:47:17.4075|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:17:17.409 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 00:47:17.4412|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 33.8ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:47:17.4826|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:17:17.482 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:47:17.6021|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:47:17.8423|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 432.9ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:47:19.2950|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 19:17:19.294 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 00:47:19.3197|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 00:47:19.4681|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId], [a0].[Id], [a0].[AccessFailedCount], [a0].[Address], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FullName], [a0].[IsActive], [a0].[IsDeleted], [a0].[Latitude], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[Longitude], [a0].[Mobile], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[ProfileImageUrl], [a0].[SecurityStamp], [a0].[State], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN (
+    SELECT [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[Latitude], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Longitude], [a].[Mobile], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImageUrl], [a].[SecurityStamp], [a].[State], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[IsDeleted] = CAST(0 AS bit)
+) AS [a0] ON [o].[UserId] = [a0].[Id]
+LEFT JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+WHERE [o].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [o].[CreatedAt] DESC, [o].[Id], [a0].[Id]|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 00:47:19.5087|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:91b4358c-6bb1-411f-9e0b-6f2af7a3c2f4
+Error Number:207,State:1,Class:16|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:91b4358c-6bb1-411f-9e0b-6f2af7a3c2f4
+Error Number:207,State:1,Class:16
+2026-03-27 00:47:19.5087|ERROR|ServicePlatform.Controllers.AdminController|Error loading orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.OrderService.GetAllOrdersAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Services\ShopService.cs:line 289
+   at ServicePlatform.Controllers.AdminController.Orders() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\AdminController.cs:line 127
+ClientConnectionId:91b4358c-6bb1-411f-9e0b-6f2af7a3c2f4
+Error Number:207,State:1,Class:16
+2026-03-27 00:47:19.5970|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 200 in 302.0ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 00:47:19.6275|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 2144.9ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 00:47:19.6552|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:17:19.655 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:47:19.6552|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.9ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:47:19.6552|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:17:19.658 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 00:47:19.6716|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:47:19.6716|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 14.6ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:47:19.7094|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:17:19.709 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:47:22.1371|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin started at 19:17:22.137 by Anonymous|action=Index|controller=Admin|url=http://localhost/Admin|user=
+2026-03-27 00:47:22.1676|INFO|ServicePlatform.Controllers.AdminController|Admin dashboard accessed|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-27 00:47:22.3555|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin responded 200 in 218.5ms|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-27 00:47:22.3688|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 2659.5ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 00:47:22.5285|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:17:22.528 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:47:22.5285|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.1ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:47:22.5728|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:17:22.572 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:47:23.6266|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Users started at 19:17:23.626 by Anonymous|action=Users|controller=Admin|url=http://localhost/Admin/Users|user=
+2026-03-27 00:47:23.8316|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Users responded 200 in 205.0ms|action=Users|controller=Admin|url=http://localhost/Admin/Users|user=admin@serviceplatform.com
+2026-03-27 00:47:23.8496|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 1276.8ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 00:47:23.9029|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:17:23.902 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:47:23.9029|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:17:23.904 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 00:47:23.9029|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.5ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:47:23.9162|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:47:23.9162|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 12.5ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:47:23.9438|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:17:23.943 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:48:35.1578|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Admin/ToggleUserStatus started at 19:18:35.157 by Anonymous|action=ToggleUserStatus|controller=Admin|url=http://localhost/Admin/ToggleUserStatus|user=
+2026-03-27 00:48:35.3670|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Admin/ToggleUserStatus responded 302 in 209.3ms|action=ToggleUserStatus|controller=Admin|url=http://localhost/Admin/ToggleUserStatus|user=admin@serviceplatform.com
+2026-03-27 00:48:35.3831|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Users started at 19:18:35.382 by Anonymous|action=Users|controller=Admin|url=http://localhost/Admin/Users|user=
+2026-03-27 00:48:35.4952|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Users responded 200 in 112.3ms|action=Users|controller=Admin|url=http://localhost/Admin/Users|user=admin@serviceplatform.com
+2026-03-27 00:48:35.5275|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 71583.9ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 00:48:35.6352|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:18:35.635 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:48:35.6352|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:18:35.637 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 00:48:35.6352|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.7ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:48:35.6515|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:48:35.6515|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 14.7ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:48:35.6639|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:18:35.663 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:48:44.7857|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 19:18:44.785 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 00:48:44.7868|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 302 in 6.7ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=admin@serviceplatform.com
+2026-03-27 00:48:44.8040|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin started at 19:18:44.804 by Anonymous|action=Index|controller=Admin|url=http://localhost/Admin|user=
+2026-03-27 00:48:44.8040|INFO|ServicePlatform.Controllers.AdminController|Admin dashboard accessed|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-27 00:48:45.0146|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin responded 200 in 210.5ms|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-27 00:48:45.0519|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 9388.0ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 00:48:45.3026|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:18:45.302 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:48:45.3026|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:18:45.302 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 00:48:45.3026|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.2ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:48:45.3026|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:48:45.3187|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 16.1ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:48:45.3398|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:18:45.339 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:49:15.4206|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / started at 19:19:15.420 by Anonymous|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-27 00:49:15.4206|INFO|ServicePlatform.Controllers.HomeController|Authenticated user admin@serviceplatform.com redirected from Home|action=Index|controller=Home|url=http://localhost/|user=admin@serviceplatform.com
+2026-03-27 00:49:15.4288|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / responded 302 in 8.2ms|action=Index|controller=Home|url=http://localhost/|user=admin@serviceplatform.com
+2026-03-27 00:49:15.4456|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin started at 19:19:15.445 by Anonymous|action=Index|controller=Admin|url=http://localhost/Admin|user=
+2026-03-27 00:49:15.4456|INFO|ServicePlatform.Controllers.AdminController|Admin dashboard accessed|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-27 00:49:15.6707|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin responded 200 in 225.1ms|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-27 00:49:15.6968|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 30356.5ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 00:49:15.9109|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:19:15.910 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:49:15.9132|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:19:15.913 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 00:49:15.9132|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.4ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:49:15.9132|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:49:15.9273|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 14.0ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:49:15.9565|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:19:15.956 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:51:05.4112|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 19:21:05.411 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 00:51:05.4143|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 00:51:05.4304|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId], [a0].[Id], [a0].[AccessFailedCount], [a0].[Address], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FullName], [a0].[IsActive], [a0].[IsDeleted], [a0].[Latitude], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[Longitude], [a0].[Mobile], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[ProfileImageUrl], [a0].[SecurityStamp], [a0].[State], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN (
+    SELECT [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[Latitude], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Longitude], [a].[Mobile], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImageUrl], [a].[SecurityStamp], [a].[State], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[IsDeleted] = CAST(0 AS bit)
+) AS [a0] ON [o].[UserId] = [a0].[Id]
+LEFT JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+WHERE [o].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [o].[CreatedAt] DESC, [o].[Id], [a0].[Id]|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 00:51:05.4304|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:91b4358c-6bb1-411f-9e0b-6f2af7a3c2f4
+Error Number:207,State:1,Class:16|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:91b4358c-6bb1-411f-9e0b-6f2af7a3c2f4
+Error Number:207,State:1,Class:16
+2026-03-27 00:51:05.4467|ERROR|ServicePlatform.Controllers.AdminController|Error loading orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.OrderService.GetAllOrdersAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Services\ShopService.cs:line 289
+   at ServicePlatform.Controllers.AdminController.Orders() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\AdminController.cs:line 127
+ClientConnectionId:91b4358c-6bb1-411f-9e0b-6f2af7a3c2f4
+Error Number:207,State:1,Class:16
+2026-03-27 00:51:05.4758|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 200 in 64.7ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 00:51:05.4932|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 109536.7ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 00:51:05.6358|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:21:05.635 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:51:05.6358|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.1ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:51:05.6358|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:21:05.637 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 00:51:05.6526|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:51:05.6526|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 16.9ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:51:05.7235|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:21:05.723 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:51:43.7155|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Feedbacks started at 19:21:43.715 by Anonymous|action=Feedbacks|controller=Admin|url=http://localhost/Admin/Feedbacks|user=
+2026-03-27 00:51:43.7378|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all feedbacks|action=Feedbacks|controller=Admin|url=http://localhost/Admin/Feedbacks|user=admin@serviceplatform.com
+2026-03-27 00:51:43.9514|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Feedbacks responded 200 in 236.0ms|action=Feedbacks|controller=Admin|url=http://localhost/Admin/Feedbacks|user=admin@serviceplatform.com
+2026-03-27 00:51:43.9744|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 38250.9ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 00:51:44.1164|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:21:44.116 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:51:44.1164|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.4ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:51:44.1164|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:21:44.118 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 00:51:44.1355|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:51:44.1355|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 18.4ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:51:44.1564|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:21:44.156 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:51:52.5585|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/ServiceRequests started at 19:21:52.558 by Anonymous|action=ServiceRequests|controller=Admin|url=http://localhost/Admin/ServiceRequests|user=
+2026-03-27 00:51:52.5908|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all service requests|action=ServiceRequests|controller=Admin|url=http://localhost/Admin/ServiceRequests|user=admin@serviceplatform.com
+2026-03-27 00:51:52.9632|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/ServiceRequests responded 200 in 404.7ms|action=ServiceRequests|controller=Admin|url=http://localhost/Admin/ServiceRequests|user=admin@serviceplatform.com
+2026-03-27 00:51:52.9786|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 8822.3ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 00:51:53.0852|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:21:53.085 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:51:53.0852|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.4ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:51:53.0852|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:21:53.087 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 00:51:53.1013|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:51:53.1013|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 14.6ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:51:53.1611|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:21:53.161 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:51:59.3574|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Shop started at 19:21:59.357 by Anonymous|action=Index|controller=Shop|url=http://localhost/Shop|user=
+2026-03-27 00:51:59.3933|INFO|ServicePlatform.Controllers.ShopController|Shop catalog accessed — Search: (null), Category: (null), Page: 1|action=Index|controller=Shop|url=http://localhost/Shop|user=admin@serviceplatform.com
+2026-03-27 00:51:59.7822|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Shop responded 200 in 424.8ms|action=Index|controller=Shop|url=http://localhost/Shop|user=admin@serviceplatform.com
+2026-03-27 00:51:59.8036|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 6642.6ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 00:51:59.8775|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/cleaningkit.jpg started at 19:21:59.877 by Anonymous|action=|controller=|url=http://localhost/images/products/cleaningkit.jpg|user=
+2026-03-27 00:51:59.8775|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/cleaningkit.jpg responded 404 in 1.6ms|action=|controller=|url=http://localhost/images/products/cleaningkit.jpg|user=admin@serviceplatform.com
+2026-03-27 00:51:59.9123|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/stabilizer.jpg started at 19:21:59.912 by Anonymous|action=|controller=|url=http://localhost/images/products/stabilizer.jpg|user=
+2026-03-27 00:51:59.9123|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/stabilizer.jpg responded 404 in 1.7ms|action=|controller=|url=http://localhost/images/products/stabilizer.jpg|user=admin@serviceplatform.com
+2026-03-27 00:51:59.9123|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/drill.jpg started at 19:21:59.927 by Anonymous|action=|controller=|url=http://localhost/images/products/drill.jpg|user=
+2026-03-27 00:51:59.9286|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/drill.jpg responded 404 in 1.6ms|action=|controller=|url=http://localhost/images/products/drill.jpg|user=admin@serviceplatform.com
+2026-03-27 00:51:59.9286|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/toolkit.jpg started at 19:21:59.935 by Anonymous|action=|controller=|url=http://localhost/images/products/toolkit.jpg|user=
+2026-03-27 00:51:59.9286|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/toolkit.jpg responded 404 in 2.1ms|action=|controller=|url=http://localhost/images/products/toolkit.jpg|user=admin@serviceplatform.com
+2026-03-27 00:51:59.9429|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/speaker.jpg started at 19:21:59.942 by Anonymous|action=|controller=|url=http://localhost/images/products/speaker.jpg|user=
+2026-03-27 00:51:59.9429|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/speaker.jpg responded 404 in 1.5ms|action=|controller=|url=http://localhost/images/products/speaker.jpg|user=admin@serviceplatform.com
+2026-03-27 00:52:00.0301|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:22:00.030 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 00:52:00.0301|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:22:00.034 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 00:52:00.0373|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 7.2ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 00:52:00.0528|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:52:00.0528|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 20.6ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 00:52:00.1067|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:22:00.106 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 00:54:25.4261|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 145316.8ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 01:17:00.0157|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-27 01:17:01.7723|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'CartItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-27 01:17:01.7723|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'LoginHistory'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-27 01:17:01.7723|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'Notification'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-27 01:17:01.7723|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'Order' has a global query filter defined and is the required end of a relationship with the entity 'OrderItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-27 01:17:01.7723|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'Payment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-27 01:17:05.6382|INFO|ServicePlatform.Program|Application started successfully|action=|controller=|url=|user=
+2026-03-27 01:17:32.8170|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.|action=|controller=|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:17:32.9168|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 19:47:32.901 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:17:32.9580|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 302 in 56.5ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:17:32.9874|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 19:47:32.987 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:17:33.2664|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 278.9ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:18:04.8112|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Login started at 19:48:04.811 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:18:05.3840|INFO|ServicePlatform.Controllers.AccountController|User admin@serviceplatform.com logged in successfully|action=Login|controller=Account|url=http://localhost/Account/Login|user=admin@serviceplatform.com
+2026-03-27 01:18:05.8428|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Login responded 302 in 1031.6ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=admin@serviceplatform.com
+2026-03-27 01:18:05.8678|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 19:48:05.867 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:18:06.0750|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:18:06.3020|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId], [a0].[Id], [a0].[AccessFailedCount], [a0].[Address], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FullName], [a0].[IsActive], [a0].[IsDeleted], [a0].[Latitude], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[Longitude], [a0].[Mobile], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[ProfileImageUrl], [a0].[SecurityStamp], [a0].[State], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN (
+    SELECT [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[Latitude], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Longitude], [a].[Mobile], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImageUrl], [a].[SecurityStamp], [a].[State], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[IsDeleted] = CAST(0 AS bit)
+) AS [a0] ON [o].[UserId] = [a0].[Id]
+LEFT JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+WHERE [o].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [o].[CreatedAt] DESC, [o].[Id], [a0].[Id]|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:18:06.3400|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16
+2026-03-27 01:18:06.3530|ERROR|ServicePlatform.Controllers.AdminController|Error loading orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.OrderService.GetAllOrdersAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Services\ShopService.cs:line 289
+   at ServicePlatform.Controllers.AdminController.Orders() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\AdminController.cs:line 127
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16
+2026-03-27 01:18:06.5566|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 200 in 688.7ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:18:06.7078|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:48:06.707 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:18:06.7107|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:48:06.710 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:18:06.7308|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 22.9ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 01:18:06.7851|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:48:06.785 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 01:18:06.8850|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:18:07.1514|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 440.7ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:18:26.3285|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Shop started at 19:48:26.328 by Anonymous|action=Index|controller=Shop|url=http://localhost/Shop|user=
+2026-03-27 01:18:26.3565|INFO|ServicePlatform.Controllers.ShopController|Shop catalog accessed — Search: (null), Category: (null), Page: 1|action=Index|controller=Shop|url=http://localhost/Shop|user=admin@serviceplatform.com
+2026-03-27 01:18:26.5782|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Shop responded 200 in 249.8ms|action=Index|controller=Shop|url=http://localhost/Shop|user=admin@serviceplatform.com
+2026-03-27 01:18:26.6198|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 19834.8ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 01:18:26.6417|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/cleaningkit.jpg started at 19:48:26.641 by Anonymous|action=|controller=|url=http://localhost/images/products/cleaningkit.jpg|user=
+2026-03-27 01:18:26.6417|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/cleaningkit.jpg responded 404 in 2.3ms|action=|controller=|url=http://localhost/images/products/cleaningkit.jpg|user=admin@serviceplatform.com
+2026-03-27 01:18:26.6596|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/stabilizer.jpg started at 19:48:26.659 by Anonymous|action=|controller=|url=http://localhost/images/products/stabilizer.jpg|user=
+2026-03-27 01:18:26.6634|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/stabilizer.jpg responded 404 in 3.8ms|action=|controller=|url=http://localhost/images/products/stabilizer.jpg|user=admin@serviceplatform.com
+2026-03-27 01:18:26.6634|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/drill.jpg started at 19:48:26.663 by Anonymous|action=|controller=|url=http://localhost/images/products/drill.jpg|user=
+2026-03-27 01:18:26.6634|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/drill.jpg responded 404 in 4.4ms|action=|controller=|url=http://localhost/images/products/drill.jpg|user=admin@serviceplatform.com
+2026-03-27 01:18:26.6634|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/speaker.jpg started at 19:48:26.670 by Anonymous|action=|controller=|url=http://localhost/images/products/speaker.jpg|user=
+2026-03-27 01:18:26.6634|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/toolkit.jpg started at 19:48:26.670 by Anonymous|action=|controller=|url=http://localhost/images/products/toolkit.jpg|user=
+2026-03-27 01:18:26.6634|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/toolkit.jpg responded 404 in 3.3ms|action=|controller=|url=http://localhost/images/products/toolkit.jpg|user=admin@serviceplatform.com
+2026-03-27 01:18:26.6634|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/speaker.jpg responded 404 in 3.3ms|action=|controller=|url=http://localhost/images/products/speaker.jpg|user=admin@serviceplatform.com
+2026-03-27 01:18:26.6829|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:48:26.682 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:18:26.6829|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.5ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 01:18:26.6829|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:48:26.687 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:18:26.7009|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:18:26.7009|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 15.2ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:18:26.7976|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:48:26.797 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 01:18:33.4477|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 19:48:33.447 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:18:33.4756|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:18:33.4834|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId], [a0].[Id], [a0].[AccessFailedCount], [a0].[Address], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FullName], [a0].[IsActive], [a0].[IsDeleted], [a0].[Latitude], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[Longitude], [a0].[Mobile], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[ProfileImageUrl], [a0].[SecurityStamp], [a0].[State], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN (
+    SELECT [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[Latitude], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Longitude], [a].[Mobile], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImageUrl], [a].[SecurityStamp], [a].[State], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[IsDeleted] = CAST(0 AS bit)
+) AS [a0] ON [o].[UserId] = [a0].[Id]
+LEFT JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+WHERE [o].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [o].[CreatedAt] DESC, [o].[Id], [a0].[Id]|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:18:33.4834|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16
+2026-03-27 01:18:33.4971|ERROR|ServicePlatform.Controllers.AdminController|Error loading orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.OrderService.GetAllOrdersAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Services\ShopService.cs:line 289
+   at ServicePlatform.Controllers.AdminController.Orders() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\AdminController.cs:line 127
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16
+2026-03-27 01:18:33.5234|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 200 in 75.7ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:18:33.5561|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 6758.5ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 01:18:33.6453|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:48:33.645 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:18:33.6475|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.2ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 01:18:33.6475|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:48:33.648 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:18:33.6475|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:18:33.6475|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 11.1ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:18:33.6763|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:48:33.676 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 01:18:48.4989|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 19:48:48.498 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:18:48.5136|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:18:48.5136|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId], [a0].[Id], [a0].[AccessFailedCount], [a0].[Address], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FullName], [a0].[IsActive], [a0].[IsDeleted], [a0].[Latitude], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[Longitude], [a0].[Mobile], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[ProfileImageUrl], [a0].[SecurityStamp], [a0].[State], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN (
+    SELECT [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[Latitude], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Longitude], [a].[Mobile], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImageUrl], [a].[SecurityStamp], [a].[State], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[IsDeleted] = CAST(0 AS bit)
+) AS [a0] ON [o].[UserId] = [a0].[Id]
+LEFT JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+WHERE [o].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [o].[CreatedAt] DESC, [o].[Id], [a0].[Id]|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:18:48.5233|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16
+2026-03-27 01:18:48.5233|ERROR|ServicePlatform.Controllers.AdminController|Error loading orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.OrderService.GetAllOrdersAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Services\ShopService.cs:line 289
+   at ServicePlatform.Controllers.AdminController.Orders() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\AdminController.cs:line 127
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16
+2026-03-27 01:18:48.5541|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 200 in 55.2ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:18:48.5804|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 14904.1ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 01:18:48.6975|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:48:48.697 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:18:48.7154|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 17.9ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 01:18:48.7272|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:48:48.727 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:18:48.7629|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:18:48.7629|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 38.1ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:18:48.7629|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:48:48.769 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 01:19:41.0343|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Logout started at 19:49:41.034 by Anonymous|action=Logout|controller=Account|url=http://localhost/Account/Logout|user=
+2026-03-27 01:19:41.0707|INFO|ServicePlatform.Controllers.AccountController|User admin@serviceplatform.com logged out|action=Logout|controller=Account|url=http://localhost/Account/Logout|user=admin@serviceplatform.com
+2026-03-27 01:19:41.0707|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Logout responded 302 in 39.1ms|action=Logout|controller=Account|url=http://localhost/Account/Logout|user=admin@serviceplatform.com
+2026-03-27 01:19:41.0707|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 19:49:41.082 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:19:41.0906|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 7.7ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:19:41.1213|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 52351.9ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 01:19:50.6958|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Shop started at 19:49:50.695 by Anonymous|action=Index|controller=Shop|url=http://localhost/Shop|user=
+2026-03-27 01:19:50.6958|INFO|ServicePlatform.Controllers.ShopController|Shop catalog accessed — Search: (null), Category: (null), Page: 1|action=Index|controller=Shop|url=http://localhost/Shop|user=
+2026-03-27 01:19:50.7318|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Shop responded 200 in 36.0ms|action=Index|controller=Shop|url=http://localhost/Shop|user=
+2026-03-27 01:19:50.7999|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/cleaningkit.jpg started at 19:49:50.799 by Anonymous|action=|controller=|url=http://localhost/images/products/cleaningkit.jpg|user=
+2026-03-27 01:19:50.7999|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/cleaningkit.jpg responded 404 in 0.8ms|action=|controller=|url=http://localhost/images/products/cleaningkit.jpg|user=
+2026-03-27 01:19:50.8175|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/stabilizer.jpg started at 19:49:50.817 by Anonymous|action=|controller=|url=http://localhost/images/products/stabilizer.jpg|user=
+2026-03-27 01:19:50.8191|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/stabilizer.jpg responded 404 in 1.5ms|action=|controller=|url=http://localhost/images/products/stabilizer.jpg|user=
+2026-03-27 01:19:50.8191|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/drill.jpg started at 19:49:50.822 by Anonymous|action=|controller=|url=http://localhost/images/products/drill.jpg|user=
+2026-03-27 01:19:50.8191|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/drill.jpg responded 404 in 0.8ms|action=|controller=|url=http://localhost/images/products/drill.jpg|user=
+2026-03-27 01:19:50.8191|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/toolkit.jpg started at 19:49:50.824 by Anonymous|action=|controller=|url=http://localhost/images/products/toolkit.jpg|user=
+2026-03-27 01:19:50.8191|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/speaker.jpg started at 19:49:50.826 by Anonymous|action=|controller=|url=http://localhost/images/products/speaker.jpg|user=
+2026-03-27 01:19:50.8191|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/toolkit.jpg responded 404 in 1.9ms|action=|controller=|url=http://localhost/images/products/toolkit.jpg|user=
+2026-03-27 01:19:50.8191|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/speaker.jpg responded 404 in 3.1ms|action=|controller=|url=http://localhost/images/products/speaker.jpg|user=
+2026-03-27 01:19:50.8848|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:49:50.884 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:19:50.8848|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 401 in 1.6ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:19:50.8848|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:49:50.886 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:19:50.8848|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 302 in 1.2ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:19:50.9052|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 19:49:50.905 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:19:50.9120|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 6.9ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:20:35.6227|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 19:50:35.622 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:20:35.6227|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 4.9ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:20:58.7864|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Login started at 19:50:58.786 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:20:59.1269|INFO|ServicePlatform.Controllers.AccountController|User admin@serviceplatform.com logged in successfully|action=Login|controller=Account|url=http://localhost/Account/Login|user=admin@serviceplatform.com
+2026-03-27 01:20:59.1658|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Login responded 302 in 379.5ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=admin@serviceplatform.com
+2026-03-27 01:20:59.1789|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin started at 19:50:59.178 by Anonymous|action=Index|controller=Admin|url=http://localhost/Admin|user=
+2026-03-27 01:20:59.2048|INFO|ServicePlatform.Controllers.AdminController|Admin dashboard accessed|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-27 01:20:59.7851|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin responded 200 in 606.2ms|action=Index|controller=Admin|url=http://localhost/Admin|user=admin@serviceplatform.com
+2026-03-27 01:21:00.1246|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:51:00.124 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:21:00.1246|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:51:00.128 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:21:00.1326|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 8.1ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 01:21:00.1326|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:21:00.1326|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 15.1ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:21:00.1785|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:51:00.178 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 01:21:07.5518|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 19:51:07.551 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:21:07.5525|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:21:07.5525|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId], [a0].[Id], [a0].[AccessFailedCount], [a0].[Address], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FullName], [a0].[IsActive], [a0].[IsDeleted], [a0].[Latitude], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[Longitude], [a0].[Mobile], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[ProfileImageUrl], [a0].[SecurityStamp], [a0].[State], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN (
+    SELECT [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[Latitude], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Longitude], [a].[Mobile], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImageUrl], [a].[SecurityStamp], [a].[State], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[IsDeleted] = CAST(0 AS bit)
+) AS [a0] ON [o].[UserId] = [a0].[Id]
+LEFT JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+WHERE [o].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [o].[CreatedAt] DESC, [o].[Id], [a0].[Id]|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:21:07.5719|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16
+2026-03-27 01:21:07.5719|ERROR|ServicePlatform.Controllers.AdminController|Error loading orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.OrderService.GetAllOrdersAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Services\ShopService.cs:line 289
+   at ServicePlatform.Controllers.AdminController.Orders() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\AdminController.cs:line 127
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16
+2026-03-27 01:21:07.5947|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 200 in 42.9ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:21:07.6184|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 7439.8ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 01:21:07.7088|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:51:07.708 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:21:07.7088|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 1.7ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 01:21:07.7088|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:51:07.714 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:21:07.7292|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:21:07.7292|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 16.4ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:21:07.7501|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:51:07.750 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 01:21:57.3292|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 19:51:57.329 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:21:57.3292|INFO|ServicePlatform.Controllers.AdminController|Admin viewing all orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:21:57.3409|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId], [a0].[Id], [a0].[AccessFailedCount], [a0].[Address], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FullName], [a0].[IsActive], [a0].[IsDeleted], [a0].[Latitude], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[Longitude], [a0].[Mobile], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[ProfileImageUrl], [a0].[SecurityStamp], [a0].[State], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN (
+    SELECT [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[Latitude], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Longitude], [a].[Mobile], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImageUrl], [a].[SecurityStamp], [a].[State], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[IsDeleted] = CAST(0 AS bit)
+) AS [a0] ON [o].[UserId] = [a0].[Id]
+LEFT JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+WHERE [o].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [o].[CreatedAt] DESC, [o].[Id], [a0].[Id]|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:21:57.3409|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16
+2026-03-27 01:21:57.3548|ERROR|ServicePlatform.Controllers.AdminController|Error loading orders|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.OrderService.GetAllOrdersAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Services\ShopService.cs:line 289
+   at ServicePlatform.Controllers.AdminController.Orders() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\AdminController.cs:line 127
+ClientConnectionId:08b5a5e4-a202-4d26-acc7-1fd1c80efa5d
+Error Number:207,State:1,Class:16
+2026-03-27 01:21:57.3771|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 200 in 47.9ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=admin@serviceplatform.com
+2026-03-27 01:21:57.4025|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 49652.5ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 01:21:57.4916|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:51:57.491 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:21:57.4916|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.3ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=admin@serviceplatform.com
+2026-03-27 01:21:57.4916|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:51:57.494 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:21:57.5105|INFO|ServicePlatform.Controllers.NotificationController|User a56b9f8c-9f34-4a17-8fa0-faa1ff8aaaac fetched notifications (unread: 1)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:21:57.5105|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 17.0ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=admin@serviceplatform.com
+2026-03-27 01:21:57.5105|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 19:51:57.519 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-27 01:22:42.0800|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Logout started at 19:52:42.080 by Anonymous|action=Logout|controller=Account|url=http://localhost/Account/Logout|user=
+2026-03-27 01:22:42.0860|INFO|ServicePlatform.Controllers.AccountController|User admin@serviceplatform.com logged out|action=Logout|controller=Account|url=http://localhost/Account/Logout|user=admin@serviceplatform.com
+2026-03-27 01:22:42.0860|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Logout responded 302 in 8.5ms|action=Logout|controller=Account|url=http://localhost/Account/Logout|user=admin@serviceplatform.com
+2026-03-27 01:22:42.0860|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 19:52:42.098 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:22:42.1071|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 8.4ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:22:42.1309|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 44611.2ms|action=|controller=|url=http://localhost/hubs/notification|user=admin@serviceplatform.com
+2026-03-27 01:22:45.9803|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Shop started at 19:52:45.980 by Anonymous|action=Index|controller=Shop|url=http://localhost/Shop|user=
+2026-03-27 01:22:45.9803|INFO|ServicePlatform.Controllers.ShopController|Shop catalog accessed — Search: (null), Category: (null), Page: 1|action=Index|controller=Shop|url=http://localhost/Shop|user=
+2026-03-27 01:22:46.0281|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Shop responded 200 in 47.8ms|action=Index|controller=Shop|url=http://localhost/Shop|user=
+2026-03-27 01:22:46.0898|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/cleaningkit.jpg started at 19:52:46.089 by Anonymous|action=|controller=|url=http://localhost/images/products/cleaningkit.jpg|user=
+2026-03-27 01:22:46.0898|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/cleaningkit.jpg responded 404 in 2.4ms|action=|controller=|url=http://localhost/images/products/cleaningkit.jpg|user=
+2026-03-27 01:22:46.1014|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/stabilizer.jpg started at 19:52:46.100 by Anonymous|action=|controller=|url=http://localhost/images/products/stabilizer.jpg|user=
+2026-03-27 01:22:46.1014|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/stabilizer.jpg responded 404 in 6.9ms|action=|controller=|url=http://localhost/images/products/stabilizer.jpg|user=
+2026-03-27 01:22:46.1014|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/drill.jpg started at 19:52:46.109 by Anonymous|action=|controller=|url=http://localhost/images/products/drill.jpg|user=
+2026-03-27 01:22:46.1014|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/drill.jpg responded 404 in 5.1ms|action=|controller=|url=http://localhost/images/products/drill.jpg|user=
+2026-03-27 01:22:46.1171|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/toolkit.jpg started at 19:52:46.117 by Anonymous|action=|controller=|url=http://localhost/images/products/toolkit.jpg|user=
+2026-03-27 01:22:46.1171|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/speaker.jpg started at 19:52:46.117 by Anonymous|action=|controller=|url=http://localhost/images/products/speaker.jpg|user=
+2026-03-27 01:22:46.1171|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/toolkit.jpg responded 404 in 3.1ms|action=|controller=|url=http://localhost/images/products/toolkit.jpg|user=
+2026-03-27 01:22:46.1171|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/speaker.jpg responded 404 in 3.3ms|action=|controller=|url=http://localhost/images/products/speaker.jpg|user=
+2026-03-27 01:22:46.1576|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 19:52:46.157 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:22:46.1576|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 401 in 1.0ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-27 01:22:46.1576|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 19:52:46.159 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:22:46.1576|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 302 in 0.9ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-27 01:22:46.1771|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 19:52:46.177 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:22:46.1801|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 3.0ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:23:10.4066|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 19:53:10.406 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:23:10.4066|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 302 in 1.9ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:23:10.4222|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 19:53:10.422 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:23:10.4313|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 9.0ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:25:10.3978|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders started at 19:55:10.397 by Anonymous|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:25:10.3978|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Admin/Orders responded 302 in 2.9ms|action=Orders|controller=Admin|url=http://localhost/Admin/Orders|user=
+2026-03-27 01:25:10.4135|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 19:55:10.413 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-27 01:25:10.4135|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 4.0ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=

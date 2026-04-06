@@ -1,0 +1,471 @@
+2026-03-29 01:34:47.0909|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (13ms) [Parameters=[@p='?' (DbType = Int32), @userId='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [o1].[Id], [o1].[CreatedAt], [o1].[ExpectedDeliveryDate], [o1].[IsDeleted], [o1].[Notes], [o1].[OrderNumber], [o1].[ShippingAddress], [o1].[ShippingAmount], [o1].[Status], [o1].[TaxAmount], [o1].[TotalAmount], [o1].[UpdatedAt], [o1].[UserId], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM (
+    SELECT TOP(@p) [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[IsDeleted] = CAST(0 AS bit) AND [o].[UserId] = @userId
+    ORDER BY [o].[CreatedAt] DESC
+) AS [o1]
+LEFT JOIN [OrderItems] AS [o0] ON [o1].[Id] = [o0].[OrderId]
+ORDER BY [o1].[CreatedAt] DESC, [o1].[Id]|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+
+2026-03-29 01:34:47.1108|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:34:47.1177|ERROR|ServicePlatform.Controllers.UserDashboardController|Error loading user dashboard for 80859758-40fe-40f9-acc9-c3ab10b9e8c5|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.DashboardService.GetUserDashboardAsync(String userId) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\DashboardService.cs:line 131
+   at ServicePlatform.Controllers.UserDashboardController.Index() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\UserDashboardController.cs:line 52
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:34:47.1439|ERROR|ServicePlatform.Middleware.ExceptionHandlingMiddleware|An unhandled exception occurred: Object reference not set to an instance of an object.|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_UserDashboard_Index.ExecuteAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Views\UserDashboard\Index.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at ServicePlatform.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Priya Devrani\Desktop\Final_Project\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-03-29 01:35:09.9798|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32), @userId='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [o1].[Id], [o1].[CreatedAt], [o1].[ExpectedDeliveryDate], [o1].[IsDeleted], [o1].[Notes], [o1].[OrderNumber], [o1].[ShippingAddress], [o1].[ShippingAmount], [o1].[Status], [o1].[TaxAmount], [o1].[TotalAmount], [o1].[UpdatedAt], [o1].[UserId], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM (
+    SELECT TOP(@p) [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[IsDeleted] = CAST(0 AS bit) AND [o].[UserId] = @userId
+    ORDER BY [o].[CreatedAt] DESC
+) AS [o1]
+LEFT JOIN [OrderItems] AS [o0] ON [o1].[Id] = [o0].[OrderId]
+ORDER BY [o1].[CreatedAt] DESC, [o1].[Id]|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+
+2026-03-29 01:35:09.9798|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:09.9798|ERROR|ServicePlatform.Controllers.UserDashboardController|Error loading user dashboard for 80859758-40fe-40f9-acc9-c3ab10b9e8c5|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.DashboardService.GetUserDashboardAsync(String userId) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\DashboardService.cs:line 131
+   at ServicePlatform.Controllers.UserDashboardController.Index() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\UserDashboardController.cs:line 52
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:09.9922|ERROR|ServicePlatform.Middleware.ExceptionHandlingMiddleware|An unhandled exception occurred: Object reference not set to an instance of an object.|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_UserDashboard_Index.ExecuteAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Views\UserDashboard\Index.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at ServicePlatform.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Priya Devrani\Desktop\Final_Project\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-03-29 01:35:11.8507|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @userId='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [o1].[Id], [o1].[CreatedAt], [o1].[ExpectedDeliveryDate], [o1].[IsDeleted], [o1].[Notes], [o1].[OrderNumber], [o1].[ShippingAddress], [o1].[ShippingAmount], [o1].[Status], [o1].[TaxAmount], [o1].[TotalAmount], [o1].[UpdatedAt], [o1].[UserId], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM (
+    SELECT TOP(@p) [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[IsDeleted] = CAST(0 AS bit) AND [o].[UserId] = @userId
+    ORDER BY [o].[CreatedAt] DESC
+) AS [o1]
+LEFT JOIN [OrderItems] AS [o0] ON [o1].[Id] = [o0].[OrderId]
+ORDER BY [o1].[CreatedAt] DESC, [o1].[Id]|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+
+2026-03-29 01:35:11.8507|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:11.8507|ERROR|ServicePlatform.Controllers.UserDashboardController|Error loading user dashboard for 80859758-40fe-40f9-acc9-c3ab10b9e8c5|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.DashboardService.GetUserDashboardAsync(String userId) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\DashboardService.cs:line 131
+   at ServicePlatform.Controllers.UserDashboardController.Index() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\UserDashboardController.cs:line 52
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:11.8507|ERROR|ServicePlatform.Middleware.ExceptionHandlingMiddleware|An unhandled exception occurred: Object reference not set to an instance of an object.|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_UserDashboard_Index.ExecuteAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Views\UserDashboard\Index.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at ServicePlatform.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Priya Devrani\Desktop\Final_Project\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-03-29 01:35:23.8899|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32), @userId='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [o1].[Id], [o1].[CreatedAt], [o1].[ExpectedDeliveryDate], [o1].[IsDeleted], [o1].[Notes], [o1].[OrderNumber], [o1].[ShippingAddress], [o1].[ShippingAmount], [o1].[Status], [o1].[TaxAmount], [o1].[TotalAmount], [o1].[UpdatedAt], [o1].[UserId], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM (
+    SELECT TOP(@p) [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[IsDeleted] = CAST(0 AS bit) AND [o].[UserId] = @userId
+    ORDER BY [o].[CreatedAt] DESC
+) AS [o1]
+LEFT JOIN [OrderItems] AS [o0] ON [o1].[Id] = [o0].[OrderId]
+ORDER BY [o1].[CreatedAt] DESC, [o1].[Id]|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+
+2026-03-29 01:35:23.8899|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:23.8899|ERROR|ServicePlatform.Controllers.UserDashboardController|Error loading user dashboard for 80859758-40fe-40f9-acc9-c3ab10b9e8c5|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.DashboardService.GetUserDashboardAsync(String userId) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\DashboardService.cs:line 131
+   at ServicePlatform.Controllers.UserDashboardController.Index() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\UserDashboardController.cs:line 52
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:23.8991|ERROR|ServicePlatform.Middleware.ExceptionHandlingMiddleware|An unhandled exception occurred: Object reference not set to an instance of an object.|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_UserDashboard_Index.ExecuteAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Views\UserDashboard\Index.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at ServicePlatform.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Priya Devrani\Desktop\Final_Project\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-03-29 01:35:26.6429|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @userId='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [o1].[Id], [o1].[CreatedAt], [o1].[ExpectedDeliveryDate], [o1].[IsDeleted], [o1].[Notes], [o1].[OrderNumber], [o1].[ShippingAddress], [o1].[ShippingAmount], [o1].[Status], [o1].[TaxAmount], [o1].[TotalAmount], [o1].[UpdatedAt], [o1].[UserId], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM (
+    SELECT TOP(@p) [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[IsDeleted] = CAST(0 AS bit) AND [o].[UserId] = @userId
+    ORDER BY [o].[CreatedAt] DESC
+) AS [o1]
+LEFT JOIN [OrderItems] AS [o0] ON [o1].[Id] = [o0].[OrderId]
+ORDER BY [o1].[CreatedAt] DESC, [o1].[Id]|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+
+2026-03-29 01:35:26.6429|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:26.6469|ERROR|ServicePlatform.Controllers.UserDashboardController|Error loading user dashboard for 80859758-40fe-40f9-acc9-c3ab10b9e8c5|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.DashboardService.GetUserDashboardAsync(String userId) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\DashboardService.cs:line 131
+   at ServicePlatform.Controllers.UserDashboardController.Index() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\UserDashboardController.cs:line 52
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:26.6469|ERROR|ServicePlatform.Middleware.ExceptionHandlingMiddleware|An unhandled exception occurred: Object reference not set to an instance of an object.|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_UserDashboard_Index.ExecuteAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Views\UserDashboard\Index.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at ServicePlatform.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Priya Devrani\Desktop\Final_Project\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-03-29 01:39:46.9904|ERROR|ServicePlatform.Program|Application stopped due to exception|action=|controller=|url=|user=
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Priya Devrani\Desktop\Final_Project\Program.cs:line 108
+2026-03-29 01:55:15.9533|ERROR|ServicePlatform.Program|Application stopped due to exception|action=|controller=|url=|user=
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Priya Devrani\Desktop\Final_Project\Program.cs:line 108
+2026-03-29 02:33:28.6202|ERROR|ServicePlatform.Services.SmtpEmailService|Failed to send email to pihudebrani@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.<SendAsync>g__SendAndCheck|0_0[TIOAdapter](SmtpConnection conn, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpTransport.SendMailAsync[TIOAdapter](MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.SendAsyncInternal[TIOAdapter](MailMessage message, Boolean invokeSendCompleted, Object userToken, Boolean forceWrapExceptions, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.<SendMailAsync>g__WaitAndRethrowIfNeeded|75_0(Task`1 task)
+   at ServicePlatform.Services.SmtpEmailService.SendEmailAsync(String to, String subject, String body) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\SmtpEmailService.cs:line 53
+2026-03-29 02:45:28.0118|ERROR|ServicePlatform.Services.SmtpEmailService|Failed to send email to pihudebrani@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.<SendAsync>g__SendAndCheck|0_0[TIOAdapter](SmtpConnection conn, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpTransport.SendMailAsync[TIOAdapter](MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.SendAsyncInternal[TIOAdapter](MailMessage message, Boolean invokeSendCompleted, Object userToken, Boolean forceWrapExceptions, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.<SendMailAsync>g__WaitAndRethrowIfNeeded|75_0(Task`1 task)
+   at ServicePlatform.Services.SmtpEmailService.SendEmailAsync(String to, String subject, String body) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\SmtpEmailService.cs:line 53
+2026-03-29 02:46:07.3517|ERROR|ServicePlatform.Services.SmtpEmailService|Failed to send email to shakshidevrani@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.<SendAsync>g__SendAndCheck|0_0[TIOAdapter](SmtpConnection conn, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpTransport.SendMailAsync[TIOAdapter](MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.SendAsyncInternal[TIOAdapter](MailMessage message, Boolean invokeSendCompleted, Object userToken, Boolean forceWrapExceptions, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.<SendMailAsync>g__WaitAndRethrowIfNeeded|75_0(Task`1 task)
+   at ServicePlatform.Services.SmtpEmailService.SendEmailAsync(String to, String subject, String body) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\SmtpEmailService.cs:line 53

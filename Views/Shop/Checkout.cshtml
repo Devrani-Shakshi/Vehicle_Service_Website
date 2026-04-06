@@ -1,0 +1,41 @@
+@model ServicePlatform.ViewModels.Shop.CheckoutViewModel
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Checkout"; }
+
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header"><h5><i class="fas fa-lock" style="color:var(--success);margin-right:8px;"></i>Checkout</h5></div>
+        <div class="data-card-body">
+            <form asp-action="PlaceOrder" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-floating-custom">
+                    <label asp-for="ShippingAddress">Shipping Address</label>
+                    <textarea asp-for="ShippingAddress" class="form-control" rows="3" placeholder="Enter your full shipping address"></textarea>
+                    <span asp-validation-for="ShippingAddress" style="color:var(--danger);font-size:0.8rem;"></span>
+                </div>
+                <div class="form-floating-custom">
+                    <label asp-for="Notes">Order Notes (Optional)</label>
+                    <textarea asp-for="Notes" class="form-control" rows="2" placeholder="Any special instructions"></textarea>
+                </div>
+                <div class="form-floating-custom">
+                    <label asp-for="PaymentGateway">Payment Method</label>
+                    <select asp-for="PaymentGateway" class="form-control">
+                        <option value="Stripe">Stripe (International Cards)</option>
+                        <option value="Razorpay">Razorpay (UPI, Netbanking, Cards)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;margin-top:1rem;">
+                    <i class="fas fa-credit-card"></i> Place Order & Pay ₹@Model.Cart.Total.ToString("N2")
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="cart-summary animate-fadeInUp-delay-1">
+        <h5>Order Summary</h5>
+        @foreach (var item in Model.Cart.Items)
+        {
+            <div class="summary-row"><span>@item.ProductName x@item.Quantity</span><span>₹@item.TotalPrice.ToString("N0")</span></div>
+        }
+        <div class="summary-row"><span>Tax (18% GST)</span><span>₹@Model.Cart.Tax.ToString("N2")</span></div>
+        <div class="summary-row total"><span>Total</span><span>₹@Model.Cart.Total.ToString("N2")</span></div>
+    </div>
+</div>

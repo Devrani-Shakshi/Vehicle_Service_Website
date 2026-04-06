@@ -1,0 +1,734 @@
+2026-03-29 01:25:07.2638|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-29 01:25:08.5847|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'CartItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-29 01:25:08.5847|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'LoginHistory'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-29 01:25:08.5847|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'Notification'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-29 01:25:08.5847|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'Order' has a global query filter defined and is the required end of a relationship with the entity 'OrderItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-29 01:25:08.5847|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'Payment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-29 01:25:12.7094|INFO|ServicePlatform.Program|Application started successfully|action=|controller=|url=|user=
+2026-03-29 01:32:46.3550|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.|action=|controller=|url=http://localhost/|user=
+2026-03-29 01:32:46.4591|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / started at 20:02:46.440 by Anonymous|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 01:32:46.5200|INFO|ServicePlatform.Controllers.HomeController|Anonymous user accessed home page|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 01:32:46.6315|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / responded 200 in 188.9ms|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 01:32:49.8552|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Register started at 20:02:49.855 by Anonymous|action=Register|controller=Account|url=http://localhost/Account/Register|user=
+2026-03-29 01:32:50.0579|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Register responded 200 in 202.7ms|action=Register|controller=Account|url=http://localhost/Account/Register|user=
+2026-03-29 01:32:54.8956|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 20:02:54.895 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 01:32:54.9278|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 32.3ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 01:33:18.9466|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Register started at 20:03:18.946 by Anonymous|action=Register|controller=Account|url=http://localhost/Account/Register|user=
+2026-03-29 01:33:19.2699|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Register responded 200 in 323.2ms|action=Register|controller=Account|url=http://localhost/Account/Register|user=
+2026-03-29 01:33:49.0200|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Register started at 20:03:49.019 by Anonymous|action=Register|controller=Account|url=http://localhost/Account/Register|user=
+2026-03-29 01:33:49.1692|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Register responded 200 in 149.3ms|action=Register|controller=Account|url=http://localhost/Account/Register|user=
+2026-03-29 01:34:46.3287|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Register started at 20:04:46.328 by Anonymous|action=Register|controller=Account|url=http://localhost/Account/Register|user=
+2026-03-29 01:34:46.7467|INFO|ServicePlatform.Controllers.AccountController|User pihudebrani@gmail.com registered with role User|action=Register|controller=Account|url=http://localhost/Account/Register|user=
+2026-03-29 01:34:46.8394|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Register responded 302 in 510.7ms|action=Register|controller=Account|url=http://localhost/Account/Register|user=pihudebrani@gmail.com
+2026-03-29 01:34:46.8394|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard started at 20:04:46.845 by Anonymous|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=
+2026-03-29 01:34:46.8674|INFO|ServicePlatform.Controllers.UserDashboardController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 accessed dashboard|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:34:47.0909|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (13ms) [Parameters=[@p='?' (DbType = Int32), @userId='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [o1].[Id], [o1].[CreatedAt], [o1].[ExpectedDeliveryDate], [o1].[IsDeleted], [o1].[Notes], [o1].[OrderNumber], [o1].[ShippingAddress], [o1].[ShippingAmount], [o1].[Status], [o1].[TaxAmount], [o1].[TotalAmount], [o1].[UpdatedAt], [o1].[UserId], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM (
+    SELECT TOP(@p) [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[IsDeleted] = CAST(0 AS bit) AND [o].[UserId] = @userId
+    ORDER BY [o].[CreatedAt] DESC
+) AS [o1]
+LEFT JOIN [OrderItems] AS [o0] ON [o1].[Id] = [o0].[OrderId]
+ORDER BY [o1].[CreatedAt] DESC, [o1].[Id]|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:34:47.1108|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:34:47.1177|ERROR|ServicePlatform.Controllers.UserDashboardController|Error loading user dashboard for 80859758-40fe-40f9-acc9-c3ab10b9e8c5|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.DashboardService.GetUserDashboardAsync(String userId) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\DashboardService.cs:line 131
+   at ServicePlatform.Controllers.UserDashboardController.Index() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\UserDashboardController.cs:line 52
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:34:47.1439|ERROR|ServicePlatform.Middleware.ExceptionHandlingMiddleware|An unhandled exception occurred: Object reference not set to an instance of an object.|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_UserDashboard_Index.ExecuteAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Views\UserDashboard\Index.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at ServicePlatform.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Priya Devrani\Desktop\Final_Project\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-03-29 01:34:47.1539|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard responded 302 in 308.0ms|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:34:47.1539|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Home/Error started at 20:04:47.159 by Anonymous|action=Error|controller=Home|url=http://localhost/Home/Error|user=
+2026-03-29 01:34:47.1656|WARN|ServicePlatform.Controllers.HomeController|Error page displayed: An internal server error occurred|action=Error|controller=Home|url=http://localhost/Home/Error|user=pihudebrani@gmail.com
+2026-03-29 01:34:47.1656|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Home/Error responded 200 in 16.4ms|action=Error|controller=Home|url=http://localhost/Home/Error|user=pihudebrani@gmail.com
+2026-03-29 01:35:09.9229|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / started at 20:05:09.922 by Anonymous|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 01:35:09.9229|INFO|ServicePlatform.Controllers.HomeController|Authenticated user pihudebrani@gmail.com redirected from Home|action=Index|controller=Home|url=http://localhost/|user=pihudebrani@gmail.com
+2026-03-29 01:35:09.9275|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / responded 302 in 4.7ms|action=Index|controller=Home|url=http://localhost/|user=pihudebrani@gmail.com
+2026-03-29 01:35:09.9275|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard started at 20:05:09.934 by Anonymous|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=
+2026-03-29 01:35:09.9434|INFO|ServicePlatform.Controllers.UserDashboardController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 accessed dashboard|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:09.9798|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32), @userId='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [o1].[Id], [o1].[CreatedAt], [o1].[ExpectedDeliveryDate], [o1].[IsDeleted], [o1].[Notes], [o1].[OrderNumber], [o1].[ShippingAddress], [o1].[ShippingAmount], [o1].[Status], [o1].[TaxAmount], [o1].[TotalAmount], [o1].[UpdatedAt], [o1].[UserId], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM (
+    SELECT TOP(@p) [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[IsDeleted] = CAST(0 AS bit) AND [o].[UserId] = @userId
+    ORDER BY [o].[CreatedAt] DESC
+) AS [o1]
+LEFT JOIN [OrderItems] AS [o0] ON [o1].[Id] = [o0].[OrderId]
+ORDER BY [o1].[CreatedAt] DESC, [o1].[Id]|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:09.9798|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:09.9798|ERROR|ServicePlatform.Controllers.UserDashboardController|Error loading user dashboard for 80859758-40fe-40f9-acc9-c3ab10b9e8c5|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.DashboardService.GetUserDashboardAsync(String userId) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\DashboardService.cs:line 131
+   at ServicePlatform.Controllers.UserDashboardController.Index() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\UserDashboardController.cs:line 52
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:09.9922|ERROR|ServicePlatform.Middleware.ExceptionHandlingMiddleware|An unhandled exception occurred: Object reference not set to an instance of an object.|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_UserDashboard_Index.ExecuteAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Views\UserDashboard\Index.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at ServicePlatform.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Priya Devrani\Desktop\Final_Project\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-03-29 01:35:09.9922|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard responded 302 in 60.8ms|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:09.9922|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Home/Error started at 20:05:10.002 by Anonymous|action=Error|controller=Home|url=http://localhost/Home/Error|user=
+2026-03-29 01:35:09.9922|WARN|ServicePlatform.Controllers.HomeController|Error page displayed: An internal server error occurred|action=Error|controller=Home|url=http://localhost/Home/Error|user=pihudebrani@gmail.com
+2026-03-29 01:35:10.0057|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Home/Error responded 200 in 3.2ms|action=Error|controller=Home|url=http://localhost/Home/Error|user=pihudebrani@gmail.com
+2026-03-29 01:35:11.8205|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / started at 20:05:11.820 by Anonymous|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 01:35:11.8205|INFO|ServicePlatform.Controllers.HomeController|Authenticated user pihudebrani@gmail.com redirected from Home|action=Index|controller=Home|url=http://localhost/|user=pihudebrani@gmail.com
+2026-03-29 01:35:11.8205|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / responded 302 in 1.8ms|action=Index|controller=Home|url=http://localhost/|user=pihudebrani@gmail.com
+2026-03-29 01:35:11.8205|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard started at 20:05:11.828 by Anonymous|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=
+2026-03-29 01:35:11.8438|INFO|ServicePlatform.Controllers.UserDashboardController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 accessed dashboard|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:11.8507|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @userId='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [o1].[Id], [o1].[CreatedAt], [o1].[ExpectedDeliveryDate], [o1].[IsDeleted], [o1].[Notes], [o1].[OrderNumber], [o1].[ShippingAddress], [o1].[ShippingAmount], [o1].[Status], [o1].[TaxAmount], [o1].[TotalAmount], [o1].[UpdatedAt], [o1].[UserId], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM (
+    SELECT TOP(@p) [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[IsDeleted] = CAST(0 AS bit) AND [o].[UserId] = @userId
+    ORDER BY [o].[CreatedAt] DESC
+) AS [o1]
+LEFT JOIN [OrderItems] AS [o0] ON [o1].[Id] = [o0].[OrderId]
+ORDER BY [o1].[CreatedAt] DESC, [o1].[Id]|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:11.8507|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:11.8507|ERROR|ServicePlatform.Controllers.UserDashboardController|Error loading user dashboard for 80859758-40fe-40f9-acc9-c3ab10b9e8c5|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.DashboardService.GetUserDashboardAsync(String userId) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\DashboardService.cs:line 131
+   at ServicePlatform.Controllers.UserDashboardController.Index() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\UserDashboardController.cs:line 52
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:11.8507|ERROR|ServicePlatform.Middleware.ExceptionHandlingMiddleware|An unhandled exception occurred: Object reference not set to an instance of an object.|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_UserDashboard_Index.ExecuteAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Views\UserDashboard\Index.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at ServicePlatform.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Priya Devrani\Desktop\Final_Project\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-03-29 01:35:11.8507|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard responded 302 in 36.0ms|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:11.8707|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Home/Error started at 20:05:11.870 by Anonymous|action=Error|controller=Home|url=http://localhost/Home/Error|user=
+2026-03-29 01:35:11.8707|WARN|ServicePlatform.Controllers.HomeController|Error page displayed: An internal server error occurred|action=Error|controller=Home|url=http://localhost/Home/Error|user=pihudebrani@gmail.com
+2026-03-29 01:35:11.8707|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Home/Error responded 200 in 2.9ms|action=Error|controller=Home|url=http://localhost/Home/Error|user=pihudebrani@gmail.com
+2026-03-29 01:35:23.7966|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / started at 20:05:23.796 by Anonymous|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 01:35:23.7966|INFO|ServicePlatform.Controllers.HomeController|Authenticated user pihudebrani@gmail.com redirected from Home|action=Index|controller=Home|url=http://localhost/|user=pihudebrani@gmail.com
+2026-03-29 01:35:23.7966|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / responded 302 in 3.4ms|action=Index|controller=Home|url=http://localhost/|user=pihudebrani@gmail.com
+2026-03-29 01:35:23.8333|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard started at 20:05:23.833 by Anonymous|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=
+2026-03-29 01:35:23.8363|INFO|ServicePlatform.Controllers.UserDashboardController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 accessed dashboard|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:23.8899|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32), @userId='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [o1].[Id], [o1].[CreatedAt], [o1].[ExpectedDeliveryDate], [o1].[IsDeleted], [o1].[Notes], [o1].[OrderNumber], [o1].[ShippingAddress], [o1].[ShippingAmount], [o1].[Status], [o1].[TaxAmount], [o1].[TotalAmount], [o1].[UpdatedAt], [o1].[UserId], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM (
+    SELECT TOP(@p) [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[IsDeleted] = CAST(0 AS bit) AND [o].[UserId] = @userId
+    ORDER BY [o].[CreatedAt] DESC
+) AS [o1]
+LEFT JOIN [OrderItems] AS [o0] ON [o1].[Id] = [o0].[OrderId]
+ORDER BY [o1].[CreatedAt] DESC, [o1].[Id]|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:23.8899|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:23.8899|ERROR|ServicePlatform.Controllers.UserDashboardController|Error loading user dashboard for 80859758-40fe-40f9-acc9-c3ab10b9e8c5|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.DashboardService.GetUserDashboardAsync(String userId) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\DashboardService.cs:line 131
+   at ServicePlatform.Controllers.UserDashboardController.Index() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\UserDashboardController.cs:line 52
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:23.8991|ERROR|ServicePlatform.Middleware.ExceptionHandlingMiddleware|An unhandled exception occurred: Object reference not set to an instance of an object.|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_UserDashboard_Index.ExecuteAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Views\UserDashboard\Index.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at ServicePlatform.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Priya Devrani\Desktop\Final_Project\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-03-29 01:35:23.8991|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard responded 302 in 70.0ms|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:23.9123|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Home/Error started at 20:05:23.912 by Anonymous|action=Error|controller=Home|url=http://localhost/Home/Error|user=
+2026-03-29 01:35:23.9123|WARN|ServicePlatform.Controllers.HomeController|Error page displayed: An internal server error occurred|action=Error|controller=Home|url=http://localhost/Home/Error|user=pihudebrani@gmail.com
+2026-03-29 01:35:23.9123|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Home/Error responded 200 in 2.4ms|action=Error|controller=Home|url=http://localhost/Home/Error|user=pihudebrani@gmail.com
+2026-03-29 01:35:26.6212|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / started at 20:05:26.621 by Anonymous|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 01:35:26.6212|INFO|ServicePlatform.Controllers.HomeController|Authenticated user pihudebrani@gmail.com redirected from Home|action=Index|controller=Home|url=http://localhost/|user=pihudebrani@gmail.com
+2026-03-29 01:35:26.6212|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / responded 302 in 1.6ms|action=Index|controller=Home|url=http://localhost/|user=pihudebrani@gmail.com
+2026-03-29 01:35:26.6212|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard started at 20:05:26.629 by Anonymous|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=
+2026-03-29 01:35:26.6212|INFO|ServicePlatform.Controllers.UserDashboardController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 accessed dashboard|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:26.6429|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @userId='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [o1].[Id], [o1].[CreatedAt], [o1].[ExpectedDeliveryDate], [o1].[IsDeleted], [o1].[Notes], [o1].[OrderNumber], [o1].[ShippingAddress], [o1].[ShippingAmount], [o1].[Status], [o1].[TaxAmount], [o1].[TotalAmount], [o1].[UpdatedAt], [o1].[UserId], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[TotalPrice], [o0].[UnitPrice]
+FROM (
+    SELECT TOP(@p) [o].[Id], [o].[CreatedAt], [o].[ExpectedDeliveryDate], [o].[IsDeleted], [o].[Notes], [o].[OrderNumber], [o].[ShippingAddress], [o].[ShippingAmount], [o].[Status], [o].[TaxAmount], [o].[TotalAmount], [o].[UpdatedAt], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[IsDeleted] = CAST(0 AS bit) AND [o].[UserId] = @userId
+    ORDER BY [o].[CreatedAt] DESC
+) AS [o1]
+LEFT JOIN [OrderItems] AS [o0] ON [o1].[Id] = [o0].[OrderId]
+ORDER BY [o1].[CreatedAt] DESC, [o1].[Id]|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:26.6429|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ServicePlatform.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:26.6469|ERROR|ServicePlatform.Controllers.UserDashboardController|Error loading user dashboard for 80859758-40fe-40f9-acc9-c3ab10b9e8c5|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ExpectedDeliveryDate'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at ServicePlatform.Services.DashboardService.GetUserDashboardAsync(String userId) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\DashboardService.cs:line 131
+   at ServicePlatform.Controllers.UserDashboardController.Index() in C:\Users\Priya Devrani\Desktop\Final_Project\Controllers\UserDashboardController.cs:line 52
+ClientConnectionId:50d5abbb-e2f3-43fd-b3da-534616730f60
+Error Number:207,State:1,Class:16
+2026-03-29 01:35:26.6469|ERROR|ServicePlatform.Middleware.ExceptionHandlingMiddleware|An unhandled exception occurred: Object reference not set to an instance of an object.|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_UserDashboard_Index.ExecuteAsync() in C:\Users\Priya Devrani\Desktop\Final_Project\Views\UserDashboard\Index.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at ServicePlatform.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Priya Devrani\Desktop\Final_Project\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-03-29 01:35:26.6469|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard responded 302 in 25.2ms|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 01:35:26.6469|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Home/Error started at 20:05:26.660 by Anonymous|action=Error|controller=Home|url=http://localhost/Home/Error|user=
+2026-03-29 01:35:26.6469|WARN|ServicePlatform.Controllers.HomeController|Error page displayed: An internal server error occurred|action=Error|controller=Home|url=http://localhost/Home/Error|user=pihudebrani@gmail.com
+2026-03-29 01:35:26.6469|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Home/Error responded 200 in 1.4ms|action=Error|controller=Home|url=http://localhost/Home/Error|user=pihudebrani@gmail.com
+2026-03-29 01:39:46.7104|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-29 01:39:46.9904|ERROR|ServicePlatform.Program|Application stopped due to exception|action=|controller=|url=|user= Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Priya Devrani\Desktop\Final_Project\Program.cs:line 108
+2026-03-29 01:42:43.6785|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-29 01:42:44.4837|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'CartItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-29 01:42:44.4837|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'LoginHistory'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-29 01:42:44.4837|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'Notification'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-29 01:42:44.4837|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'Order' has a global query filter defined and is the required end of a relationship with the entity 'OrderItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-29 01:42:44.4837|WARN|Microsoft.EntityFrameworkCore.Model.Validation|Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'Payment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.|action=|controller=|url=|user=
+2026-03-29 01:42:45.6158|INFO|ServicePlatform.Program|Application started successfully|action=|controller=|url=|user=
+2026-03-29 01:55:15.5926|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-29 01:55:15.9533|ERROR|ServicePlatform.Program|Application stopped due to exception|action=|controller=|url=|user= Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Priya Devrani\Desktop\Final_Project\Program.cs:line 108
+2026-03-29 02:24:04.1346|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-29 02:24:06.5368|INFO|ServicePlatform.Program|Application started successfully|action=|controller=|url=|user=
+2026-03-29 02:31:02.1962|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.|action=|controller=|url=http://localhost/|user=
+2026-03-29 02:31:02.3826|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / started at 21:01:02.359 by Anonymous|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 02:31:03.1550|INFO|ServicePlatform.Controllers.HomeController|Authenticated user pihudebrani@gmail.com redirected from Home|action=Index|controller=Home|url=http://localhost/|user=pihudebrani@gmail.com
+2026-03-29 02:31:03.1816|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / responded 302 in 821.7ms|action=Index|controller=Home|url=http://localhost/|user=pihudebrani@gmail.com
+2026-03-29 02:31:03.2237|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard started at 21:01:03.223 by Anonymous|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=
+2026-03-29 02:31:03.4514|INFO|ServicePlatform.Controllers.UserDashboardController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 accessed dashboard|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 02:31:04.2718|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard responded 200 in 1048.1ms|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 02:31:05.8728|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 21:01:05.872 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-29 02:31:05.8728|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 21:01:05.872 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-29 02:31:05.9318|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 58.9ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=pihudebrani@gmail.com
+2026-03-29 02:31:05.9318|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 21:01:05.939 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-29 02:31:05.9905|INFO|ServicePlatform.Controllers.NotificationController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 fetched notifications (unread: 0)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:31:06.1380|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 265.3ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:31:13.6504|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/CreateRequest started at 21:01:13.650 by Anonymous|action=CreateRequest|controller=UserDashboard|url=http://localhost/UserDashboard/CreateRequest|user=
+2026-03-29 02:31:13.8255|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/CreateRequest responded 200 in 175.2ms|action=CreateRequest|controller=UserDashboard|url=http://localhost/UserDashboard/CreateRequest|user=pihudebrani@gmail.com
+2026-03-29 02:31:13.8525|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 7913.3ms|action=|controller=|url=http://localhost/hubs/notification|user=pihudebrani@gmail.com
+2026-03-29 02:31:13.8831|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 21:01:13.883 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-29 02:31:13.8831|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.6ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=pihudebrani@gmail.com
+2026-03-29 02:31:13.8831|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 21:01:13.886 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-29 02:31:13.9003|INFO|ServicePlatform.Controllers.NotificationController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 fetched notifications (unread: 0)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:31:13.9003|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 15.5ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:31:13.9745|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 21:01:13.974 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-29 02:31:19.5654|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard started at 21:01:19.565 by Anonymous|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=
+2026-03-29 02:31:19.5911|INFO|ServicePlatform.Controllers.UserDashboardController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 accessed dashboard|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 02:31:19.6651|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard responded 200 in 99.8ms|action=Index|controller=UserDashboard|url=http://localhost/UserDashboard|user=pihudebrani@gmail.com
+2026-03-29 02:31:19.6841|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 5709.6ms|action=|controller=|url=http://localhost/hubs/notification|user=pihudebrani@gmail.com
+2026-03-29 02:31:19.7195|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 21:01:19.719 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-29 02:31:19.7195|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.7ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=pihudebrani@gmail.com
+2026-03-29 02:31:19.8034|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 21:01:19.803 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-29 02:31:21.2982|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/BookAppointment started at 21:01:21.298 by Anonymous|action=BookAppointment|controller=UserDashboard|url=http://localhost/UserDashboard/BookAppointment|user=
+2026-03-29 02:31:21.3825|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/BookAppointment responded 200 in 84.3ms|action=BookAppointment|controller=UserDashboard|url=http://localhost/UserDashboard/BookAppointment|user=pihudebrani@gmail.com
+2026-03-29 02:31:21.4062|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 1602.8ms|action=|controller=|url=http://localhost/hubs/notification|user=pihudebrani@gmail.com
+2026-03-29 02:31:21.4371|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 21:01:21.437 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-29 02:31:21.4371|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 21:01:21.439 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-29 02:31:21.4371|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 3.0ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=pihudebrani@gmail.com
+2026-03-29 02:31:21.4539|INFO|ServicePlatform.Controllers.NotificationController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 fetched notifications (unread: 0)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:31:21.4539|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 16.1ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:31:21.5315|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 21:01:21.531 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-29 02:31:32.3170|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/MyAppointments started at 21:01:32.316 by Anonymous|action=MyAppointments|controller=UserDashboard|url=http://localhost/UserDashboard/MyAppointments|user=
+2026-03-29 02:31:32.3414|INFO|ServicePlatform.Controllers.UserDashboardController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 viewing appointments|action=MyAppointments|controller=UserDashboard|url=http://localhost/UserDashboard/MyAppointments|user=pihudebrani@gmail.com
+2026-03-29 02:31:32.4080|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/MyAppointments responded 200 in 91.1ms|action=MyAppointments|controller=UserDashboard|url=http://localhost/UserDashboard/MyAppointments|user=pihudebrani@gmail.com
+2026-03-29 02:31:32.4173|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 10885.9ms|action=|controller=|url=http://localhost/hubs/notification|user=pihudebrani@gmail.com
+2026-03-29 02:31:32.4453|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 21:01:32.445 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-29 02:31:32.4453|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 21:01:32.446 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-29 02:31:32.4453|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 1.4ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=pihudebrani@gmail.com
+2026-03-29 02:31:32.4599|INFO|ServicePlatform.Controllers.NotificationController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 fetched notifications (unread: 0)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:31:32.4599|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 14.1ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:31:32.5013|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 21:01:32.501 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-29 02:31:34.5151|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Shop started at 21:01:34.515 by Anonymous|action=Index|controller=Shop|url=http://localhost/Shop|user=
+2026-03-29 02:31:34.5744|INFO|ServicePlatform.Controllers.ShopController|Shop catalog accessed — Search: (null), Category: (null), Page: 1|action=Index|controller=Shop|url=http://localhost/Shop|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.7570|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Shop responded 200 in 242.0ms|action=Index|controller=Shop|url=http://localhost/Shop|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.7570|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 2266.7ms|action=|controller=|url=http://localhost/hubs/notification|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.7865|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/cleaningkit.jpg started at 21:01:34.786 by Anonymous|action=|controller=|url=http://localhost/images/products/cleaningkit.jpg|user=
+2026-03-29 02:31:34.7888|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/cleaningkit.jpg responded 404 in 2.2ms|action=|controller=|url=http://localhost/images/products/cleaningkit.jpg|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.7888|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/toolkit.jpg started at 21:01:34.798 by Anonymous|action=|controller=|url=http://localhost/images/products/toolkit.jpg|user=
+2026-03-29 02:31:34.7888|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/drill.jpg started at 21:01:34.798 by Anonymous|action=|controller=|url=http://localhost/images/products/drill.jpg|user=
+2026-03-29 02:31:34.7888|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/toolkit.jpg responded 404 in 2.1ms|action=|controller=|url=http://localhost/images/products/toolkit.jpg|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.7888|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/drill.jpg responded 404 in 2.4ms|action=|controller=|url=http://localhost/images/products/drill.jpg|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.8066|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/speaker.jpg started at 21:01:34.806 by Anonymous|action=|controller=|url=http://localhost/images/products/speaker.jpg|user=
+2026-03-29 02:31:34.8066|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/stabilizer.jpg started at 21:01:34.806 by Anonymous|action=|controller=|url=http://localhost/images/products/stabilizer.jpg|user=
+2026-03-29 02:31:34.8066|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/speaker.jpg responded 404 in 2.2ms|action=|controller=|url=http://localhost/images/products/speaker.jpg|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.8066|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /images/products/stabilizer.jpg responded 404 in 3.1ms|action=|controller=|url=http://localhost/images/products/stabilizer.jpg|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.8066|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 21:01:34.814 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-29 02:31:34.8066|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 21:01:34.816 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-29 02:31:34.8066|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.1ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.8312|INFO|ServicePlatform.Controllers.NotificationController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 fetched notifications (unread: 0)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.8312|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 15.4ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:31:34.9362|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 21:01:34.936 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-29 02:32:45.5228|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/PaymentHistory started at 21:02:45.522 by Anonymous|action=PaymentHistory|controller=UserDashboard|url=http://localhost/UserDashboard/PaymentHistory|user=
+2026-03-29 02:32:45.5499|INFO|ServicePlatform.Controllers.UserDashboardController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 viewing payment history|action=PaymentHistory|controller=UserDashboard|url=http://localhost/UserDashboard/PaymentHistory|user=pihudebrani@gmail.com
+2026-03-29 02:32:45.6530|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/PaymentHistory responded 200 in 130.3ms|action=PaymentHistory|controller=UserDashboard|url=http://localhost/UserDashboard/PaymentHistory|user=pihudebrani@gmail.com
+2026-03-29 02:32:45.6690|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 70732.9ms|action=|controller=|url=http://localhost/hubs/notification|user=pihudebrani@gmail.com
+2026-03-29 02:32:45.7144|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 21:02:45.714 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-29 02:32:45.7144|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 21:02:45.716 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-29 02:32:45.7144|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.1ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=pihudebrani@gmail.com
+2026-03-29 02:32:45.7315|INFO|ServicePlatform.Controllers.NotificationController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 fetched notifications (unread: 0)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:32:45.7315|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 16.3ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:32:45.7978|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 21:02:45.797 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-29 02:32:49.5701|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/Feedback started at 21:02:49.570 by Anonymous|action=Feedback|controller=UserDashboard|url=http://localhost/UserDashboard/Feedback|user=
+2026-03-29 02:32:49.6119|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/Feedback responded 200 in 41.9ms|action=Feedback|controller=UserDashboard|url=http://localhost/UserDashboard/Feedback|user=pihudebrani@gmail.com
+2026-03-29 02:32:49.6261|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 3828.4ms|action=|controller=|url=http://localhost/hubs/notification|user=pihudebrani@gmail.com
+2026-03-29 02:32:49.6599|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 21:02:49.659 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-29 02:32:49.6599|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 1.5ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=pihudebrani@gmail.com
+2026-03-29 02:32:49.6626|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 21:02:49.662 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-29 02:32:49.6626|INFO|ServicePlatform.Controllers.NotificationController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 fetched notifications (unread: 0)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:32:49.6626|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 5.5ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:32:49.7536|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 21:02:49.753 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-29 02:32:52.9979|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/Policy started at 21:02:52.997 by Anonymous|action=Policy|controller=UserDashboard|url=http://localhost/UserDashboard/Policy|user=
+2026-03-29 02:32:53.0352|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/Policy responded 200 in 37.3ms|action=Policy|controller=UserDashboard|url=http://localhost/UserDashboard/Policy|user=pihudebrani@gmail.com
+2026-03-29 02:32:53.0524|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 3298.8ms|action=|controller=|url=http://localhost/hubs/notification|user=pihudebrani@gmail.com
+2026-03-29 02:32:53.1008|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 21:02:53.100 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-29 02:32:53.1008|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 3.2ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=pihudebrani@gmail.com
+2026-03-29 02:32:53.1008|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 21:02:53.104 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-29 02:32:53.1008|INFO|ServicePlatform.Controllers.NotificationController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 fetched notifications (unread: 0)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:32:53.1008|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 7.3ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:32:53.1529|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 21:02:53.152 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-29 02:32:56.7937|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/Settings started at 21:02:56.793 by Anonymous|action=Settings|controller=UserDashboard|url=http://localhost/UserDashboard/Settings|user=
+2026-03-29 02:32:56.8432|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /UserDashboard/Settings responded 200 in 49.6ms|action=Settings|controller=UserDashboard|url=http://localhost/UserDashboard/Settings|user=pihudebrani@gmail.com
+2026-03-29 02:32:56.8590|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 3706.1ms|action=|controller=|url=http://localhost/hubs/notification|user=pihudebrani@gmail.com
+2026-03-29 02:32:56.9080|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate started at 21:02:56.908 by Anonymous|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=
+2026-03-29 02:32:56.9080|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications started at 21:02:56.909 by Anonymous|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=
+2026-03-29 02:32:56.9080|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /hubs/notification/negotiate responded 200 in 2.3ms|action=|controller=|url=http://localhost/hubs/notification/negotiate|user=pihudebrani@gmail.com
+2026-03-29 02:32:56.9158|INFO|ServicePlatform.Controllers.NotificationController|User 80859758-40fe-40f9-acc9-c3ab10b9e8c5 fetched notifications (unread: 0)|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:32:56.9158|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Notification/GetNotifications responded 200 in 7.2ms|action=GetNotifications|controller=Notification|url=http://localhost/Notification/GetNotifications|user=pihudebrani@gmail.com
+2026-03-29 02:32:56.9888|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification started at 21:02:56.988 by Anonymous|action=|controller=|url=http://localhost/hubs/notification|user=
+2026-03-29 02:33:12.9390|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Logout started at 21:03:12.938 by Anonymous|action=Logout|controller=Account|url=http://localhost/Account/Logout|user=
+2026-03-29 02:33:12.9986|INFO|ServicePlatform.Controllers.AccountController|User pihudebrani@gmail.com logged out|action=Logout|controller=Account|url=http://localhost/Account/Logout|user=pihudebrani@gmail.com
+2026-03-29 02:33:12.9986|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/Logout responded 302 in 61.0ms|action=Logout|controller=Account|url=http://localhost/Account/Logout|user=pihudebrani@gmail.com
+2026-03-29 02:33:13.0132|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 21:03:13.013 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-29 02:33:13.0640|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 50.8ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-29 02:33:13.0784|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /hubs/notification responded 101 in 16089.7ms|action=|controller=|url=http://localhost/hubs/notification|user=pihudebrani@gmail.com
+2026-03-29 02:33:17.6554|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 21:03:17.655 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:33:17.7045|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 49.1ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:33:24.1780|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword started at 21:03:24.178 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:33:24.2284|INFO|ServicePlatform.Controllers.AccountController|OTP generated for password reset for pihudebrani@gmail.com|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:33:28.6202|ERROR|ServicePlatform.Services.SmtpEmailService|Failed to send email to pihudebrani@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user= System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.<SendAsync>g__SendAndCheck|0_0[TIOAdapter](SmtpConnection conn, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpTransport.SendMailAsync[TIOAdapter](MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.SendAsyncInternal[TIOAdapter](MailMessage message, Boolean invokeSendCompleted, Object userToken, Boolean forceWrapExceptions, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.<SendMailAsync>g__WaitAndRethrowIfNeeded|75_0(Task`1 task)
+   at ServicePlatform.Services.SmtpEmailService.SendEmailAsync(String to, String subject, String body) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\SmtpEmailService.cs:line 53
+2026-03-29 02:33:28.6696|WARN|ServicePlatform.Controllers.AccountController|Email sending failed for pihudebrani@gmail.com, OTP stored in session for demo|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:33:28.6789|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword responded 302 in 4500.9ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:33:28.6789|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp started at 21:03:28.692 by Anonymous|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:33:28.7257|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp responded 200 in 33.4ms|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:35:45.2508|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/VerifyOtp started at 21:05:45.250 by Anonymous|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:35:45.2608|INFO|ServicePlatform.Controllers.AccountController|OTP verified successfully for pihudebrani@gmail.com|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:35:45.2608|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/VerifyOtp responded 302 in 10.6ms|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:35:45.2608|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ResetPassword started at 21:05:45.271 by Anonymous|action=ResetPassword|controller=Account|url=http://localhost/Account/ResetPassword|user=
+2026-03-29 02:35:45.3061|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ResetPassword responded 200 in 34.6ms|action=ResetPassword|controller=Account|url=http://localhost/Account/ResetPassword|user=
+2026-03-29 02:35:48.5165|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 21:05:48.516 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-29 02:35:48.5249|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 8.4ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-29 02:45:10.3353|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / started at 21:15:10.333 by Anonymous|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 02:45:10.3353|INFO|ServicePlatform.Controllers.HomeController|Anonymous user accessed home page|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 02:45:10.4009|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / responded 200 in 67.8ms|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 02:45:14.7501|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 21:15:14.749 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-29 02:45:14.7607|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 10.8ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-29 02:45:17.5369|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 21:15:17.536 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:45:17.5415|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 4.6ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:45:21.9784|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword started at 21:15:21.978 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:45:23.3335|INFO|ServicePlatform.Controllers.AccountController|OTP generated for password reset for pihudebrani@gmail.com|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:45:28.0118|ERROR|ServicePlatform.Services.SmtpEmailService|Failed to send email to pihudebrani@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user= System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.<SendAsync>g__SendAndCheck|0_0[TIOAdapter](SmtpConnection conn, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpTransport.SendMailAsync[TIOAdapter](MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.SendAsyncInternal[TIOAdapter](MailMessage message, Boolean invokeSendCompleted, Object userToken, Boolean forceWrapExceptions, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.<SendMailAsync>g__WaitAndRethrowIfNeeded|75_0(Task`1 task)
+   at ServicePlatform.Services.SmtpEmailService.SendEmailAsync(String to, String subject, String body) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\SmtpEmailService.cs:line 53
+2026-03-29 02:45:28.0118|WARN|ServicePlatform.Controllers.AccountController|Email sending failed for pihudebrani@gmail.com, OTP stored in session for demo|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:45:28.0118|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword responded 302 in 6039.2ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:45:28.0249|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp started at 21:15:28.024 by Anonymous|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:45:28.0249|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp responded 200 in 3.6ms|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:45:57.0824|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 21:15:57.082 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:45:57.0883|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 6.0ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:46:03.8687|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword started at 21:16:03.868 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:46:03.8687|INFO|ServicePlatform.Controllers.AccountController|OTP generated for password reset for shakshidevrani@gmail.com|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:46:07.3517|ERROR|ServicePlatform.Services.SmtpEmailService|Failed to send email to shakshidevrani@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user= System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.<SendAsync>g__SendAndCheck|0_0[TIOAdapter](SmtpConnection conn, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpTransport.SendMailAsync[TIOAdapter](MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.SendAsyncInternal[TIOAdapter](MailMessage message, Boolean invokeSendCompleted, Object userToken, Boolean forceWrapExceptions, CancellationToken cancellationToken)
+   at System.Net.Mail.SmtpClient.<SendMailAsync>g__WaitAndRethrowIfNeeded|75_0(Task`1 task)
+   at ServicePlatform.Services.SmtpEmailService.SendEmailAsync(String to, String subject, String body) in C:\Users\Priya Devrani\Desktop\Final_Project\Services\SmtpEmailService.cs:line 53
+2026-03-29 02:46:07.3517|WARN|ServicePlatform.Controllers.AccountController|Email sending failed for shakshidevrani@gmail.com, OTP stored in session for demo|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:46:07.3517|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword responded 302 in 3494.3ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:46:07.3714|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp started at 21:16:07.371 by Anonymous|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:46:07.3714|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp responded 200 in 4.0ms|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:47:48.3865|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-29 02:47:51.5615|INFO|ServicePlatform.Program|Application started successfully|action=|controller=|url=|user=
+2026-03-29 02:47:57.3776|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.|action=|controller=|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:47:57.4729|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 21:17:57.456 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:47:57.7802|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 323.6ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:48:00.4469|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword started at 21:18:00.446 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:48:00.5956|INFO|ServicePlatform.Controllers.AccountController|OTP generated for password reset for shakshidevrani@gmail.com|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:48:00.6478|INFO|ServicePlatform.Services.SmtpEmailService|Email successfully saved to C:\Users\Priya Devrani\Desktop\Final_Project\SentEmails for shakshidevrani@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:48:00.6615|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword responded 302 in 215.0ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:48:00.6615|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp started at 21:18:00.673 by Anonymous|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:48:00.7386|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp responded 200 in 64.6ms|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:50:27.5563|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-29 02:50:29.9896|INFO|ServicePlatform.Program|Application started successfully|action=|controller=|url=|user=
+2026-03-29 02:50:36.7775|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.|action=|controller=|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:50:36.8996|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 21:20:36.872 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:50:37.0490|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 21:20:37.048 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-29 02:50:37.1782|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 304.8ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:50:37.1782|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 128.9ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-29 02:50:39.4053|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 21:20:39.405 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:50:39.4506|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 45.3ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:50:44.0732|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword started at 21:20:44.073 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:50:44.1879|INFO|ServicePlatform.Controllers.AccountController|OTP generated for password reset for sakshidevrani121@gmail.com|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:50:44.2565|INFO|ServicePlatform.Services.SmtpEmailService|Email successfully saved to local folder C:\Users\Priya Devrani\Desktop\Final_Project\SentEmails for sakshidevrani121@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:50:44.2565|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword responded 302 in 197.2ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:50:44.2882|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp started at 21:20:44.288 by Anonymous|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:50:44.3284|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp responded 200 in 40.2ms|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:54:15.2697|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 21:24:15.269 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:54:15.2768|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 7.2ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:54:16.9387|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 21:24:16.938 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:54:16.9447|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 6.0ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:54:23.1761|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword started at 21:24:23.176 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:54:23.3331|INFO|ServicePlatform.Controllers.AccountController|OTP generated for password reset for sakshidevrani121@gmail.com|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:54:23.3370|INFO|ServicePlatform.Services.SmtpEmailService|Email successfully saved to local folder C:\Users\Priya Devrani\Desktop\Final_Project\SentEmails for sakshidevrani121@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:54:23.3370|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword responded 302 in 162.7ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 02:54:23.3370|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp started at 21:24:23.346 by Anonymous|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 02:54:23.3514|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp responded 200 in 5.0ms|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 22:46:06.0090|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-29 22:46:10.2072|INFO|ServicePlatform.Program|Application started successfully|action=|controller=|url=|user=
+2026-03-29 22:50:53.3205|INFO|ServicePlatform.Program|Application starting up...|action=|controller=|url=|user=
+2026-03-29 22:50:56.0456|INFO|ServicePlatform.Program|Application started successfully|action=|controller=|url=|user=
+2026-03-29 22:52:39.4163|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.|action=|controller=|url=http://localhost/|user=
+2026-03-29 22:52:39.5035|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / started at 17:22:39.490 by Anonymous|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 22:52:39.5435|INFO|ServicePlatform.Controllers.HomeController|Anonymous user accessed home page|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 22:52:39.7844|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET / responded 200 in 293.3ms|action=Index|controller=Home|url=http://localhost/|user=
+2026-03-29 22:52:42.5547|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login started at 17:22:42.554 by Anonymous|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-29 22:52:42.6455|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/Login responded 200 in 90.8ms|action=Login|controller=Account|url=http://localhost/Account/Login|user=
+2026-03-29 22:52:49.2780|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 17:22:49.277 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:52:49.3141|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 36.1ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:52:53.9498|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword started at 17:22:53.949 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:52:54.0065|INFO|ServicePlatform.Controllers.AccountController|OTP generated for password reset for sakshidevrani121@gmail.com|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:52:54.0507|INFO|ServicePlatform.Services.SmtpEmailService|Email successfully saved to local folder C:\Users\Priya Devrani\Desktop\Final_Project\SentEmails for sakshidevrani121@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:52:54.0588|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword responded 302 in 109.1ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:52:54.0588|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp started at 17:22:54.069 by Anonymous|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 22:52:54.0900|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp responded 200 in 20.8ms|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 22:54:30.0496|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp started at 17:24:30.049 by Anonymous|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 22:54:30.0496|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp responded 200 in 4.1ms|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 22:54:50.8143|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 17:24:50.814 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:54:50.8143|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 4.3ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:54:53.2364|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword started at 17:24:53.236 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:54:53.3131|INFO|ServicePlatform.Controllers.AccountController|OTP generated for password reset for sakshidevrani121@gmail.com|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:54:53.3131|INFO|ServicePlatform.Services.SmtpEmailService|Email successfully saved to local folder C:\Users\Priya Devrani\Desktop\Final_Project\SentEmails for sakshidevrani121@gmail.com with subject 'ServicePlatform — Password Reset OTP'|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:54:53.3131|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP POST /Account/ForgotPassword responded 302 in 80.4ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:54:53.3250|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp started at 17:24:53.324 by Anonymous|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 22:54:53.3250|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/VerifyOtp responded 200 in 2.8ms|action=VerifyOtp|controller=Account|url=http://localhost/Account/VerifyOtp|user=
+2026-03-29 22:55:23.9971|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword started at 17:25:23.997 by Anonymous|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=
+2026-03-29 22:55:23.9971|INFO|ServicePlatform.Middleware.RequestLoggingMiddleware|HTTP GET /Account/ForgotPassword responded 200 in 3.6ms|action=ForgotPassword|controller=Account|url=http://localhost/Account/ForgotPassword|user=

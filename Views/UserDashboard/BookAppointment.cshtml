@@ -1,0 +1,28 @@
+@model ServicePlatform.ViewModels.Service.AppointmentViewModel
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Book Appointment"; }
+
+<div style="max-width:700px;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header"><h5><i class="fas fa-calendar-plus" style="color:var(--primary-light);margin-right:8px;"></i>Book Appointment</h5></div>
+        <div class="data-card-body">
+            <form asp-action="BookAppointment" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-floating-custom"><label asp-for="Title">Appointment Title</label><input asp-for="Title" class="form-control" placeholder="Brief description" /><span asp-validation-for="Title" style="color:var(--danger);font-size:0.8rem;"></span></div>
+                <div class="form-floating-custom"><label asp-for="Description">Description</label><textarea asp-for="Description" class="form-control" rows="3" placeholder="Details about the appointment"></textarea></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="form-floating-custom"><label asp-for="ScheduledDate">Date</label><input asp-for="ScheduledDate" type="date" class="form-control" /><span asp-validation-for="ScheduledDate" style="color:var(--danger);font-size:0.8rem;"></span></div>
+                    <div class="form-floating-custom">
+                        <label asp-for="TimeSlot">Time Slot</label>
+                        <select asp-for="TimeSlot" class="form-control">
+                            <option value="">Select Time</option>
+                            <option>09:00 AM - 10:00 AM</option><option>10:00 AM - 11:00 AM</option><option>11:00 AM - 12:00 PM</option>
+                            <option>12:00 PM - 01:00 PM</option><option>02:00 PM - 03:00 PM</option><option>03:00 PM - 04:00 PM</option>
+                            <option>04:00 PM - 05:00 PM</option><option>05:00 PM - 06:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;"><i class="fas fa-calendar-check"></i> Book Appointment</button>
+            </form>
+        </div>
+    </div>
+</div>

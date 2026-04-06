@@ -1,0 +1,62 @@
+@model ServicePlatform.ViewModels.Shop.ShopkeeperDashboardViewModel
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Shopkeeper Dashboard"; }
+
+<h4 class="animate-fadeInUp">Welcome, <span style="background:var(--primary-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">@Model.ShopkeeperName</span></h4>
+<p class="animate-fadeInUp" style="color:var(--text-muted);margin-bottom:2rem;">Manage your products and orders</p>
+
+<div class="stats-grid">
+    <div class="stat-card animate-fadeInUp"><div class="stat-icon primary"><i class="fas fa-boxes-stacked"></i></div><div class="stat-info"><h3>@Model.TotalProducts</h3><p>Total Products</p></div></div>
+    <div class="stat-card animate-fadeInUp-delay-1"><div class="stat-icon success"><i class="fas fa-check"></i></div><div class="stat-info"><h3>@Model.ActiveProducts</h3><p>Active Products</p></div></div>
+    <div class="stat-card animate-fadeInUp-delay-2"><div class="stat-icon info"><i class="fas fa-shopping-bag"></i></div><div class="stat-info"><h3>@Model.TotalOrders</h3><p>Total Orders</p></div></div>
+    <div class="stat-card animate-fadeInUp-delay-3"><div class="stat-icon warning"><i class="fas fa-clock"></i></div><div class="stat-info"><h3>@Model.PendingOrders</h3><p>Pending Orders</p></div></div>
+    <div class="stat-card animate-fadeInUp-delay-4"><div class="stat-icon danger"><i class="fas fa-indian-rupee-sign"></i></div><div class="stat-info"><h3>₹@Model.TotalRevenue.ToString("N0")</h3><p>Total Revenue</p></div></div>
+    <div class="stat-card animate-fadeInUp-delay-4"><div class="stat-icon success"><i class="fas fa-chart-line"></i></div><div class="stat-info"><h3>₹@Model.MonthlyRevenue.ToString("N0")</h3><p>This Month</p></div></div>
+</div>
+
+<div class="data-card animate-fadeInUp-delay-2" style="margin-bottom:1.5rem;">
+    <div class="data-card-header"><h5>Quick Actions</h5></div>
+    <div class="data-card-body">
+        <div class="quick-actions">
+            <a href="/Shopkeeper/AddProduct" class="quick-action-card"><i class="fas fa-plus-circle"></i><span>Add Product</span></a>
+            <a href="/Shopkeeper/Products" class="quick-action-card"><i class="fas fa-boxes-stacked"></i><span>My Products</span></a>
+            <a href="/Shopkeeper/Orders" class="quick-action-card"><i class="fas fa-shopping-bag"></i><span>Orders</span></a>
+        </div>
+    </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+    <div class="data-card animate-fadeInUp-delay-3">
+        <div class="data-card-header"><h5>Recent Products</h5><a href="/Shopkeeper/Products" style="font-size:0.8rem;">View All</a></div>
+        <table class="table-custom">
+            <thead><tr><th>Product</th><th>Price</th><th>Stock</th></tr></thead>
+            <tbody>
+                @foreach (var p in Model.RecentProducts)
+                {
+                    <tr>
+                        <td style="font-weight:600;">@p.Name</td>
+                        <td style="color:var(--success);font-weight:700;">₹@p.Price.ToString("N0")</td>
+                        <td>@p.StockQuantity</td>
+                    </tr>
+                }
+                @if (!Model.RecentProducts.Any()) { <tr><td colspan="3" class="empty-state"><p>No products yet</p></td></tr> }
+            </tbody>
+        </table>
+    </div>
+    <div class="data-card animate-fadeInUp-delay-4">
+        <div class="data-card-header"><h5>Recent Orders</h5><a href="/Shopkeeper/Orders" style="font-size:0.8rem;">View All</a></div>
+        <table class="table-custom">
+            <thead><tr><th>Order</th><th>Customer</th><th>Amount</th></tr></thead>
+            <tbody>
+                @foreach (var o in Model.RecentOrders)
+                {
+                    <tr>
+                        <td style="font-family:monospace;font-size:0.8rem;">@o.OrderNumber</td>
+                        <td>@o.User.FullName</td>
+                        <td style="color:var(--success);font-weight:700;">₹@o.TotalAmount.ToString("N0")</td>
+                    </tr>
+                }
+                @if (!Model.RecentOrders.Any()) { <tr><td colspan="3" class="empty-state"><p>No orders yet</p></td></tr> }
+            </tbody>
+        </table>
+    </div>
+</div>

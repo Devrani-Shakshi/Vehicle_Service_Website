@@ -1,0 +1,78 @@
+@model IEnumerable<ServicePlatform.Models.Order>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "All Orders"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header" style="display:flex; justify-content:space-between; align-items:center; padding: 1.5rem;">
+        <h5 style="margin:0;"><i class="fas fa-shopping-bag" style="color:var(--success);margin-right:8px;"></i>Orders</h5>
+        <div style="display:flex; gap:12px; align-items:center;">
+            <select id="orderStatusFilter" class="form-select form-select-sm" style="width:150px; border-radius:20px;">
+                <option value="">All Status</option>
+                @foreach (var status in Enum.GetValues(typeof(ServicePlatform.Models.OrderStatus)))
+                {
+                    <option value="@status.ToString().ToLower()">@status</option>
+                }
+            </select>
+            <div style="position:relative;">
+                <i class="fas fa-search" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--text-muted); font-size:0.85rem;"></i>
+                <input type="text" id="ordersSearch" class="form-control form-control-sm" placeholder="Search orders..." style="border-radius:20px; padding-left:32px; width:200px;" />
+            </div>
+            <button class="btn btn-sm" style="background:var(--primary-gradient);color:white;border:none;border-radius:6px;" onclick="exportTableToCSV('ordersTable', 'Orders.csv')" data-bs-toggle="tooltip" title="Export to CSV"><i class="fas fa-download"></i></button>
+        </div>
+    </div>
+    <table class="table-custom" id="ordersTable">
+        <thead><tr><th>Order #</th><th>Customer</th><th>Amount</th><th>Items</th><th>Status</th><th>Date</th><th style="text-align:right;">Action</th></tr></thead>
+        <tbody>
+            @foreach (var o in Model)
+            {
+                <tr data-status="@o.Status.ToString().ToLower()">
+                    <td style="font-family:monospace;font-size:0.8rem;font-weight:600;">@o.OrderNumber</td>
+                    <td>@(o.User?.FullName ?? "Unknown User")</td>
+                    <td style="font-weight:700;color:var(--success);">₹@o.TotalAmount.ToString("N0")</td>
+                    <td>@(o.OrderItems?.Count ?? 0)</td>
+                    <td><span class="badge-custom badge-@o.Status.ToString().ToLower()">@o.Status</span></td>
+                    <td style="font-size:0.8rem;color:var(--text-muted);">@o.CreatedAt.ToString("MMM dd, yyyy")</td>
+                    <td style="text-align:right;">
+                        <a href="/Admin/OrderDetails/@o.Id" class="btn btn-xs btn-outline-primary" style="padding:2px 8px; font-size:0.75rem;"><i class="fas fa-eye"></i> View</a>
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="7" class="empty-state"><p>No orders found</p></td></tr> }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('ordersSearch');
+            const statusFilter = document.getElementById('orderStatusFilter');
+            const table = document.getElementById('ordersTable');
+            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            function filterTable() {
+                const searchText = searchInput.value.toLowerCase();
+                const statusValue = statusFilter.value;
+
+                for (let row of rows) {
+                    if (row.classList.contains('empty-state-row')) continue;
+                    
+                    const text = row.textContent.toLowerCase();
+                    const status = row.getAttribute('data-status');
+
+                    const matchesSearch = text.includes(searchText);
+                    const matchesStatus = !statusValue || status === statusValue;
+
+                    if (matchesSearch && matchesStatus) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            }
+
+            searchInput.addEventListener('input', filterTable);
+            statusFilter.addEventListener('change', filterTable);
+        });
+    </script>
+}
+

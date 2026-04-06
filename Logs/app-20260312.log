@@ -1,0 +1,35 @@
+2026-03-12 00:20:11.256 +05:30 [INF] Connection id "0HNJVJ63LO56C", Request id "0HNJVJ63LO56C:00000001": the application aborted the connection.
+2026-03-12 00:20:11.775 +05:30 [INF] Executed endpoint '/hubs/notification'
+2026-03-12 00:20:11.788 +05:30 [INF] HTTP GET /hubs/notification responded 101 in 2170085.2ms
+2026-03-12 00:20:11.797 +05:30 [INF] The response could not be cached for this request.
+2026-03-12 00:20:11.805 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5016/hubs/notification?id=mYmUAWCK8AACojKusH8hMQ - 101 null null 2170109.0187ms
+2026-03-12 00:20:12.840 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5016/hubs/notification/negotiate?negotiateVersion=1 - null 0
+2026-03-12 00:20:12.858 +05:30 [INF] HTTP POST /hubs/notification/negotiate started at 18:50:12.855 by Anonymous
+2026-03-12 00:20:15.261 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[@p='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[Latitude], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Longitude], [a].[Mobile], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImageUrl], [a].[SecurityStamp], [a].[State], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[IsDeleted] = CAST(0 AS bit) AND [a].[Id] = @p
+2026-03-12 00:20:15.349 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@user_Id='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @user_Id
+2026-03-12 00:20:15.365 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@userId='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @userId
+2026-03-12 00:20:15.376 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-03-12 00:20:15.385 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@role_Id='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @role_Id
+2026-03-12 00:20:15.413 +05:30 [INF] Executing endpoint '/hubs/notification/negotiate'
+2026-03-12 00:20:15.439 +05:30 [INF] Executed endpoint '/hubs/notification/negotiate'
+2026-03-12 00:20:15.439 +05:30 [INF] HTTP POST /hubs/notification/negotiate responded 200 in 2584.3ms
+2026-03-12 00:20:15.442 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5016/hubs/notification/negotiate?negotiateVersion=1 - 200 316 application/json 2601.6091ms
+2026-03-12 00:20:15.512 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5016/hubs/notification?id=_XXrm48GMQ0RSpAc3Wh8_A - null null
+2026-03-12 00:20:15.513 +05:30 [INF] HTTP GET /hubs/notification started at 18:50:15.513 by Anonymous
+2026-03-12 00:20:15.513 +05:30 [INF] Executing endpoint '/hubs/notification'

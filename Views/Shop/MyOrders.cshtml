@@ -1,0 +1,50 @@
+@model IEnumerable<ServicePlatform.Models.Order>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "My Orders"; }
+
+<div class="data-card animate-fadeInUp" style="margin-bottom:1.5rem;">
+    <div class="data-card-body" style="padding:1rem 1.5rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+            <h5 style="margin:0;"><i class="fas fa-box" style="color:var(--primary-light);margin-right:8px;"></i>My Orders</h5>
+            <div style="display:flex;gap:0.75rem;align-items:center;">
+                <input type="text" id="orderSearch" class="form-control" placeholder="Search orders..." style="width:200px;padding:8px 12px;font-size:0.85rem;" />
+                <select id="statusFilter" class="form-control" style="width:150px;padding:8px 12px;font-size:0.85rem;">
+                    <option value="">All Status</option>
+                    <option value="pending">Pending</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="delivered">Delivered</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="data-card animate-fadeInUp">
+    <table class="table-custom" id="ordersTable">
+        <thead><tr><th>Order #</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th></tr></thead>
+        <tbody>
+            @foreach (var o in Model)
+            {
+                <tr>
+                    <td style="font-family:monospace;font-size:0.8rem;">@o.OrderNumber</td>
+                    <td>@o.OrderItems.Count item(s)</td>
+                    <td style="font-weight:700;color:var(--success);">₹@o.TotalAmount.ToString("N0")</td>
+                    <td>
+                        @if (o.Status == OrderStatus.Delivered)
+                        {
+                            <span class="badge-custom badge-delivered">Completed</span>
+                        }
+                        else
+                        {
+                            <span class="badge-custom badge-@o.Status.ToString().ToLower()">
+                                @(o.ExpectedDeliveryDate.HasValue ? $"Expected: {o.ExpectedDeliveryDate.Value:MMM dd}" : o.Status.ToString())
+                            </span>
+                        }
+                    </td>
+                    <td style="font-size:0.8rem;color:var(--text-muted);">@o.CreatedAt.ToString("MMM dd, yyyy")</td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="5" class="empty-state"><i class="fas fa-box-open"></i><h5>No orders</h5><p>Start shopping!</p></td></tr> }
+        </tbody>
+    </table>
+</div>

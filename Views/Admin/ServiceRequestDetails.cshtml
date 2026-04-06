@@ -1,0 +1,107 @@
+@model ServicePlatform.Models.ServiceRequest
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Service Request Details"; }
+
+<div class="animate-fadeIn">
+    <div style="margin-bottom:1.5rem; display:flex; align-items:center; gap:12px;">
+        <a href="/Admin/ServiceRequests" class="btn btn-sm btn-outline-secondary" style="border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; padding:0;">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h4 style="margin:0;">Request: @Model.Title</h4>
+        <span class="badge-custom badge-@Model.Status.ToString().ToLower()" style="margin-left:auto; padding:6px 16px; font-size:0.9rem;">@Model.Status</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 2fr 1fr; gap:1.5rem;">
+        <!-- Left Column: Details -->
+        <div class="data-card">
+            <div class="data-card-header">
+                <h5><i class="fas fa-info-circle" style="color:var(--primary-light);margin-right:8px;"></i>Information</h5>
+            </div>
+            <div style="padding:1.5rem;">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+                    <div>
+                        <label style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:4px;">Requested By</label>
+                        <div style="font-weight:600;">@Model.User.FullName</div>
+                        <div style="font-size:0.85rem; color:var(--text-muted);">@Model.User.Email</div>
+                    </div>
+                    <div>
+                        <label style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:4px;">Service Provider</label>
+                        @if (Model.ServiceProvider != null)
+                        {
+                            <div style="font-weight:600;">@Model.ServiceProvider.FullName</div>
+                        }
+                        else
+                        {
+                            <div style="color:var(--text-muted); font-style:italic;">Not assigned yet</div>
+                        }
+                    </div>
+                </div>
+
+                <div style="margin-bottom:1.5rem;">
+                    <label style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:4px;">Description</label>
+                    <p style="white-space:pre-wrap; background:rgba(0,0,0,0.05); padding:1rem; border-radius:8px;">@Model.Description</p>
+                </div>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem;">
+                    <div>
+                        <label style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:4px;">Request Type</label>
+                        <span class="badge-custom badge-@(Model.RequestType == ServicePlatform.Models.ServiceRequestType.Urgent ? "danger" : "primary")">@Model.RequestType</span>
+                    </div>
+                    <div>
+                        <label style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:4px;">Created At</label>
+                        <div style="font-size:0.9rem;">@Model.CreatedAt.ToString("MMM dd, yyyy HH:mm")</div>
+                    </div>
+                    <div>
+                        <label style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:4px;">Category</label>
+                        <div>@(Model.Category ?? "General")</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Actions -->
+        <div>
+            <div class="data-card" style="margin-bottom:1.5rem;">
+                <div class="data-card-header">
+                    <h5><i class="fas fa-cog" style="color:var(--accent);margin-right:8px;"></i>Manage Status</h5>
+                </div>
+                <div style="padding:1.5rem;">
+                    <form asp-action="UpdateRequestStatus" method="post">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <div class="mb-3">
+                            <select name="status" class="form-select" style="margin-bottom:1rem;">
+                                @foreach (var status in Enum.GetValues(typeof(ServicePlatform.Models.ServiceRequestStatus)))
+                                {
+                                    <option value="@status" selected="@(status.Equals(Model.Status))">@status</option>
+                                }
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" style="background:var(--primary-gradient); border:none;">Update Status</button>
+                    </form>
+                </div>
+            </div>
+
+            @if (Model.Payment != null)
+            {
+                <div class="data-card">
+                    <div class="data-card-header">
+                        <h5><i class="fas fa-credit-card" style="color:var(--success);margin-right:8px;"></i>Payment Info</h5>
+                    </div>
+                    <div style="padding:1.5rem;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                            <span>Amount:</span>
+                            <span style="font-weight:700;">₹@Model.Payment.Amount.ToString("N0")</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                            <span>Status:</span>
+                            <span class="badge-custom badge-@Model.Payment.Status.ToString().ToLower()">@Model.Payment.Status</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span>Date:</span>
+                            <span style="font-size:0.85rem;">@Model.Payment.CreatedAt.ToString("MMM dd, yyyy")</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

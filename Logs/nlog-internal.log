@@ -1,0 +1,828 @@
+2026-03-14 10:34:48.9482 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 10:34:48.9595 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 10:34:48.9703 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 10:34:48.9917 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 10:34:48.9917 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 10:34:48.9917 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 10:34:48.9917 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 10:34:48.9917 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 10:34:49.0479 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 10:34:49.1294 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 11:10:54.2270 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 11:10:54.2270 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 11:10:54.2407 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:10:54.2569 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 11:10:54.2569 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:10:54.2569 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 11:10:54.2569 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:10:54.2569 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 11:10:54.2688 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 11:10:54.3043 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 11:37:03.4458 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 11:37:03.4458 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 11:37:03.4575 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:37:03.4575 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 11:37:03.4575 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:37:03.4575 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 11:37:03.4744 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:37:03.4744 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 11:37:03.4744 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 11:37:03.5120 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 11:48:11.7801 Info LogFactory shutting down ...
+2026-03-14 11:48:11.7801 Info Closing old configuration.
+2026-03-14 11:48:11.7909 Info LogFactory shutdown completed.
+2026-03-14 11:49:43.7104 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 11:49:43.7243 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 11:49:43.7243 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:49:43.7243 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 11:49:43.7243 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:49:43.7391 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 11:49:43.7391 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:49:43.7391 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 11:49:43.7391 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 11:49:43.7747 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 11:49:44.0988 Info LogFactory shutting down ...
+2026-03-14 11:49:44.0988 Info Closing old configuration.
+2026-03-14 11:49:44.0988 Info LogFactory shutdown completed.
+2026-03-14 11:50:15.6949 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 11:50:15.6949 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 11:50:15.7081 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:50:15.7081 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 11:50:15.7081 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:50:15.7081 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 11:50:15.7081 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:50:15.7081 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 11:50:15.7263 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 11:50:15.7545 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 11:50:15.9626 Info LogFactory shutting down ...
+2026-03-14 11:50:15.9626 Info Closing old configuration.
+2026-03-14 11:50:15.9749 Info LogFactory shutdown completed.
+2026-03-14 11:50:41.6173 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 11:50:41.6173 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 11:50:41.6173 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:50:41.6406 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 11:50:41.6406 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:50:41.6406 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 11:50:41.6406 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:50:41.6455 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 11:50:41.6455 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 11:50:41.6814 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 11:51:08.7286 Info LogFactory shutting down ...
+2026-03-14 11:51:08.7286 Info Closing old configuration.
+2026-03-14 11:51:08.7286 Info LogFactory shutdown completed.
+2026-03-14 11:51:38.2278 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 11:51:38.2388 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 11:51:38.2388 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:51:38.2566 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 11:51:38.2566 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:51:38.2566 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 11:51:38.2566 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:51:38.2566 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 11:51:38.2566 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 11:51:38.2970 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 11:56:29.9767 Info LogFactory shutting down ...
+2026-03-14 11:56:29.9767 Info Closing old configuration.
+2026-03-14 11:56:29.9767 Info LogFactory shutdown completed.
+2026-03-14 11:56:47.1450 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 11:56:47.1450 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 11:56:47.1450 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:56:47.1686 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 11:56:47.1686 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:56:47.1686 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 11:56:47.1686 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 11:56:47.1686 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 11:56:47.1783 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 11:56:47.2070 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 12:07:02.5222 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 12:07:02.5392 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 12:07:02.5535 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 12:07:02.5910 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 12:07:02.5910 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 12:07:02.5981 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 12:07:02.5981 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 12:07:02.5981 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 12:07:02.6161 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 12:07:02.6867 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 12:37:28.7742 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 12:37:28.7742 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 12:37:28.7881 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 12:37:28.7881 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 12:37:28.8040 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 12:37:28.8040 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 12:37:28.8040 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 12:37:28.8040 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 12:37:28.8040 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 12:37:28.8471 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 14:15:38.8810 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 14:15:38.9016 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 14:15:38.9262 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 14:15:38.9672 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 14:15:38.9672 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 14:15:38.9672 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 14:15:38.9744 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 14:15:38.9744 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 14:15:38.9744 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 14:15:39.0475 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 15:13:40.3546 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 15:13:40.3702 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 15:13:40.3702 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 15:13:40.3912 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 15:13:40.3912 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 15:13:40.3912 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 15:13:40.3912 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 15:13:40.3973 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 15:13:40.3973 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-14 15:13:40.4415 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 15:35:20.8017 Info AutoReload Config File Monitor reloading configuration...
+2026-03-14 15:35:20.8166 Info Loading NLog config from XML file: C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 15:35:20.8328 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 15:35:20.8328 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 15:35:20.8328 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 15:35:20.8328 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 15:35:20.8328 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 15:35:20.8328 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 15:35:20.8328 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 15:35:20.8328 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 15:35:20.8531 Info Closing old configuration.
+2026-03-14 15:35:20.8975 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 15:35:53.9204 Info AutoReload Config File Monitor reloading configuration...
+2026-03-14 15:35:53.9294 Info Loading NLog config from XML file: C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 15:35:53.9294 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 15:35:53.9422 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 15:35:53.9422 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 15:35:53.9422 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 15:35:53.9422 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 15:35:53.9422 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 15:35:53.9422 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 15:35:53.9422 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 15:35:53.9588 Info Closing old configuration.
+2026-03-14 15:35:53.9588 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 16:14:14.8365 Info AutoReload Config File Monitor reloading configuration...
+2026-03-14 16:14:14.8365 Info Loading NLog config from XML file: C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-14 16:14:14.8576 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-14 16:14:14.8576 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-14 16:14:14.8576 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 16:14:14.8674 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-14 16:14:14.8674 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 16:14:14.8674 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-14 16:14:14.8674 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-14 16:14:14.8674 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-14 16:14:14.8674 Info Closing old configuration.
+2026-03-14 16:14:14.8984 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-21 15:56:06.2666 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-21 15:56:06.2735 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-21 15:56:06.2735 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 15:56:06.2972 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-21 15:56:06.2972 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 15:56:06.2972 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-21 15:56:06.2972 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 15:56:06.2972 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-21 15:56:06.3155 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-21 15:56:06.3714 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-21 15:56:06.8843 Info LogFactory shutting down ...
+2026-03-21 15:56:06.8843 Info Closing old configuration.
+2026-03-21 15:56:06.9041 Info LogFactory shutdown completed.
+2026-03-21 15:56:54.5870 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-21 15:56:54.6119 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-21 15:56:54.6220 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 15:56:54.6481 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-21 15:56:54.6481 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 15:56:54.6481 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-21 15:56:54.6481 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 15:56:54.6481 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-21 15:56:54.6656 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-21 15:56:54.7242 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-21 17:09:02.5428 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-21 17:09:02.5428 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-21 17:09:02.5428 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 17:09:02.5674 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-21 17:09:02.5698 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 17:09:02.5698 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-21 17:09:02.5698 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 17:09:02.5698 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-21 17:09:02.5698 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-21 17:09:02.6111 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-21 17:13:10.0281 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-21 17:13:10.0399 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-21 17:13:10.0399 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 17:13:10.0606 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-21 17:13:10.0606 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 17:13:10.0606 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-21 17:13:10.0606 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-21 17:13:10.0606 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-21 17:13:10.0711 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-21 17:13:10.1050 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-21 17:13:10.1468 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:10.9764 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:10.9764 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:10.9764 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:10.9764 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:10.9764 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:11.9832 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:12.0558 Error FileTarget(Name=errorFile): Failed writing to FileName: 'Logs/errors-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\errors-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:12.0558 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:12.0706 Error FileTarget(Name=errorFile): Failed writing to FileName: 'Logs/errors-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\errors-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:12.0706 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-21.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-21.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-21 17:13:12.0706 Info LogFactory shutting down ...
+2026-03-21 17:13:12.0706 Info Closing old configuration.
+2026-03-21 17:13:12.0706 Info LogFactory shutdown completed.
+2026-03-26 23:40:20.8410 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-26 23:40:20.8526 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-26 23:40:20.8647 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-26 23:40:20.8853 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-26 23:40:20.8853 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-26 23:40:20.8853 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-26 23:40:20.8853 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-26 23:40:20.8853 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-26 23:40:20.9059 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-26 23:40:20.9596 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-26 23:40:21.0125 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-26.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-26.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-26 23:40:23.0386 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-26.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-26.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-26 23:40:23.0386 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-26.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-26.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-26 23:40:23.0386 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-26.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-26.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-26 23:40:23.0386 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-26.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-26.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-26 23:40:23.0386 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-26.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-26.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-26 23:40:27.2698 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-26.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-26.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-26 23:40:27.5289 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-26.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-26.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-26 23:40:27.6062 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-26.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-26.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-26 23:40:27.6062 Info LogFactory shutting down ...
+2026-03-26 23:40:27.6062 Info Closing old configuration.
+2026-03-26 23:40:27.6237 Info LogFactory shutdown completed.
+2026-03-27 00:44:42.6387 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-27 00:44:42.6497 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-27 00:44:42.6497 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-27 00:44:42.6777 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-27 00:44:42.6801 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-27 00:44:42.6801 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-27 00:44:42.6801 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-27 00:44:42.6801 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-27 00:44:42.6801 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-27 00:44:42.7286 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-27 01:02:45.6960 Info LogFactory shutting down ...
+2026-03-27 01:02:45.6960 Info Closing old configuration.
+2026-03-27 01:02:45.7424 Info LogFactory shutdown completed.
+2026-03-27 01:16:59.8667 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-27 01:16:59.8803 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-27 01:16:59.8803 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-27 01:16:59.9208 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-27 01:16:59.9208 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-27 01:16:59.9208 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-27 01:16:59.9291 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-27 01:16:59.9291 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-27 01:16:59.9291 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-27 01:17:00.0007 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-29 01:25:07.1717 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-29 01:25:07.1808 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-29 01:25:07.1808 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:25:07.2054 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-29 01:25:07.2054 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:25:07.2054 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-29 01:25:07.2109 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:25:07.2109 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-29 01:25:07.2109 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-29 01:25:07.2638 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-29 01:37:20.3326 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-29 01:37:20.3439 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-29 01:37:20.3439 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:37:20.3589 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-29 01:37:20.3589 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:37:20.3589 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-29 01:37:20.3589 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:37:20.3589 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-29 01:37:20.3697 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-29 01:37:20.4056 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-29 01:37:20.4444 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-29.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-29.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-29 01:37:20.7169 Error FileTarget(Name=errorFile): Failed writing to FileName: 'Logs/errors-2026-03-29.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\errors-2026-03-29.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-29 01:37:20.7169 Error FileTarget(Name=appFile): Failed writing to FileName: 'Logs/app-2026-03-29.log' Exception: System.IO.IOException: The process cannot access the file 'C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\Logs\app-2026-03-29.log' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at NLog.Targets.FileTarget.CreateFileStream(String filePath, Int32 bufferSize)
+   at NLog.Targets.FileTarget.OpenNewFileStream(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithDirectory(String filePath, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileTarget.CreateFileStreamWithRetry(IFileAppender fileAppender, Int32 bufferSize, Boolean initialFileOpen)
+   at NLog.Targets.FileAppenders.ExclusiveFileLockingAppender..ctor(FileTarget fileTarget, String filePath)
+   at NLog.Targets.FileTarget.CreateFileAppender(String filePath)
+   at NLog.Targets.FileTarget.OpenFile(String filename, LogEventInfo firstLogEvent, Nullable`1 previousFileLastModified, Int32 sequenceNumber)
+   at NLog.Targets.FileTarget.WriteBytesToFile(String filename, LogEventInfo firstLogEvent, MemoryStream ms)
+   at NLog.Targets.FileTarget.Write(LogEventInfo logEvent)
+2026-03-29 01:37:20.7169 Info LogFactory shutting down ...
+2026-03-29 01:37:20.7246 Info Closing old configuration.
+2026-03-29 01:37:20.7246 Info LogFactory shutdown completed.
+2026-03-29 01:39:31.4940 Info LogFactory shutting down ...
+2026-03-29 01:39:31.4940 Info Closing old configuration.
+2026-03-29 01:39:31.4940 Info LogFactory shutdown completed.
+2026-03-29 01:39:46.6414 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-29 01:39:46.6508 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-29 01:39:46.6508 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:39:46.6645 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-29 01:39:46.6645 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:39:46.6645 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-29 01:39:46.6645 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:39:46.6645 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-29 01:39:46.6645 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-29 01:39:46.7034 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-29 01:39:46.9904 Info LogFactory shutting down ...
+2026-03-29 01:39:46.9904 Info Closing old configuration.
+2026-03-29 01:39:47.0115 Info LogFactory shutdown completed.
+2026-03-29 01:42:43.6033 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-29 01:42:43.6156 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-29 01:42:43.6156 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:42:43.6156 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-29 01:42:43.6328 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:42:43.6328 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-29 01:42:43.6328 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:42:43.6328 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-29 01:42:43.6328 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-29 01:42:43.6730 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-29 01:46:42.3053 Info LogFactory shutting down ...
+2026-03-29 01:46:42.3053 Info Closing old configuration.
+2026-03-29 01:46:42.3053 Info LogFactory shutdown completed.
+2026-03-29 01:55:15.5233 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-29 01:55:15.5233 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-29 01:55:15.5233 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:55:15.5443 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-29 01:55:15.5443 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:55:15.5443 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-29 01:55:15.5443 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 01:55:15.5443 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-29 01:55:15.5546 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-29 01:55:15.5926 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-29 01:55:15.9631 Info LogFactory shutting down ...
+2026-03-29 01:55:15.9631 Info Closing old configuration.
+2026-03-29 01:55:15.9781 Info LogFactory shutdown completed.
+2026-03-29 02:24:04.0620 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-29 02:24:04.0620 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-29 02:24:04.0738 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 02:24:04.0864 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-29 02:24:04.0864 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 02:24:04.0864 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-29 02:24:04.0864 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 02:24:04.0864 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-29 02:24:04.0864 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-29 02:24:04.1290 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-29 02:47:09.6906 Info LogFactory shutting down ...
+2026-03-29 02:47:09.6974 Info Closing old configuration.
+2026-03-29 02:47:09.7280 Info LogFactory shutdown completed.
+2026-03-29 02:47:48.2944 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-29 02:47:48.3034 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-29 02:47:48.3034 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 02:47:48.3269 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-29 02:47:48.3269 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 02:47:48.3269 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-29 02:47:48.3269 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 02:47:48.3269 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-29 02:47:48.3399 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-29 02:47:48.3785 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-29 02:50:03.3188 Info LogFactory shutting down ...
+2026-03-29 02:50:03.3188 Info Closing old configuration.
+2026-03-29 02:50:03.3188 Info LogFactory shutdown completed.
+2026-03-29 02:50:27.4477 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-29 02:50:27.4653 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-29 02:50:27.4653 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 02:50:27.4894 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-29 02:50:27.4920 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 02:50:27.4920 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-29 02:50:27.4920 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 02:50:27.4920 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-29 02:50:27.4920 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-29 02:50:27.5493 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-29 22:46:05.9245 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-29 22:46:05.9386 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-29 22:46:05.9386 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 22:46:05.9584 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-29 22:46:05.9584 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 22:46:05.9584 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-29 22:46:05.9584 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 22:46:05.9584 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-29 22:46:05.9732 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-29 22:46:06.0090 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-03-29 22:50:53.2504 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-03-29 22:50:53.2504 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-03-29 22:50:53.2640 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 22:50:53.2784 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-03-29 22:50:53.2784 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 22:50:53.2784 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-03-29 22:50:53.2784 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-03-29 22:50:53.2784 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-03-29 22:50:53.2784 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-29 22:50:53.3205 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config
+2026-04-06 23:41:15.8244 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2026-04-06 23:41:15.8244 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'OnExceptionLayoutRendererWrapper' has same property 'Inner=' assigned twice
+2026-04-06 23:41:15.8244 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-04-06 23:41:15.8526 Info Registered target NLog.Targets.FileTarget(Name=appFile)
+2026-04-06 23:41:15.8526 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-04-06 23:41:15.8526 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2026-04-06 23:41:15.8585 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'FileTarget' cannot assign unknown property 'concurrentWrites'='true'
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString[T](T targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2026-04-06 23:41:15.8585 Info Registered target NLog.Targets.FileTarget(Name=auditFile)
+2026-04-06 23:41:15.8585 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-04-06 23:41:15.9117 Info Configuration initialized: TargetNames=errorFile, auditFile, console, appFile, ConfigItems=88, AutoReload=true, FilePath=C:\Users\Priya Devrani\Desktop\Final_Project\bin\Debug\net10.0\nlog.config

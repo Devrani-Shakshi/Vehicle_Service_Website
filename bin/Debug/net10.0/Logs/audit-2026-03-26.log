@@ -1,0 +1,79 @@
+2026-03-26 23:35:57.0207|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:05:57.014 by Anonymous
+2026-03-26 23:35:57.1748|POST|http://localhost/hubs/notification/negotiate|401||||HTTP POST /hubs/notification/negotiate responded 401 in 159.9ms
+2026-03-26 23:35:59.2038|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:05:59.203 by Anonymous
+2026-03-26 23:35:59.2211|POST|http://localhost/hubs/notification/negotiate|401||||HTTP POST /hubs/notification/negotiate responded 401 in 17.9ms
+2026-03-26 23:36:09.7354|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:06:09.735 by Anonymous
+2026-03-26 23:36:09.7354|POST|http://localhost/hubs/notification/negotiate|401||||HTTP POST /hubs/notification/negotiate responded 401 in 2.0ms
+2026-03-26 23:36:40.7347|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:06:40.734 by Anonymous
+2026-03-26 23:36:40.7347|POST|http://localhost/hubs/notification/negotiate|401||||HTTP POST /hubs/notification/negotiate responded 401 in 5.3ms
+2026-03-26 23:40:52.9264|GET|http://localhost/Account/Login|200||Account|Login|HTTP GET /Account/Login started at 18:10:52.924 by Anonymous
+2026-03-26 23:40:53.4609|GET|http://localhost/Account/Login|200||Account|Login|HTTP GET /Account/Login responded 200 in 536.0ms
+2026-03-26 23:42:12.4553|POST|http://localhost/Account/Login|200||Account|Login|HTTP POST /Account/Login started at 18:12:12.452 by Anonymous
+2026-03-26 23:42:15.3998|POST|http://localhost/Account/Login|302|admin@serviceplatform.com|Account|Login|HTTP POST /Account/Login responded 302 in 2947.2ms
+2026-03-26 23:42:15.4237|GET|http://localhost/Admin|200||Admin|Index|HTTP GET /Admin started at 18:12:15.423 by Anonymous
+2026-03-26 23:42:16.5127|GET|http://localhost/Admin|200|admin@serviceplatform.com|Admin|Index|HTTP GET /Admin responded 200 in 1089.1ms
+2026-03-26 23:42:17.0994|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:12:17.099 by Anonymous
+2026-03-26 23:42:17.0994|GET|http://localhost/Notification/GetNotifications|200||Notification|GetNotifications|HTTP GET /Notification/GetNotifications started at 18:12:17.106 by Anonymous
+2026-03-26 23:42:17.1576|POST|http://localhost/hubs/notification/negotiate|200|admin@serviceplatform.com|||HTTP POST /hubs/notification/negotiate responded 200 in 58.1ms
+2026-03-26 23:42:17.2052|GET|http://localhost/hubs/notification|200||||HTTP GET /hubs/notification started at 18:12:17.205 by Anonymous
+2026-03-26 23:42:17.6706|GET|http://localhost/Notification/GetNotifications|200|admin@serviceplatform.com|Notification|GetNotifications|HTTP GET /Notification/GetNotifications responded 200 in 564.1ms
+2026-03-26 23:42:29.9581|GET|http://localhost/Admin/Users|200||Admin|Users|HTTP GET /Admin/Users started at 18:12:29.958 by Anonymous
+2026-03-26 23:42:30.1597|GET|http://localhost/Admin/Users|200|admin@serviceplatform.com|Admin|Users|HTTP GET /Admin/Users responded 200 in 201.6ms
+2026-03-26 23:42:30.2226|GET|http://localhost/hubs/notification|101|admin@serviceplatform.com|||HTTP GET /hubs/notification responded 101 in 13017.4ms
+2026-03-26 23:42:30.3165|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:12:30.316 by Anonymous
+2026-03-26 23:42:30.3209|POST|http://localhost/hubs/notification/negotiate|200|admin@serviceplatform.com|||HTTP POST /hubs/notification/negotiate responded 200 in 4.3ms
+2026-03-26 23:42:30.3209|GET|http://localhost/Notification/GetNotifications|200||Notification|GetNotifications|HTTP GET /Notification/GetNotifications started at 18:12:30.329 by Anonymous
+2026-03-26 23:42:30.3459|GET|http://localhost/hubs/notification|200||||HTTP GET /hubs/notification started at 18:12:30.345 by Anonymous
+2026-03-26 23:42:30.3564|GET|http://localhost/Notification/GetNotifications|200|admin@serviceplatform.com|Notification|GetNotifications|HTTP GET /Notification/GetNotifications responded 200 in 29.1ms
+2026-03-26 23:42:52.0294|POST|http://localhost/Admin/ToggleUserStatus|200||Admin|ToggleUserStatus|HTTP POST /Admin/ToggleUserStatus started at 18:12:52.029 by Anonymous
+2026-03-26 23:42:52.2207|POST|http://localhost/Admin/ToggleUserStatus|302|admin@serviceplatform.com|Admin|ToggleUserStatus|HTTP POST /Admin/ToggleUserStatus responded 302 in 191.3ms
+2026-03-26 23:42:52.2302|GET|http://localhost/Admin/Users|200||Admin|Users|HTTP GET /Admin/Users started at 18:12:52.230 by Anonymous
+2026-03-26 23:42:52.2986|GET|http://localhost/Admin/Users|200|admin@serviceplatform.com|Admin|Users|HTTP GET /Admin/Users responded 200 in 68.4ms
+2026-03-26 23:42:52.3087|GET|http://localhost/hubs/notification|101|admin@serviceplatform.com|||HTTP GET /hubs/notification responded 101 in 21962.8ms
+2026-03-26 23:42:52.3658|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:12:52.365 by Anonymous
+2026-03-26 23:42:52.3674|GET|http://localhost/Notification/GetNotifications|200||Notification|GetNotifications|HTTP GET /Notification/GetNotifications started at 18:12:52.367 by Anonymous
+2026-03-26 23:42:52.3674|POST|http://localhost/hubs/notification/negotiate|200|admin@serviceplatform.com|||HTTP POST /hubs/notification/negotiate responded 200 in 1.7ms
+2026-03-26 23:42:52.3674|GET|http://localhost/Notification/GetNotifications|200|admin@serviceplatform.com|Notification|GetNotifications|HTTP GET /Notification/GetNotifications responded 200 in 9.2ms
+2026-03-26 23:42:52.4125|GET|http://localhost/hubs/notification|200||||HTTP GET /hubs/notification started at 18:12:52.412 by Anonymous
+2026-03-26 23:43:10.9437|GET|http://localhost/Admin|200||Admin|Index|HTTP GET /Admin started at 18:13:10.943 by Anonymous
+2026-03-26 23:43:11.0658|GET|http://localhost/Admin|200|admin@serviceplatform.com|Admin|Index|HTTP GET /Admin responded 200 in 122.2ms
+2026-03-26 23:43:11.0763|GET|http://localhost/hubs/notification|101|admin@serviceplatform.com|||HTTP GET /hubs/notification responded 101 in 18663.8ms
+2026-03-26 23:43:11.2307|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:13:11.230 by Anonymous
+2026-03-26 23:43:11.2307|POST|http://localhost/hubs/notification/negotiate|200|admin@serviceplatform.com|||HTTP POST /hubs/notification/negotiate responded 200 in 3.1ms
+2026-03-26 23:43:11.2307|GET|http://localhost/Notification/GetNotifications|200||Notification|GetNotifications|HTTP GET /Notification/GetNotifications started at 18:13:11.234 by Anonymous
+2026-03-26 23:43:11.2490|GET|http://localhost/Notification/GetNotifications|200|admin@serviceplatform.com|Notification|GetNotifications|HTTP GET /Notification/GetNotifications responded 200 in 15.4ms
+2026-03-26 23:43:11.2623|GET|http://localhost/hubs/notification|200||||HTTP GET /hubs/notification started at 18:13:11.262 by Anonymous
+2026-03-26 23:43:31.4318|GET|http://localhost/Admin/ServiceRequestDetails/5|200||Admin|ServiceRequestDetails|HTTP GET /Admin/ServiceRequestDetails/5 started at 18:13:31.431 by Anonymous
+2026-03-26 23:43:31.7255|GET|http://localhost/Admin/ServiceRequestDetails/5|200|admin@serviceplatform.com|Admin|ServiceRequestDetails|HTTP GET /Admin/ServiceRequestDetails/5 responded 200 in 293.6ms
+2026-03-26 23:43:31.7438|GET|http://localhost/hubs/notification|101|admin@serviceplatform.com|||HTTP GET /hubs/notification responded 101 in 20481.5ms
+2026-03-26 23:43:31.8090|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:13:31.809 by Anonymous
+2026-03-26 23:43:31.8090|POST|http://localhost/hubs/notification/negotiate|200|admin@serviceplatform.com|||HTTP POST /hubs/notification/negotiate responded 200 in 1.7ms
+2026-03-26 23:43:31.8090|GET|http://localhost/Notification/GetNotifications|200||Notification|GetNotifications|HTTP GET /Notification/GetNotifications started at 18:13:31.813 by Anonymous
+2026-03-26 23:43:31.8216|GET|http://localhost/Notification/GetNotifications|200|admin@serviceplatform.com|Notification|GetNotifications|HTTP GET /Notification/GetNotifications responded 200 in 8.9ms
+2026-03-26 23:43:31.8761|GET|http://localhost/hubs/notification|200||||HTTP GET /hubs/notification started at 18:13:31.876 by Anonymous
+2026-03-26 23:43:42.2556|POST|http://localhost/Admin/UpdateRequestStatus|200||Admin|UpdateRequestStatus|HTTP POST /Admin/UpdateRequestStatus started at 18:13:42.255 by Anonymous
+2026-03-26 23:43:42.3631|POST|http://localhost/Admin/UpdateRequestStatus|302|admin@serviceplatform.com|Admin|UpdateRequestStatus|HTTP POST /Admin/UpdateRequestStatus responded 302 in 107.5ms
+2026-03-26 23:43:42.3685|GET|http://localhost/Admin/ServiceRequestDetails/5|200||Admin|ServiceRequestDetails|HTTP GET /Admin/ServiceRequestDetails/5 started at 18:13:42.368 by Anonymous
+2026-03-26 23:43:42.4128|GET|http://localhost/Admin/ServiceRequestDetails/5|200|admin@serviceplatform.com|Admin|ServiceRequestDetails|HTTP GET /Admin/ServiceRequestDetails/5 responded 200 in 44.3ms
+2026-03-26 23:43:42.4128|GET|http://localhost/hubs/notification|101|admin@serviceplatform.com|||HTTP GET /hubs/notification responded 101 in 10550.0ms
+2026-03-26 23:43:42.4950|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:13:42.495 by Anonymous
+2026-03-26 23:43:42.4950|POST|http://localhost/hubs/notification/negotiate|200|admin@serviceplatform.com|||HTTP POST /hubs/notification/negotiate responded 200 in 1.0ms
+2026-03-26 23:43:42.4950|GET|http://localhost/Notification/GetNotifications|200||Notification|GetNotifications|HTTP GET /Notification/GetNotifications started at 18:13:42.496 by Anonymous
+2026-03-26 23:43:42.5056|GET|http://localhost/Notification/GetNotifications|200|admin@serviceplatform.com|Notification|GetNotifications|HTTP GET /Notification/GetNotifications responded 200 in 8.9ms
+2026-03-26 23:43:42.5245|GET|http://localhost/hubs/notification|200||||HTTP GET /hubs/notification started at 18:13:42.524 by Anonymous
+2026-03-26 23:43:52.1334|GET|http://localhost/Admin/Orders|200||Admin|Orders|HTTP GET /Admin/Orders started at 18:13:52.133 by Anonymous
+2026-03-26 23:43:52.3508|GET|http://localhost/Admin/Orders|200|admin@serviceplatform.com|Admin|Orders|HTTP GET /Admin/Orders responded 200 in 217.4ms
+2026-03-26 23:43:52.3508|GET|http://localhost/hubs/notification|101|admin@serviceplatform.com|||HTTP GET /hubs/notification responded 101 in 9835.5ms
+2026-03-26 23:43:52.4547|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:13:52.454 by Anonymous
+2026-03-26 23:43:52.4547|GET|http://localhost/Notification/GetNotifications|200||Notification|GetNotifications|HTTP GET /Notification/GetNotifications started at 18:13:52.458 by Anonymous
+2026-03-26 23:43:52.4547|POST|http://localhost/hubs/notification/negotiate|200|admin@serviceplatform.com|||HTTP POST /hubs/notification/negotiate responded 200 in 5.1ms
+2026-03-26 23:43:52.4748|GET|http://localhost/Notification/GetNotifications|200|admin@serviceplatform.com|Notification|GetNotifications|HTTP GET /Notification/GetNotifications responded 200 in 16.5ms
+2026-03-26 23:43:52.5158|GET|http://localhost/hubs/notification|200||||HTTP GET /hubs/notification started at 18:13:52.515 by Anonymous
+2026-03-26 23:44:10.2357|GET|http://localhost/Admin/ServiceRequests|200||Admin|ServiceRequests|HTTP GET /Admin/ServiceRequests started at 18:14:10.235 by Anonymous
+2026-03-26 23:44:10.4342|GET|http://localhost/Admin/ServiceRequests|200|admin@serviceplatform.com|Admin|ServiceRequests|HTTP GET /Admin/ServiceRequests responded 200 in 198.6ms
+2026-03-26 23:44:10.4625|GET|http://localhost/hubs/notification|101|admin@serviceplatform.com|||HTTP GET /hubs/notification responded 101 in 17946.6ms
+2026-03-26 23:44:10.5916|POST|http://localhost/hubs/notification/negotiate|200||||HTTP POST /hubs/notification/negotiate started at 18:14:10.591 by Anonymous
+2026-03-26 23:44:10.5916|POST|http://localhost/hubs/notification/negotiate|200|admin@serviceplatform.com|||HTTP POST /hubs/notification/negotiate responded 200 in 2.7ms
+2026-03-26 23:44:10.5916|GET|http://localhost/Notification/GetNotifications|200||Notification|GetNotifications|HTTP GET /Notification/GetNotifications started at 18:14:10.595 by Anonymous
+2026-03-26 23:44:10.6138|GET|http://localhost/hubs/notification|200||||HTTP GET /hubs/notification started at 18:14:10.613 by Anonymous
+2026-03-26 23:44:10.6159|GET|http://localhost/Notification/GetNotifications|200|admin@serviceplatform.com|Notification|GetNotifications|HTTP GET /Notification/GetNotifications responded 200 in 22.0ms

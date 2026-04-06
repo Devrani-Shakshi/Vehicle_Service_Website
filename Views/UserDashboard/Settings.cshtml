@@ -1,0 +1,26 @@
+@model ServicePlatform.Models.ApplicationUser
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Settings"; }
+
+<div style="max-width:700px;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header"><h5><i class="fas fa-cog" style="color:var(--primary-light);margin-right:8px;"></i>Profile Settings</h5></div>
+        <div class="data-card-body">
+            <form asp-action="Settings" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-floating-custom"><label>Full Name</label><input name="fullName" value="@Model?.FullName" class="form-control" required /></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="form-floating-custom"><label>Email</label><input value="@Model?.Email" class="form-control" disabled style="opacity:0.6;" /></div>
+                    <div class="form-floating-custom"><label>Mobile</label><input name="mobile" value="@Model?.Mobile" class="form-control" /></div>
+                </div>
+                <div class="form-floating-custom">
+                    <label>State</label>
+                    <select name="state" class="form-control">
+                        @foreach (var s in ServicePlatform.Helpers.AppConstants.AllStates) { <option value="@s" selected="@(Model?.State == s)">@s</option> }
+                    </select>
+                </div>
+                <div class="form-floating-custom"><label>Address</label><textarea name="address" class="form-control" rows="2">@Model?.Address</textarea></div>
+                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;"><i class="fas fa-save"></i> Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>

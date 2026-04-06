@@ -1,0 +1,28 @@
+@model IEnumerable<ServicePlatform.Models.ServiceRequest>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "My Requests"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header"><h5><i class="fas fa-tasks" style="color:var(--primary-light);margin-right:8px;"></i>Assigned Requests</h5></div>
+    <table class="table-custom">
+        <thead><tr><th>Request</th><th>User</th><th>Type</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+        <tbody>
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <td style="font-weight:600;"><a href="/ServiceProvider/RequestDetails/@r.Id">@r.Title</a></td>
+                    <td>@r.User.FullName</td>
+                    <td><span class="badge-custom badge-@(r.RequestType.ToString().ToLower() == "urgent" ? "danger" : "primary")">@r.RequestType</span></td>
+                    <td><span class="badge-custom badge-@r.Status.ToString().ToLower()">@r.Status</span></td>
+                    <td style="font-size:0.8rem;color:var(--text-muted);">@r.CreatedAt.ToString("MMM dd")</td>
+                    <td>
+                        @if (r.Status == ServicePlatform.Models.ServiceRequestStatus.Accepted || r.Status == ServicePlatform.Models.ServiceRequestStatus.InProgress)
+                        {
+                            <form asp-action="CompleteRequest" method="post" style="display:inline;"><input type="hidden" name="id" value="@r.Id" />@Html.AntiForgeryToken()<button class="btn-success-custom" style="padding:6px 14px;font-size:0.8rem;"><i class="fas fa-check-double"></i> Complete</button></form>
+                        }
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="6" class="empty-state"><p>No requests assigned</p></td></tr> }
+        </tbody>
+    </table>
+</div>

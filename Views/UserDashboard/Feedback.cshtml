@@ -1,0 +1,22 @@
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Feedback & Suggestions"; }
+
+<div style="max-width:700px;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header"><h5><i class="fas fa-comment-dots" style="color:var(--primary-light);margin-right:8px;"></i>Send Feedback</h5></div>
+        <div class="data-card-body">
+            <form asp-action="Feedback" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-floating-custom"><label>Subject</label><input name="subject" class="form-control" required placeholder="Feedback subject" /></div>
+                <div class="form-floating-custom">
+                    <label>Category</label>
+                    <select name="category" class="form-control">
+                        <option value="">General</option><option>Service Quality</option><option>Product Issue</option>
+                        <option>App Bug</option><option>Feature Request</option><option>Other</option>
+                    </select>
+                </div>
+                <div class="form-floating-custom"><label>Message</label><textarea name="message" class="form-control" rows="5" required placeholder="Your feedback..."></textarea></div>
+                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+</div>

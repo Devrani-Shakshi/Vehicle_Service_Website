@@ -1,0 +1,28 @@
+@model ServicePlatform.Models.Payment
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Order Confirmed"; }
+
+<div style="max-width:600px;margin:0 auto;">
+    <div class="data-card animate-fadeInUp text-center">
+        <div class="data-card-body" style="padding:3rem;">
+            <div style="width:80px;height:80px;border-radius:50%;background:rgba(16,185,129,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;">
+                <i class="fas fa-check" style="font-size:2.5rem;color:var(--success);"></i>
+            </div>
+            <h3 style="font-weight:800;margin-bottom:0.5rem;">Payment Successful!</h3>
+            <p style="color:var(--text-muted);margin-bottom:2rem;">Your order has been placed successfully</p>
+            <div style="background:var(--bg-primary);border-radius:var(--radius-md);padding:1.5rem;text-align:left;margin-bottom:1.5rem;">
+                <div class="summary-row" style="display:flex;justify-content:space-between;margin-bottom:0.5rem;"><span style="color:var(--text-muted);">Transaction ID</span><span style="font-family:monospace;">@Model.TransactionId</span></div>
+                <div class="summary-row" style="display:flex;justify-content:space-between;margin-bottom:0.5rem;"><span style="color:var(--text-muted);">Amount Paid</span><span style="font-weight:700;color:var(--success);">₹@Model.Amount.ToString("N2")</span></div>
+                <div class="summary-row" style="display:flex;justify-content:space-between;margin-bottom:0.5rem;"><span style="color:var(--text-muted);">Gateway</span><span>@Model.Gateway</span></div>
+                @if (Model.Order != null && Model.Order.ExpectedDeliveryDate.HasValue)
+                {
+                    <div class="summary-row" style="display:flex;justify-content:space-between;margin-bottom:0.5rem;"><span style="color:var(--text-muted);">Expected Delivery</span><span style="font-weight:700;color:var(--primary-light);">@Model.Order.ExpectedDeliveryDate.Value.ToString("MMM dd, yyyy")</span></div>
+                }
+                <div class="summary-row" style="display:flex;justify-content:space-between;"><span style="color:var(--text-muted);">Date</span><span>@Model.CompletedAt?.ToString("MMM dd, yyyy HH:mm")</span></div>
+            </div>
+            <div style="display:flex;gap:1rem;justify-content:center;">
+                <a href="/Shop/MyOrders" class="btn-primary-custom"><i class="fas fa-box"></i> View Orders</a>
+                <a href="/Shop" class="btn-outline-custom"><i class="fas fa-store"></i> Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+</div>

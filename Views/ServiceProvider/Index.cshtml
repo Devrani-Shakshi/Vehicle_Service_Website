@@ -1,0 +1,90 @@
+@model ServicePlatform.ViewModels.Service.ServiceProviderDashboardViewModel
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Service Provider Dashboard"; }
+
+<h4 class="animate-fadeInUp" style="margin-bottom:0.25rem;">Welcome, <span style="background:var(--primary-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">@Model.ProviderName</span></h4>
+<p class="animate-fadeInUp" style="color:var(--text-muted);margin-bottom:2rem;">Manage your service requests and track performance</p>
+
+<div class="stats-grid">
+    <div class="stat-card animate-fadeInUp"><div class="stat-icon warning"><i class="fas fa-clock"></i></div><div class="stat-info"><h3>@Model.PendingRequests</h3><p>Pending Requests</p></div></div>
+    <div class="stat-card animate-fadeInUp-delay-1"><div class="stat-icon info"><i class="fas fa-tasks"></i></div><div class="stat-info"><h3>@Model.AcceptedRequests</h3><p>Active</p></div></div>
+    <div class="stat-card animate-fadeInUp-delay-2"><div class="stat-icon success"><i class="fas fa-check-circle"></i></div><div class="stat-info"><h3>@Model.CompletedRequests</h3><p>Completed</p></div></div>
+    <div class="stat-card animate-fadeInUp-delay-3"><div class="stat-icon primary"><i class="fas fa-star"></i></div><div class="stat-info"><h3>@Model.AverageRating.ToString("F1")</h3><p>Avg Rating (@Model.TotalReviews reviews)</p></div></div>
+</div>
+
+<!-- Pending Requests -->
+<div class="data-card animate-fadeInUp-delay-2">
+    <div class="data-card-header">
+        <h5 style="display:flex;align-items:center;gap:8px;"><i class="fas fa-clock" style="color:var(--accent);"></i>Pending Requests</h5>
+        <div style="display:flex;gap:1rem;align-items:center;">
+             <input type="text" id="pendingSearch" class="form-control" placeholder="Search requests..." style="width:180px;padding:6px 12px;font-size:0.8rem;" />
+             <a href="/ServiceProvider/PendingRequests" style="font-size:0.8rem;">View All</a>
+        </div>
+    </div>
+    <table class="table-custom" id="pendingTable">
+        <thead><tr><th>Request</th><th>User</th><th>Type</th><th>Location</th><th>Date</th><th>Actions</th></tr></thead>
+        <tbody>
+            @foreach (var r in Model.PendingRequestsList)
+            {
+                <tr>
+                    <td style="font-weight:600;">@r.Title</td>
+                    <td>@r.User.FullName</td>
+                    <td><span class="badge-custom badge-@(r.RequestType.ToString().ToLower() == "urgent" ? "danger" : "primary")">@r.RequestType</span></td>
+                    <td>
+                        @if (r.Latitude.HasValue)
+                        {
+                            <a href="/ServiceProvider/ViewLocation/@r.Id" class="btn-outline-custom" style="padding:4px 10px;font-size:0.75rem;"><i class="fas fa-map-marker-alt"></i> Map</a>
+                        }
+                        else { <span style="color:var(--text-muted);">—</span> }
+                    </td>
+                    <td style="font-size:0.8rem;color:var(--text-muted);">@r.CreatedAt.ToString("MMM dd")</td>
+                    <td style="display:flex;gap:6px;">
+                        <form asp-action="AcceptRequest" method="post" style="display:inline;"><input type="hidden" name="id" value="@r.Id" />@Html.AntiForgeryToken()<button type="submit" class="btn-success-custom" style="padding:6px 14px;font-size:0.8rem;" data-bs-toggle="tooltip" data-bs-title="Accept this request"><i class="fas fa-check"></i></button></form>
+                        <form asp-action="RejectRequest" method="post" style="display:inline;"><input type="hidden" name="id" value="@r.Id" />@Html.AntiForgeryToken()<button type="submit" class="btn-danger-custom" style="padding:6px 14px;font-size:0.8rem;" data-bs-toggle="tooltip" data-bs-title="Reject this request"><i class="fas fa-times"></i></button></form>
+                    </td>
+                </tr>
+            }
+            @if (!Model.PendingRequestsList.Any())
+            {
+                <tr><td colspan="6" class="empty-state"><i class="fas fa-inbox"></i><p>No pending requests</p></td></tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Active Requests -->
+<div class="data-card animate-fadeInUp-delay-3">
+    <div class="data-card-header">
+        <h5 style="display:flex;align-items:center;gap:8px;"><i class="fas fa-tasks" style="color:var(--info);"></i>Active Requests</h5>
+        <input type="text" id="activeSearch" class="form-control" placeholder="Search active..." style="width:150px;padding:6px 12px;font-size:0.8rem;" />
+    </div>
+    <table class="table-custom" id="activeTable">
+        <thead><tr><th>Request</th><th>User</th><th>Status</th><th>Accepted</th><th>Actions</th></tr></thead>
+        <tbody>
+            @foreach (var r in Model.ActiveRequests)
+            {
+                <tr>
+                    <td style="font-weight:600;"><a href="/ServiceProvider/RequestDetails/@r.Id">@r.Title</a></td>
+                    <td>@r.User.FullName</td>
+                    <td><span class="badge-custom badge-@r.Status.ToString().ToLower()">@r.Status</span></td>
+                    <td style="font-size:0.8rem;color:var(--text-muted);">@r.AcceptedAt?.ToString("MMM dd")</td>
+                    <td>
+                        <form asp-action="CompleteRequest" method="post" style="display:inline;"><input type="hidden" name="id" value="@r.Id" />@Html.AntiForgeryToken()<button type="submit" class="btn-success-custom" style="padding:6px 14px;font-size:0.8rem;"><i class="fas fa-check-double"></i> Complete</button></form>
+                    </td>
+                </tr>
+            }
+            @if (!Model.ActiveRequests.Any())
+            {
+                <tr><td colspan="5" class="empty-state"><i class="fas fa-tasks"></i><p>No active requests</p></td></tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initTableSearch('pendingSearch', 'pendingTable');
+            initTableSearch('activeSearch', 'activeTable');
+        });
+    </script>
+}

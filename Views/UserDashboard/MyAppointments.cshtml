@@ -1,0 +1,25 @@
+@model IEnumerable<ServicePlatform.Models.Appointment>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "My Appointments"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header">
+        <h5><i class="fas fa-calendar-alt" style="color:var(--primary-light);margin-right:8px;"></i>Appointments</h5>
+        <a href="/UserDashboard/BookAppointment" class="btn-primary-custom" style="padding:8px 20px;font-size:0.85rem;"><i class="fas fa-plus"></i> Book New</a>
+    </div>
+    <table class="table-custom">
+        <thead><tr><th>Title</th><th>Date</th><th>Time</th><th>Provider</th><th>Status</th></tr></thead>
+        <tbody>
+            @foreach (var a in Model)
+            {
+                <tr>
+                    <td style="font-weight:600;">@a.Title</td>
+                    <td>@a.ScheduledDate.ToString("MMM dd, yyyy")</td>
+                    <td>@(a.TimeSlot ?? "—")</td>
+                    <td>@(a.ServiceProvider?.FullName ?? "Not assigned")</td>
+                    <td><span class="badge-custom badge-@a.Status.ToString().ToLower()">@a.Status</span></td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="5" class="empty-state"><i class="fas fa-calendar"></i><h5>No appointments</h5><p>Book your first appointment</p></td></tr> }
+        </tbody>
+    </table>
+</div>

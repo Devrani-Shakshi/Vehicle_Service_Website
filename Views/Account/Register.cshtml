@@ -1,0 +1,89 @@
+@{
+    Layout = "_Layout";
+}
+@model ServicePlatform.ViewModels.Account.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+<div class="auth-page">
+    <div class="auth-card animate-fadeInUp">
+        <div style="text-align:center;margin-bottom:1.5rem;">
+            <i class="fas fa-bolt" style="font-size:2.5rem;background:var(--primary-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:pulse 2s infinite;"></i>
+        </div>
+        <h2>Create Account</h2>
+        <p class="subtitle">Join ServicePlatform and get started</p>
+
+        <div asp-validation-summary="ModelOnly" style="color:var(--danger);font-size:0.85rem;margin-bottom:1rem;text-align:center;"></div>
+
+        <form asp-action="Register" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-floating-custom">
+                <label asp-for="FullName">Full Name</label>
+                <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
+                <i class="fas fa-user input-icon"></i>
+                <span asp-validation-for="FullName" style="color:var(--danger);font-size:0.8rem;"></span>
+            </div>
+
+            <div class="form-floating-custom">
+                <label asp-for="Email">Email Address</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="your@email.com" />
+                <i class="fas fa-envelope input-icon"></i>
+                <span asp-validation-for="Email" style="color:var(--danger);font-size:0.8rem;"></span>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                <div class="form-floating-custom">
+                    <label asp-for="Mobile">Mobile</label>
+                    <input asp-for="Mobile" class="form-control" placeholder="9876543210" />
+                    <span asp-validation-for="Mobile" style="color:var(--danger);font-size:0.8rem;"></span>
+                </div>
+                <div class="form-floating-custom">
+                    <label asp-for="State">State</label>
+                    <select asp-for="State" class="form-control">
+                        <option value="">Select State</option>
+                        @foreach (var state in ViewBag.States as string[])
+                        {
+                            <option value="@state">@state</option>
+                        }
+                    </select>
+                    <span asp-validation-for="State" style="color:var(--danger);font-size:0.8rem;"></span>
+                </div>
+            </div>
+
+            <div class="form-floating-custom">
+                <label asp-for="Role">Register As</label>
+                <select asp-for="Role" class="form-control">
+                    <option value="User">User</option>
+                    <option value="ServiceProvider">Service Provider</option>
+                    <option value="Shopkeeper">Shopkeeper</option>
+                </select>
+                <span asp-validation-for="Role" style="color:var(--danger);font-size:0.8rem;"></span>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                <div class="form-floating-custom">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Min 8 characters" />
+                    <span asp-validation-for="Password" style="color:var(--danger);font-size:0.8rem;"></span>
+                </div>
+                <div class="form-floating-custom">
+                    <label asp-for="ConfirmPassword">Confirm</label>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Re-enter password" />
+                    <span asp-validation-for="ConfirmPassword" style="color:var(--danger);font-size:0.8rem;"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;margin-top:0.5rem;">
+                <i class="fas fa-user-plus"></i> Create Account
+            </button>
+        </form>
+
+        <p style="text-align:center;margin-top:1.5rem;color:var(--text-secondary);font-size:0.9rem;">
+            Already have an account? <a href="/Account/Login">Sign in</a><br/>
+            <a href="/Account/ForgotPassword" style="font-size:0.8rem;margin-top:8px;display:inline-block;">Forgot Password?</a>
+        </p>
+    </div>
+</div>

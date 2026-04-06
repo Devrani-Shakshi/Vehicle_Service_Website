@@ -1,0 +1,73 @@
+@{
+    Layout = "_Layout";
+}
+@model ServicePlatform.ViewModels.Account.LoginViewModel
+
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<div class="auth-page">
+    <div class="auth-card animate-fadeInUp">
+        <div style="text-align:center;margin-bottom:1.5rem;">
+            <i class="fas fa-bolt" style="font-size:2.5rem;background:var(--primary-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:pulse 2s infinite;"></i>
+        </div>
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Sign in to your ServicePlatform account</p>
+
+        <div asp-validation-summary="ModelOnly" style="color:var(--danger);font-size:0.85rem;margin-bottom:1rem;text-align:center;background:rgba(239,68,68,0.1);padding:10px;border-radius:8px;"></div>
+
+        <form asp-action="Login" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+
+            <div class="form-floating-custom">
+                <label asp-for="Email">Email Address</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="your@email.com" autofocus />
+                <i class="fas fa-envelope input-icon"></i>
+                <span asp-validation-for="Email" style="color:var(--danger);font-size:0.8rem;"></span>
+            </div>
+
+            <div class="form-floating-custom">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                <i class="fas fa-lock input-icon"></i>
+                <span asp-validation-for="Password" style="color:var(--danger);font-size:0.8rem;"></span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+                <label style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-size:0.85rem;cursor:pointer;">
+                    <input asp-for="RememberMe" type="checkbox" style="accent-color:var(--primary);width:16px;height:16px;" />
+                    Remember me
+                </label>
+                <a href="/Account/ForgotPassword" style="font-size:0.85rem;color:var(--primary);text-decoration:none;">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;">
+                <i class="fas fa-sign-in-alt"></i> Sign In
+            </button>
+        </form>
+
+        <p style="text-align:center;margin-top:1.5rem;color:var(--text-secondary);font-size:0.9rem;">
+            Don't have an account? <a href="/Account/Register">Create one</a>
+        </p>
+
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border-color);">
+            <p style="color:var(--text-muted);font-size:0.8rem;text-align:center;margin-bottom:0.75rem;">Demo Accounts</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.75rem;">
+                <div style="background:var(--bg-input);padding:8px 12px;border-radius:6px;color:var(--text-secondary);">
+                    <strong>Admin:</strong> admin@@serviceplatform.com<br/>Pass: Admin@@123456
+                </div>
+                <div style="background:var(--bg-input);padding:8px 12px;border-radius:6px;color:var(--text-secondary);">
+                    <strong>User:</strong> user@@serviceplatform.com<br/>Pass: User@@123456
+                </div>
+                <div style="background:var(--bg-input);padding:8px 12px;border-radius:6px;color:var(--text-secondary);">
+                    <strong>Provider:</strong> provider@@serviceplatform.com<br/>Pass: Provider@@123456
+                </div>
+                <div style="background:var(--bg-input);padding:8px 12px;border-radius:6px;color:var(--text-secondary);">
+                    <strong>Shop:</strong> shop@@serviceplatform.com<br/>Pass: Shop@@123456
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+@model ServicePlatform.Models.Product
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = Model.Name; }
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:900px;">
+    <div class="data-card animate-fadeInUp" style="overflow:hidden;">
+        <div class="product-image" style="height:350px;">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl)) { <img src="@Model.ImageUrl" alt="@Model.Name" /> }
+            else { <i class="fas fa-box" style="font-size:5rem;"></i> }
+        </div>
+    </div>
+    <div class="animate-fadeInUp-delay-1">
+        <span class="badge-custom badge-primary" style="margin-bottom:1rem;">@(Model.Category ?? "Uncategorized")</span>
+        <h2 style="font-weight:800;margin-bottom:1rem;">@Model.Name</h2>
+        <div class="product-price" style="margin-bottom:1.5rem;">
+            @if (Model.DiscountPrice.HasValue)
+            {
+                <span class="current" style="font-size:2rem;">₹@Model.DiscountPrice.Value.ToString("N0")</span>
+                <span class="original" style="font-size:1.2rem;">₹@Model.Price.ToString("N0")</span>
+                <span class="badge-custom badge-completed">@(((1 - Model.DiscountPrice.Value / Model.Price) * 100).ToString("F0"))% off</span>
+            }
+            else { <span class="current" style="font-size:2rem;">₹@Model.Price.ToString("N0")</span> }
+        </div>
+        @if (!string.IsNullOrEmpty(Model.Description))
+        {
+            <p style="color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.8;">@Model.Description</p>
+        }
+        <div style="margin-bottom:1.5rem;">
+            <span style="color:var(--text-muted);font-size:0.85rem;">Stock: </span>
+            <span class="badge-custom @(Model.StockQuantity > 0 ? "badge-completed" : "badge-danger")">
+                @(Model.StockQuantity > 0 ? $"{Model.StockQuantity} available" : "Out of stock")
+            </span>
+        </div>
+        @if (!string.IsNullOrEmpty(Model.SKU))
+        {
+            <p style="color:var(--text-muted);font-size:0.8rem;">SKU: @Model.SKU</p>
+        }
+        <form asp-controller="Shop" asp-action="AddToCart" method="post" style="display:flex;gap:1rem;margin-top:1rem;">
+            <input type="hidden" name="productId" value="@Model.Id" />
+            <input type="number" name="quantity" value="1" min="1" max="@Model.StockQuantity" class="form-control" style="width:100px;background:var(--bg-input);border:1px solid var(--border-color);color:var(--text-primary);padding:10px;border-radius:var(--radius-sm);" />
+            <button type="submit" class="btn-primary-custom" style="flex:1;justify-content:center;"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </form>
+        <p style="margin-top:1rem;font-size:0.8rem;color:var(--text-muted);">Sold by: @Model.Shopkeeper.FullName</p>
+    </div>
+</div>
