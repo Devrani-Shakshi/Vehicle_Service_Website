@@ -2,7 +2,7 @@
 
 Service Platform EV is a robust, enterprise-grade ASP.NET Core application designed to streamline the management of electric vehicle (EV) service requests. The platform connects vehicle owners with service providers and shopkeepers, providing a seamless experience for tracking services, managing commissions, and monitoring performance through interactive dashboards.
 
-## 🚀 Features
+ Features
 
 - **Multi-Role Dashboards**: Specialized interfaces for Administrators, Service Providers, and Shopkeepers.
 - **Service Request Management**: Complete lifecycle tracking of vehicle service requests from initiation to completion.
@@ -12,7 +12,7 @@ Service Platform EV is a robust, enterprise-grade ASP.NET Core application desig
 - **Service Reminders**: Automated reminders for upcoming vehicle maintenance.
 - **Data Seeding**: Robust database initialization with comprehensive seed data.
 
-## 🛠️ Technology Stack
+ Technology Stack
 
 - **Backend**: ASP.NET Core 8.0
 - **Database**: SQL Server / Entity Framework Core
@@ -20,7 +20,7 @@ Service Platform EV is a robust, enterprise-grade ASP.NET Core application desig
 - **Logging**: NLog
 - **Authentication**: ASP.NET Core Identity
 
-## 📂 Project Structure
+Project Structure
 
 - `/Controllers`: Application logic and request handling.
 - `/Models`: Database entities and domain models.
@@ -29,14 +29,14 @@ Service Platform EV is a robust, enterprise-grade ASP.NET Core application desig
 - `/Data`: Database context and migration history.
 - `/wwwroot`: Static assets (CSS, JS, Images).
 
-## 🔧 Getting Started
+Getting Started
 
-### Prerequisites
+Prerequisites
 - .NET 8.0 SDK
 - SQL Server (LocalDB or Express)
 - Visual Studio 2022 or VS Code
 
-### Installation
+Installation
 1. Clone the repository:
    ```bash
    git clone https://github.com/Devrani-Shakshi/Vehicle_Service_Website.git
@@ -54,8 +54,6 @@ Service Platform EV is a robust, enterprise-grade ASP.NET Core application desig
    ```bash
    dotnet run
    ```
-
-## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
