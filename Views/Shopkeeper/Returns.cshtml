@@ -1,0 +1,42 @@
+@model IEnumerable<ServicePlatform.Models.Order>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Return Requests"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header"><h5><i class="fas fa-undo" style="color:var(--danger);margin-right:8px;"></i>Return Requests</h5></div>
+    <table class="table-custom">
+        <thead><tr><th>Order #</th><th>Customer</th><th>Reason</th><th>Requested</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody>
+            @foreach (var o in Model)
+            {
+                <tr>
+                    <td style="font-weight:600;">@o.OrderNumber</td>
+                    <td>@(o.User?.FullName ?? "—")</td>
+                    <td style="max-width:200px;white-space:normal;">@(o.ReturnReason ?? "No reason provided")</td>
+                    <td>@o.ReturnRequestedAt?.ToString("dd MMM yyyy")</td>
+                    <td>
+                        @if (o.IsReturnApproved == true) { <span class="badge-custom badge-completed">Approved</span> }
+                        else if (o.IsReturnApproved == false) { <span class="badge-custom badge-rejected">Rejected</span> }
+                        else { <span class="badge-custom badge-pending">Pending Review</span> }
+                    </td>
+                    <td>
+                        @if (o.IsReturnApproved == null)
+                        {
+                            <div style="display:flex;gap:6px;">
+                                <form asp-action="ProcessReturn" method="post" style="display:inline;">
+                                    <input type="hidden" name="orderId" value="@o.Id" /><input type="hidden" name="approve" value="true" />@Html.AntiForgeryToken()
+                                    <button type="submit" class="btn-primary-custom" style="padding:6px 14px;font-size:0.8rem;" onclick="return confirm('Approve this return?')"><i class="fas fa-check"></i></button>
+                                </form>
+                                <form asp-action="ProcessReturn" method="post" style="display:inline;">
+                                    <input type="hidden" name="orderId" value="@o.Id" /><input type="hidden" name="approve" value="false" />@Html.AntiForgeryToken()
+                                    <button type="submit" class="btn-danger-custom" style="padding:6px 14px;font-size:0.8rem;" onclick="return confirm('Reject this return?')"><i class="fas fa-times"></i></button>
+                                </form>
+                            </div>
+                        }
+                        else { <span style="color:var(--text-muted);">Processed</span> }
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="6" class="empty-state"><i class="fas fa-box-open"></i><h5>No returns</h5><p>No return requests pending</p></td></tr> }
+        </tbody>
+    </table>
+</div>

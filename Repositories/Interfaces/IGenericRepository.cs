@@ -17,4 +17,7 @@ public interface IGenericRepository<T> where T : class
     void RemoveRange(IEnumerable<T> entities);
     Task<int> SaveChangesAsync();
     IQueryable<T> Query();
+    Task<Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction> BeginTransactionAsync();
+    Task CommitTransactionAsync(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction transaction);
+    Task RollbackTransactionAsync(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction transaction);
 }

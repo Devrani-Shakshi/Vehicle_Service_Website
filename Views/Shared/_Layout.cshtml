@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ServicePlatform</title>
+    <title>@ViewData["Title"] - @Configuration["GlobalSettings:AppName"]</title>
     <meta name="description" content="Integrated Service Management & Shopping Platform - Book services, shop online, manage your business" />
 
     <!-- Google Fonts -->
@@ -20,14 +20,27 @@
     <!-- Animate.css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
 
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="manifest" href="/manifest.json" />
 
     @RenderSection("Styles", required: false)
     <script>
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('SW Registered', reg))
+                    .catch(err => console.log('SW Failed', err));
+            });
         }
     </script>
 </head>
@@ -57,7 +70,19 @@
 
     <!-- Site JS -->
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        console.log("=========================================");
+        console.log("PAGE LOADED: " + window.location.pathname);
+        console.log("Time: " + new Date().toLocaleTimeString());
+        console.log("=========================================");
+    </script>
 
     @RenderSection("Scripts", required: false)
+
+    <!-- Floating AI Assistant -->
+    <a href="/Diagnostic" class="floating-bot-btn" title="Ask AI for Help">
+        <i class="fas fa-robot"></i>
+        <span class="floating-bot-badge">AI</span>
+    </a>
 </body>
 </html>

@@ -16,7 +16,23 @@
                     <td>@a.ScheduledDate.ToString("MMM dd, yyyy")</td>
                     <td>@(a.TimeSlot ?? "—")</td>
                     <td>@(a.ServiceProvider?.FullName ?? "Not assigned")</td>
-                    <td><span class="badge-custom badge-@a.Status.ToString().ToLower()">@a.Status</span></td>
+                    <td>
+                        @{
+                            var badgeClass = a.Status.ToString().ToLower();
+                            var statusText = a.Status.ToString();
+                            if (a.Status == ServicePlatform.Models.AppointmentStatus.Requested)
+                            {
+                                badgeClass = "pending";
+                                statusText = "Requested";
+                            }
+                            else if (a.Status == ServicePlatform.Models.AppointmentStatus.Scheduled)
+                            {
+                                badgeClass = "scheduled";
+                                statusText = "Scheduled";
+                            }
+                        }
+                        <span class="badge-custom badge-@badgeClass">@statusText</span>
+                    </td>
                 </tr>
             }
             @if (!Model.Any()) { <tr><td colspan="5" class="empty-state"><i class="fas fa-calendar"></i><h5>No appointments</h5><p>Book your first appointment</p></td></tr> }

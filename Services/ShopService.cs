@@ -3,14 +3,21 @@ using ServicePlatform.Models;
 using ServicePlatform.Repositories.Interfaces;
 using ServicePlatform.Services.Interfaces;
 using ServicePlatform.ViewModels.Shop;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace ServicePlatform.Services;
 
 public class ProductService : IProductService
 {
     private readonly IGenericRepository<Product> _repository;
+    private readonly Microsoft.Extensions.Caching.Memory.IMemoryCache _cache;
 
-    public ProductService(IGenericRepository<Product> repository) => _repository = repository;
+    public ProductService(IGenericRepository<Product> repository, Microsoft.Extensions.Caching.Memory.IMemoryCache cache)
+    {
+        _repository = repository;
+        _cache = cache;
+    }
 
     public async Task<Product> CreateProductAsync(ProductViewModel model, string shopkeeperId)
     {
@@ -76,6 +83,13 @@ public class ProductService : IProductService
 
     public async Task<ShopCatalogViewModel> GetCatalogAsync(string? search, string? category, string? sortBy, int page, int pageSize)
     {
+        string cacheKey = $"catalog_{search}_{category}_{sortBy}_{page}_{pageSize}";
+        
+        if (_cache.TryGetValue<ShopCatalogViewModel>(cacheKey, out var cachedResult))
+        {
+            return cachedResult!;
+        }
+
         var query = _repository.Query().Where(p => p.IsActive);
 
         if (!string.IsNullOrEmpty(search))
@@ -97,7 +111,7 @@ public class ProductService : IProductService
         var products = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
         var categories = await _repository.Query().Where(p => p.IsActive && p.Category != null).Select(p => p.Category!).Distinct().ToListAsync();
 
-        return new ShopCatalogViewModel
+        var result = new ShopCatalogViewModel
         {
             Products = products,
             SearchTerm = search,
@@ -105,9 +119,13 @@ public class ProductService : IProductService
             SortBy = sortBy,
             CurrentPage = page,
             PageSize = pageSize,
-            TotalPages = (int)Math.Ceiling((double)totalItems / pageSize),
+            TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize),
             Categories = categories
         };
+
+        _cache.Set(cacheKey, result, TimeSpan.FromMinutes(10));
+
+        return result;
     }
 
     public async Task<List<string>> GetCategoriesAsync() =>
@@ -116,6 +134,18 @@ public class ProductService : IProductService
             .Select(p => p.Category!)
             .Distinct()
             .ToListAsync();
+
+    public async Task<bool> UpdateStockAsync(int id, int quantity, string shopkeeperId)
+    {
+        var product = await _repository.FirstOrDefaultAsync(p => p.Id == id && p.ShopkeeperId == shopkeeperId);
+        if (product == null) return false;
+
+        product.StockQuantity = quantity;
+        product.UpdatedAt = DateTime.UtcNow;
+        _repository.Update(product);
+        await _repository.SaveChangesAsync();
+        return true;
+    }
 }
 
 public class CartService : ICartService
@@ -226,29 +256,42 @@ public class OrderService : IOrderService
         var cart = await _cartService.GetCartAsync(userId);
         if (!cart.Items.Any()) throw new InvalidOperationException("Cart is empty");
 
-        var order = new Order
+        using var transaction = await _orderRepository.BeginTransactionAsync();
+        try
         {
-            OrderNumber = $"ORD-{DateTime.UtcNow:yyyyMMdd}-{Guid.NewGuid().ToString()[..8].ToUpper()}",
-            TotalAmount = cart.Total,
-            TaxAmount = cart.Tax,
-            ShippingAddress = shippingAddress,
-            Notes = notes,
-            UserId = userId,
-            Status = OrderStatus.Pending,
-            ExpectedDeliveryDate = DateTime.UtcNow.AddDays(7),
-            OrderItems = cart.Items.Select(i => new OrderItem
+            var order = new Order
             {
-                ProductId = i.ProductId,
-                Quantity = i.Quantity,
-                UnitPrice = i.UnitPrice,
-                TotalPrice = i.TotalPrice
-            }).ToList()
-        };
+                OrderNumber = $"ORD-{DateTime.UtcNow:yyyyMMdd}-{Guid.NewGuid().ToString()[..8].ToUpper()}",
+                TotalAmount = cart.Total,
+                TaxAmount = cart.Tax,
+                ShippingAddress = shippingAddress,
+                Notes = notes,
+                UserId = userId,
+                Status = OrderStatus.Pending,
+                ExpectedDeliveryDate = DateTime.UtcNow.AddDays(7),
+                OrderItems = cart.Items.Select(i => new OrderItem
+                {
+                    ProductId = i.ProductId,
+                    Quantity = i.Quantity,
+                    UnitPrice = i.UnitPrice,
+                    TotalPrice = i.TotalPrice
+                }).ToList()
+            };
 
-        await _orderRepository.AddAsync(order);
-        await _orderRepository.SaveChangesAsync();
-        await _cartService.ClearCartAsync(userId);
-        return order;
+            await _orderRepository.AddAsync(order);
+            await _orderRepository.SaveChangesAsync();
+
+            // Clear cart
+            await _cartService.ClearCartAsync(userId);
+
+            await transaction.CommitAsync();
+            return order;
+        }
+        catch (Exception)
+        {
+            await transaction.RollbackAsync();
+            throw;
+        }
     }
 
     public async Task<IEnumerable<Order>> GetUserOrdersAsync(string userId) =>
@@ -266,12 +309,21 @@ public class OrderService : IOrderService
             .OrderByDescending(o => o.CreatedAt)
             .ToListAsync();
 
-    public async Task<Order?> GetByIdAsync(int id) =>
-        await _orderRepository.Query()
+    public async Task<Order?> GetByIdAsync(int id, string? userId = null)
+    {
+        var query = _orderRepository.Query()
             .Include(o => o.OrderItems).ThenInclude(oi => oi.Product)
             .Include(o => o.User)
             .Include(o => o.Payment)
-            .FirstOrDefaultAsync(o => o.Id == id);
+            .AsQueryable();
+
+        if (userId != null)
+        {
+            query = query.Where(o => o.UserId == userId || o.OrderItems.Any(oi => oi.Product.ShopkeeperId == userId));
+        }
+
+        return await query.FirstOrDefaultAsync(o => o.Id == id);
+    }
 
     public async Task<bool> UpdateStatusAsync(int id, OrderStatus status)
     {
@@ -285,11 +337,13 @@ public class OrderService : IOrderService
         return true;
     }
 
-    public async Task<IEnumerable<Order>> GetAllOrdersAsync() =>
+    public async Task<IEnumerable<Order>> GetAllOrdersAsync(int page = 1, int pageSize = 10) =>
         await _orderRepository.Query()
             .Include(o => o.User)
             .Include(o => o.OrderItems)
             .OrderByDescending(o => o.CreatedAt)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync();
 
     public async Task<int> GetOrderCountAsync(OrderStatus? status = null, string? userId = null)
@@ -299,22 +353,40 @@ public class OrderService : IOrderService
         if (userId != null) query = query.Where(o => o.UserId == userId);
         return await query.CountAsync();
     }
+
+    public async Task<bool> UpdateShippingInfoAsync(int id, string trackingNumber, string carrier, OrderStatus newStatus)
+    {
+        var order = await _orderRepository.GetByIdAsync(id);
+        if (order == null) return false;
+
+        order.TrackingNumber = trackingNumber;
+        order.Carrier = carrier;
+        order.Status = newStatus;
+        if (newStatus == OrderStatus.Shipped) order.ShippedDate = DateTime.UtcNow;
+        if (newStatus == OrderStatus.Delivered) order.DeliveredDate = DateTime.UtcNow;
+
+        _orderRepository.Update(order);
+        await _orderRepository.SaveChangesAsync();
+        return true;
+    }
 }
 
 public class PaymentService : IPaymentService
 {
-    private readonly IGenericRepository<Payment> _repository;
+    private readonly IGenericRepository<ServicePlatform.Models.Payment> _repository;
     private readonly INotificationService _notificationService;
+    private readonly IConfiguration _configuration;
 
-    public PaymentService(IGenericRepository<Payment> repository, INotificationService notificationService)
+    public PaymentService(IGenericRepository<ServicePlatform.Models.Payment> repository, INotificationService notificationService, IConfiguration configuration)
     {
         _repository = repository;
         _notificationService = notificationService;
+        _configuration = configuration;
     }
 
-    public async Task<Payment> CreatePaymentAsync(string userId, decimal amount, PaymentGateway gateway, int? orderId = null, int? serviceRequestId = null)
+    public async Task<ServicePlatform.Models.Payment> CreatePaymentAsync(string userId, decimal amount, PaymentGateway gateway, int? orderId = null, int? serviceRequestId = null)
     {
-        var payment = new Payment
+        var payment = new ServicePlatform.Models.Payment
         {
             Amount = amount,
             Gateway = gateway,
@@ -328,6 +400,16 @@ public class PaymentService : IPaymentService
         await _repository.AddAsync(payment);
         await _repository.SaveChangesAsync();
         return payment;
+    }
+
+    public async Task<bool> UpdateGatewayOrderIdAsync(int paymentId, string gatewayOrderId)
+    {
+        var payment = await _repository.GetByIdAsync(paymentId);
+        if (payment == null) return false;
+        payment.GatewayOrderId = gatewayOrderId;
+        _repository.Update(payment);
+        await _repository.SaveChangesAsync();
+        return true;
     }
 
     public async Task<bool> CompletePaymentAsync(int paymentId, string transactionId, string? gatewayPaymentId = null, string? signature = null)
@@ -351,6 +433,72 @@ public class PaymentService : IPaymentService
         return true;
     }
 
+    public async Task<string> InitializeRazorpayOrderAsync(int paymentId)
+    {
+        var payment = await _repository.GetByIdAsync(paymentId);
+        if (payment == null) throw new ArgumentException("Payment not found");
+
+        string keyId = _configuration["PaymentSettings:Razorpay:KeyId"] ?? "";
+        string keySecret = _configuration["PaymentSettings:Razorpay:KeySecret"] ?? "";
+
+        Razorpay.Api.RazorpayClient client = new Razorpay.Api.RazorpayClient(keyId, keySecret);
+        Dictionary<string, object> options = new Dictionary<string, object>();
+        options.Add("amount", (int)(payment.Amount * 100)); // amount in paise
+        options.Add("currency", "INR");
+        options.Add("receipt", $"receipt_{payment.Id}");
+
+        Razorpay.Api.Order order = client.Order.Create(options);
+        string razorpayOrderId = order["id"].ToString();
+
+        payment.GatewayOrderId = razorpayOrderId;
+        _repository.Update(payment);
+        await _repository.SaveChangesAsync();
+
+        return razorpayOrderId;
+    }
+
+    public async Task<string> InitializeStripeSessionAsync(int paymentId, string successUrl, string cancelUrl)
+    {
+        var payment = await _repository.GetByIdAsync(paymentId);
+        if (payment == null) throw new ArgumentException("Payment not found");
+
+        Stripe.StripeConfiguration.ApiKey = _configuration["PaymentSettings:Stripe:SecretKey"];
+
+        var options = new Stripe.Checkout.SessionCreateOptions
+        {
+            PaymentMethodTypes = new List<string> { "card" },
+            LineItems = new List<Stripe.Checkout.SessionLineItemOptions>
+            {
+                new Stripe.Checkout.SessionLineItemOptions
+                {
+                    PriceData = new Stripe.Checkout.SessionLineItemPriceDataOptions
+                    {
+                        UnitAmount = (long)(payment.Amount * 100),
+                        Currency = "inr",
+                        ProductData = new Stripe.Checkout.SessionLineItemPriceDataProductDataOptions
+                        {
+                            Name = $"Service Platform Order #{payment.OrderId ?? payment.Id}",
+                        },
+                    },
+                    Quantity = 1,
+                },
+            },
+            Mode = "payment",
+            SuccessUrl = successUrl,
+            CancelUrl = cancelUrl,
+            ClientReferenceId = payment.Id.ToString()
+        };
+
+        var service = new Stripe.Checkout.SessionService();
+        Stripe.Checkout.Session session = await service.CreateAsync(options);
+
+        payment.GatewayOrderId = session.Id;
+        _repository.Update(payment);
+        await _repository.SaveChangesAsync();
+
+        return session.Id;
+    }
+
     public async Task<bool> FailPaymentAsync(int paymentId, string reason)
     {
         var payment = await _repository.GetByIdAsync(paymentId);
@@ -363,7 +511,7 @@ public class PaymentService : IPaymentService
         return true;
     }
 
-    public async Task<IEnumerable<Payment>> GetUserPaymentsAsync(string userId) =>
+    public async Task<IEnumerable<ServicePlatform.Models.Payment>> GetUserPaymentsAsync(string userId) =>
         await _repository.Query()
             .Include(p => p.Order)
             .Include(p => p.ServiceRequest)
@@ -371,27 +519,29 @@ public class PaymentService : IPaymentService
             .OrderByDescending(p => p.CreatedAt)
             .ToListAsync();
 
-    public async Task<IEnumerable<Payment>> GetAllPaymentsAsync() =>
+    public async Task<IEnumerable<ServicePlatform.Models.Payment>> GetAllPaymentsAsync(int page = 1, int pageSize = 10) =>
         await _repository.Query()
             .Include(p => p.User)
             .Include(p => p.Order)
             .OrderByDescending(p => p.CreatedAt)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync();
 
     public async Task<decimal> GetTotalRevenueAsync() =>
         await _repository.Query()
             .Where(p => p.Status == PaymentStatus.Completed)
-            .SumAsync(p => p.Amount);
+            .SumAsync(p => (decimal?)p.Amount) ?? 0;
 
     public async Task<decimal> GetMonthlyRevenueAsync()
     {
         var firstOfMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
         return await _repository.Query()
             .Where(p => p.Status == PaymentStatus.Completed && p.CompletedAt >= firstOfMonth)
-            .SumAsync(p => p.Amount);
+            .SumAsync(p => (decimal?)p.Amount) ?? 0;
     }
 
-    public async Task<Payment?> GetByIdAsync(int id) =>
+    public async Task<ServicePlatform.Models.Payment?> GetByIdAsync(int id) =>
         await _repository.Query()
             .Include(p => p.User)
             .Include(p => p.Order)

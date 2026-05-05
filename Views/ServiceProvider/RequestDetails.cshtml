@@ -30,26 +30,84 @@
         </div>
     </div>
 
-    @if (Model.Latitude.HasValue && Model.Longitude.HasValue)
-    {
-        <div class="data-card animate-fadeInUp-delay-1">
-            <div class="data-card-header"><h5><i class="fas fa-map-marker-alt" style="color:var(--danger);margin-right:8px;"></i>Location</h5></div>
-            <div class="data-card-body" style="padding:0;">
-                <div id="detailMap" class="map-container" style="border-radius:0 0 var(--radius-lg) var(--radius-lg);"></div>
+    <!-- Real-time Chat Section -->
+    <div class="data-card animate-fadeInUp-delay-2">
+        <div class="data-card-header"><h5><i class="fas fa-comments" style="color:var(--info);margin-right:8px;"></i>Live Support Chat</h5></div>
+        <div class="data-card-body" style="display:flex; flex-direction:column; height:450px;">
+            <div id="chatMessages" style="flex:1; overflow-y:auto; padding:1rem; background:var(--bg-primary); border-radius:var(--radius-md); margin-bottom:1rem; display:flex; flex-direction:column; gap:0.75rem;">
+                <div style="text-align:center; color:var(--text-muted); font-size:0.8rem; margin:1rem 0;">Connection secured. Start chatting with the user.</div>
+            </div>
+            <div style="display:flex; gap:10px;">
+                <input type="text" id="chatInput" class="form-control" placeholder="Type a message..." style="flex:1;" />
+                <button id="sendBtn" class="btn-primary-custom" style="padding:0 20px;"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
-    }
+    </div>
 </div>
 
 @if (Model.Latitude.HasValue && Model.Longitude.HasValue)
 {
-    @section Styles { <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /> }
-    @section Scripts {
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-        <script>
-            var map = L.map('detailMap').setView([@Model.Latitude, @Model.Longitude], 15);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
-            L.marker([@Model.Latitude, @Model.Longitude]).addTo(map).bindPopup('<strong>@Model.Title</strong>').openPopup();
-        </script>
-    }
+    <div class="data-card animate-fadeInUp-delay-3" style="margin-top:1.5rem;">
+        <div class="data-card-header"><h5><i class="fas fa-map-marker-alt" style="color:var(--danger);margin-right:8px;"></i>Location</h5></div>
+        <div class="data-card-body" style="padding:0;">
+            <div id="detailMap" class="map-container" style="height:300px; border-radius:0 0 var(--radius-lg) var(--radius-lg);"></div>
+        </div>
+    </div>
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+}
+
+@section Scripts {
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            @if (Model.Latitude.HasValue && Model.Longitude.HasValue)
+            {
+                <text>
+                var map = L.map('detailMap').setView([@Model.Latitude, @Model.Longitude], 15);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
+                L.marker([@Model.Latitude, @Model.Longitude]).addTo(map).bindPopup('<strong>@Model.Title</strong>').openPopup();
+                </text>
+            }
+
+            // --- SignalR Chat ---
+            const chatConnection = new signalR.HubConnectionBuilder()
+                .withUrl("/hubs/chat")
+                .withAutomaticReconnect()
+                .build();
+
+            chatConnection.on("ReceiveMessage", function(user, message, time) {
+                const msgList = document.getElementById("chatMessages");
+                const isMine = user === "@User.Identity?.Name";
+                const msgHtml = `
+                    <div style="align-self: ${isMine ? 'flex-end' : 'flex-start'}; max-width: 80%;">
+                        <div style="background: ${isMine ? 'var(--primary)' : 'var(--bg-card)'}; color: ${isMine ? 'white' : 'var(--text-primary)'}; padding: 8px 12px; border-radius: 12px; border-bottom-${isMine ? 'right' : 'left'}-radius: 2px; box-shadow: var(--shadow-sm); font-size: 0.9rem;">
+                            ${message}
+                        </div>
+                        <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; text-align: ${isMine ? 'right' : 'left'}">${time}</div>
+                    </div>
+                `;
+                msgList.insertAdjacentHTML('beforeend', msgHtml);
+                msgList.scrollTop = msgList.scrollHeight;
+            });
+
+            chatConnection.start().then(() => {
+                chatConnection.invoke("JoinGroup", "@Model.Id");
+            }).catch(err => console.error(err));
+
+            document.getElementById("sendBtn").addEventListener("click", sendMessage);
+            document.getElementById("chatInput").addEventListener("keypress", e => { if(e.key === 'Enter') sendMessage(); });
+
+            function sendMessage() {
+                const input = document.getElementById("chatInput");
+                const msg = input.value.trim();
+                if(msg) {
+                    chatConnection.invoke("SendMessage", "@Model.Id", "@User.Identity?.Name", msg);
+                    input.value = "";
+                }
+            }
+        });
+    </script>
 }

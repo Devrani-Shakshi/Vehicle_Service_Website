@@ -28,6 +28,19 @@ public class ServiceRequestViewModel
 
     [MaxLength(1000)]
     public string? Notes { get; set; }
+
+    [Range(0, 100, ErrorMessage = "Battery SOH must be between 0 and 100%")]
+    [Display(Name = "Battery State of Health (%)")]
+    public int? BatteryStateOfHealth { get; set; }
+
+    [Display(Name = "Kilometers Driven")]
+    public long? KilometersDriven { get; set; }
+
+    [MaxLength(100)]
+    [Display(Name = "Vehicle Model")]
+    public string? VehicleModelName { get; set; }
+
+    public int? VehicleModelId { get; set; }
 }
 
 public class AppointmentViewModel
@@ -41,12 +54,25 @@ public class AppointmentViewModel
 
     [Required(ErrorMessage = "Appointment date and time is required")]
     [DataType(DataType.DateTime)]
+    [FutureDate(ErrorMessage = "Appointment date must be today or a future date")]
     public DateTime ScheduledDate { get; set; } = DateTime.Now.AddDays(1);
 
     [MaxLength(100)]
     public string? TimeSlot { get; set; }
 
     public string? ServiceProviderId { get; set; }
+}
+
+public class FutureDateAttribute : ValidationAttribute
+{
+    public override bool IsValid(object? value)
+    {
+        if (value is DateTime date)
+        {
+            return date.Date >= DateTime.Today;
+        }
+        return true;
+    }
 }
 
 public class UserDashboardViewModel
@@ -59,6 +85,16 @@ public class UserDashboardViewModel
     public List<ServiceRequest> RecentRequests { get; set; } = new();
     public List<Appointment> UpcomingAppointmentsList { get; set; } = new();
     public List<Order> RecentOrders { get; set; } = new();
+
+    // Analytics
+    public List<BatteryHealthPoint> BatteryHealthHistory { get; set; } = new();
+    public int VehicleHealthScore { get; set; }
+}
+
+public class BatteryHealthPoint
+{
+    public string Date { get; set; } = string.Empty;
+    public int Health { get; set; }
 }
 
 public class ServiceProviderDashboardViewModel
@@ -73,6 +109,22 @@ public class ServiceProviderDashboardViewModel
     public List<ServiceRequest> PendingRequestsList { get; set; } = new();
     public List<ServiceRequest> ActiveRequests { get; set; } = new();
     public List<Rating> RecentRatings { get; set; } = new();
+
+    // Analytics
+    public List<ServiceCategoryStat> CategoryStats { get; set; } = new();
+    public List<MonthlyRevenuePoint> RevenueTrend { get; set; } = new();
+}
+
+public class ServiceCategoryStat
+{
+    public string Category { get; set; } = string.Empty;
+    public int Count { get; set; }
+}
+
+public class MonthlyRevenuePoint
+{
+    public string Month { get; set; } = string.Empty;
+    public decimal Amount { get; set; }
 }
 
 public class RatingViewModel

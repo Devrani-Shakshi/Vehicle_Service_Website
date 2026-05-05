@@ -6,8 +6,15 @@ namespace ServicePlatform.Models;
 public enum ServiceRequestType
 {
     General,
-    Urgent,
     Breakdown
+}
+
+public enum BreakdownSubType
+{
+    General,
+    MobileCharging, // SOS Giant power bank
+    FlatbedTowing, // EV-Safe towing
+    SoftwareGlitch
 }
 
 public enum ServiceRequestStatus
@@ -32,6 +39,7 @@ public class ServiceRequest
     public string Description { get; set; } = string.Empty;
 
     public ServiceRequestType RequestType { get; set; } = ServiceRequestType.General;
+    public BreakdownSubType? BreakdownType { get; set; }
     public ServiceRequestStatus Status { get; set; } = ServiceRequestStatus.Pending;
 
     [MaxLength(100)]
@@ -42,6 +50,14 @@ public class ServiceRequest
 
     [MaxLength(500)]
     public string? LocationAddress { get; set; }
+
+    [Range(0, 100)]
+    public int? BatteryStateOfHealth { get; set; } // EV specific: Percentage
+
+    public long? KilometersDriven { get; set; } // For service interval tracking
+
+    [MaxLength(100)]
+    public string? VehicleModelName { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? AcceptedAt { get; set; }
@@ -66,4 +82,8 @@ public class ServiceRequest
 
     public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
     public virtual Payment? Payment { get; set; }
+
+    public int? VehicleModelId { get; set; }
+    [ForeignKey("VehicleModelId")]
+    public virtual VehicleModel? VehicleModel { get; set; }
 }

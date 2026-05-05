@@ -31,6 +31,7 @@ public class Payment
 
     public PaymentStatus Status { get; set; } = PaymentStatus.Pending;
     public PaymentGateway Gateway { get; set; }
+    public string PaymentMethod { get; set; } = "Online";
 
     [MaxLength(200)]
     public string? TransactionId { get; set; }

@@ -5,6 +5,7 @@ namespace ServicePlatform.Models;
 
 public enum AppointmentStatus
 {
+    Requested,
     Scheduled,
     Confirmed,
     InProgress,
@@ -28,11 +29,14 @@ public class Appointment
     [MaxLength(100)]
     public string? TimeSlot { get; set; }
 
-    public AppointmentStatus Status { get; set; } = AppointmentStatus.Scheduled;
+    public AppointmentStatus Status { get; set; } = AppointmentStatus.Requested;
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; set; }
     public bool IsDeleted { get; set; } = false;
+
+    [Timestamp]
+    public byte[] RowVersion { get; set; } = null!;
 
     // Foreign keys
     [Required]

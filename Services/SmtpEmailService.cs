@@ -15,6 +15,38 @@ public class SmtpEmailService : IEmailService
         _logger = logger;
     }
 
+    public bool IsConfigured
+    {
+        get
+        {
+            try
+            {
+                var smtpSettings = _config.GetSection("SmtpSettings");
+                var host = smtpSettings["Host"];
+                var username = smtpSettings["Username"];
+                var password = smtpSettings["Password"];
+
+                var configured = !string.IsNullOrEmpty(host) && 
+                                !string.IsNullOrEmpty(username) && 
+                                !username.Contains("your-email") && 
+                                !string.IsNullOrEmpty(password) && 
+                                !password.Contains("your-app-password");
+                
+                if (!configured)
+                {
+                    _logger.LogWarning("Email service is NOT configured. Host: {Host}, User: {User}, HasPass: {HasPass}", 
+                        host, username, !string.IsNullOrEmpty(password));
+                }
+                return configured;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error checking email configuration status");
+                return false;
+            }
+        }
+    }
+
     public async Task SendEmailAsync(string to, string subject, string body)
     {
         try
@@ -26,11 +58,7 @@ public class SmtpEmailService : IEmailService
             var password = smtpSettings["Password"];
             var fromEmail = smtpSettings["FromEmail"] ?? username;
 
-            var useRealSmtp = !string.IsNullOrEmpty(host) && 
-                              !string.IsNullOrEmpty(username) && 
-                              !username.Contains("your-email@gmail.com") && 
-                              !string.IsNullOrEmpty(password) && 
-                              !password.Contains("your-app-password");
+            var useRealSmtp = IsConfigured;
 
             using var client = new SmtpClient();
 
@@ -62,14 +90,30 @@ public class SmtpEmailService : IEmailService
 
             var mailMessage = new MailMessage
             {
-                From = new MailAddress(useRealSmtp ? fromEmail : "noreply@serviceplatform.com", "ServicePlatform"),
+                From = new MailAddress(useRealSmtp ? (fromEmail ?? "noreply@serviceplatform.com") : "noreply@serviceplatform.com", "ServicePlatform"),
                 Subject = subject,
                 Body = body,
                 IsBodyHtml = true
             };
             mailMessage.To.Add(to);
 
-            await client.SendMailAsync(mailMessage);
+            // Resilience: Simple Retry Logic
+            int maxRetries = 3;
+            int delayMs = 2000;
+
+            for (int i = 0; i < maxRetries; i++)
+            {
+                try
+                {
+                    await client.SendMailAsync(mailMessage);
+                    break; // Success
+                }
+                catch (Exception ex) when (i < maxRetries - 1)
+                {
+                    _logger.LogWarning(ex, "Email delivery attempt {Attempt} failed, retrying in {Delay}ms...", i + 1, delayMs);
+                    await Task.Delay(delayMs);
+                }
+            }
             
             if (useRealSmtp)
             {

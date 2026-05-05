@@ -1,0 +1,26 @@
+@model IEnumerable<ServicePlatform.Models.ServiceRequest>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Service Reminders"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header"><h5><i class="fas fa-bell" style="color:var(--warning);margin-right:8px;"></i>Service Reminders</h5></div>
+    <div class="data-card-body" style="padding:1.5rem;">
+        <p style="color:var(--text-muted);margin-bottom:1.5rem;">Vehicles serviced over 6 months ago that may need maintenance:</p>
+        @if (Model.Any())
+        {
+            @foreach (var r in Model)
+            {
+                <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;">
+                    <div>
+                        <p style="font-weight:600;margin:0;">@r.Title</p>
+                        <p style="color:var(--text-muted);font-size:0.85rem;margin:0.25rem 0 0;">Completed: @r.CompletedAt?.ToString("dd MMM yyyy") — @((int)(DateTime.UtcNow - (r.CompletedAt ?? DateTime.UtcNow)).TotalDays) days ago</p>
+                    </div>
+                    <a href="/UserDashboard/CreateRequest" class="btn-primary-custom" style="padding:8px 16px;font-size:0.85rem;"><i class="fas fa-redo"></i> Rebook</a>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="empty-state" style="text-align:center;padding:3rem;"><i class="fas fa-check-circle" style="font-size:3rem;color:var(--success);margin-bottom:1rem;"></i><h5>All Clear!</h5><p>No overdue maintenance reminders</p></div>
+        }
+    </div>
+</div>

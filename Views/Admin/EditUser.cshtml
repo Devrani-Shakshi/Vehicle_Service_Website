@@ -1,0 +1,39 @@
+@model ServicePlatform.ViewModels.Admin.UserEditViewModel
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Edit User: " + Model.FullName; }
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="data-card animate-fadeInUp">
+            <div class="data-card-header" style="background:var(--primary-gradient); color:white;">
+                <h5 style="margin:0;"><i class="fas fa-edit" style="margin-right:8px;"></i>@ViewData["Title"]</h5>
+            </div>
+            <div class="data-card-body" style="padding:2rem;">
+                <form asp-action="EditUser" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                    <div class="form-floating-custom"><label>Full Name</label><input asp-for="FullName" class="form-control" placeholder="Full Name" required /></div>
+                    <div class="form-floating-custom"><label>Email Address</label><input asp-for="Email" class="form-control" type="email" placeholder="Email Address" disabled style="opacity:0.6;" /></div>
+                    
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                        <div class="form-floating-custom"><label>Mobile</label><input asp-for="Mobile" class="form-control" placeholder="Mobile" /></div>
+                        <div class="form-floating-custom"><label>State</label><select asp-for="State" class="form-control">@foreach (var s in ServicePlatform.Helpers.AppConstants.AllStates) { <option value="@s" selected="@(Model.State == s)">@s</option> }</select></div>
+                    </div>
+
+                    <div class="form-floating-custom"><label>Role</label><input asp-for="Role" class="form-control" placeholder="Role" disabled style="opacity:0.6;" /></div>
+
+                    <div class="form-check form-switch mb-3" style="display:flex; align-items:center; gap:12px; margin-top:1rem;">
+                        <input asp-for="IsActive" class="form-check-input" type="checkbox" role="switch" id="statusSwitch" style="width:50px; height:24px;">
+                        <label class="form-check-label" for="statusSwitch" style="font-weight:600;">Active Status</label>
+                    </div>
+
+                    <div style="margin-top:2rem; display:flex; gap:1rem;">
+                        <a href="@Url.Action("Users")" class="btn btn-outline-custom flex-grow-1">Cancel</a>
+                        <button type="submit" class="btn btn-primary-custom flex-grow-1"><i class="fas fa-save" style="margin-right:8px;"></i>Update User</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

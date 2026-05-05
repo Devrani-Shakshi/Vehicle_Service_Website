@@ -1,0 +1,26 @@
+@model IEnumerable<ServicePlatform.Models.SupportTicket>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "My Tickets"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header">
+        <h5><i class="fas fa-ticket-alt" style="color:var(--primary-light);margin-right:8px;"></i>My Support Tickets</h5>
+        <a href="/UserDashboard/RaiseTicket" class="btn-primary-custom" style="padding:8px 20px;font-size:0.85rem;"><i class="fas fa-plus"></i> New Ticket</a>
+    </div>
+    <table class="table-custom">
+        <thead><tr><th>#</th><th>Subject</th><th>Category</th><th>Status</th><th>Created</th><th>Response</th></tr></thead>
+        <tbody>
+            @foreach (var t in Model)
+            {
+                <tr>
+                    <td>@t.Id</td>
+                    <td style="font-weight:600;">@t.Subject</td>
+                    <td>@t.Category</td>
+                    <td><span class="badge-custom @(t.Status == ServicePlatform.Models.TicketStatus.Resolved ? "badge-completed" : t.Status == ServicePlatform.Models.TicketStatus.Open ? "badge-pending" : "badge-accepted")">@t.Status</span></td>
+                    <td>@t.CreatedAt.ToString("dd MMM yyyy")</td>
+                    <td>@(t.AdminResponse ?? "Awaiting response...")</td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="6" class="empty-state"><i class="fas fa-ticket-alt"></i><h5>No tickets</h5><p>You haven't raised any support requests</p></td></tr> }
+        </tbody>
+    </table>
+</div>

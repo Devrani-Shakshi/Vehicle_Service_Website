@@ -1,62 +1,115 @@
 @model ServicePlatform.ViewModels.Shop.ShopkeeperDashboardViewModel
-@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Shopkeeper Dashboard"; }
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Store Analytics"; }
 
-<h4 class="animate-fadeInUp">Welcome, <span style="background:var(--primary-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">@Model.ShopkeeperName</span></h4>
-<p class="animate-fadeInUp" style="color:var(--text-muted);margin-bottom:2rem;">Manage your products and orders</p>
-
-<div class="stats-grid">
-    <div class="stat-card animate-fadeInUp"><div class="stat-icon primary"><i class="fas fa-boxes-stacked"></i></div><div class="stat-info"><h3>@Model.TotalProducts</h3><p>Total Products</p></div></div>
-    <div class="stat-card animate-fadeInUp-delay-1"><div class="stat-icon success"><i class="fas fa-check"></i></div><div class="stat-info"><h3>@Model.ActiveProducts</h3><p>Active Products</p></div></div>
-    <div class="stat-card animate-fadeInUp-delay-2"><div class="stat-icon info"><i class="fas fa-shopping-bag"></i></div><div class="stat-info"><h3>@Model.TotalOrders</h3><p>Total Orders</p></div></div>
-    <div class="stat-card animate-fadeInUp-delay-3"><div class="stat-icon warning"><i class="fas fa-clock"></i></div><div class="stat-info"><h3>@Model.PendingOrders</h3><p>Pending Orders</p></div></div>
-    <div class="stat-card animate-fadeInUp-delay-4"><div class="stat-icon danger"><i class="fas fa-indian-rupee-sign"></i></div><div class="stat-info"><h3>₹@Model.TotalRevenue.ToString("N0")</h3><p>Total Revenue</p></div></div>
-    <div class="stat-card animate-fadeInUp-delay-4"><div class="stat-icon success"><i class="fas fa-chart-line"></i></div><div class="stat-info"><h3>₹@Model.MonthlyRevenue.ToString("N0")</h3><p>This Month</p></div></div>
-</div>
-
-<div class="data-card animate-fadeInUp-delay-2" style="margin-bottom:1.5rem;">
-    <div class="data-card-header"><h5>Quick Actions</h5></div>
-    <div class="data-card-body">
-        <div class="quick-actions">
-            <a href="/Shopkeeper/AddProduct" class="quick-action-card"><i class="fas fa-plus-circle"></i><span>Add Product</span></a>
-            <a href="/Shopkeeper/Products" class="quick-action-card"><i class="fas fa-boxes-stacked"></i><span>My Products</span></a>
-            <a href="/Shopkeeper/Orders" class="quick-action-card"><i class="fas fa-shopping-bag"></i><span>Orders</span></a>
-        </div>
+<!-- Stats Grid -->
+<div class="stats-grid animate-fadeInUp">
+    <div class="stat-card">
+        <div class="stat-icon primary"><i class="fas fa-box"></i></div>
+        <div class="stat-info"><h3>@Model.TotalProducts</h3><p>Total Products</p></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon success"><i class="fas fa-shopping-basket"></i></div>
+        <div class="stat-info"><h3>@Model.TotalOrders</h3><p>Total Orders</p></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon warning"><i class="fas fa-clock"></i></div>
+        <div class="stat-info"><h3>@Model.PendingOrders</h3><p>Pending Orders</p></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon info"><i class="fas fa-indian-rupee-sign"></i></div>
+        <div class="stat-info"><h3>₹@Model.TotalRevenue.ToString("N0")</h3><p>Total Revenue</p></div>
     </div>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+<!-- Charts Row -->
+<div style="display:grid; grid-template-columns: 2fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+    <div class="chart-container animate-fadeInUp-delay-1">
+        <h5><i class="fas fa-chart-line" style="color:var(--primary-light);"></i> Revenue Trend (6 Months)</h5>
+        <canvas id="revenueChart" height="120"></canvas>
+    </div>
+    <div class="chart-container animate-fadeInUp-delay-2">
+        <h5><i class="fas fa-chart-pie" style="color:var(--success);"></i> Category Distribution</h5>
+        <canvas id="categoryChart" height="150"></canvas>
+    </div>
+</div>
+
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem;">
+    <!-- Recent Orders -->
     <div class="data-card animate-fadeInUp-delay-3">
-        <div class="data-card-header"><h5>Recent Products</h5><a href="/Shopkeeper/Products" style="font-size:0.8rem;">View All</a></div>
+        <div class="data-card-header">
+            <h5><i class="fas fa-shopping-bag" style="color:var(--primary-light);"></i> Recent Orders</h5>
+            <a href="@Url.Action("Orders")" style="font-size:0.8rem;">View All</a>
+        </div>
         <table class="table-custom">
-            <thead><tr><th>Product</th><th>Price</th><th>Stock</th></tr></thead>
-            <tbody>
-                @foreach (var p in Model.RecentProducts)
-                {
-                    <tr>
-                        <td style="font-weight:600;">@p.Name</td>
-                        <td style="color:var(--success);font-weight:700;">₹@p.Price.ToString("N0")</td>
-                        <td>@p.StockQuantity</td>
-                    </tr>
-                }
-                @if (!Model.RecentProducts.Any()) { <tr><td colspan="3" class="empty-state"><p>No products yet</p></td></tr> }
-            </tbody>
-        </table>
-    </div>
-    <div class="data-card animate-fadeInUp-delay-4">
-        <div class="data-card-header"><h5>Recent Orders</h5><a href="/Shopkeeper/Orders" style="font-size:0.8rem;">View All</a></div>
-        <table class="table-custom">
-            <thead><tr><th>Order</th><th>Customer</th><th>Amount</th></tr></thead>
+            <thead><tr><th>Order #</th><th>Status</th><th>Total</th></tr></thead>
             <tbody>
                 @foreach (var o in Model.RecentOrders)
                 {
-                    <tr>
-                        <td style="font-family:monospace;font-size:0.8rem;">@o.OrderNumber</td>
-                        <td>@o.User.FullName</td>
-                        <td style="color:var(--success);font-weight:700;">₹@o.TotalAmount.ToString("N0")</td>
+                    <tr onclick="window.location='@Url.Action("OrderDetails", new { id = o.Id })'" style="cursor:pointer;">
+                        <td style="font-family:monospace;font-weight:600;">@o.OrderNumber</td>
+                        <td><span class="badge-custom badge-@o.Status.ToString().ToLower()">@o.Status</span></td>
+                        <td style="font-weight:700;color:var(--success);">₹@o.TotalAmount.ToString("N0")</td>
                     </tr>
                 }
-                @if (!Model.RecentOrders.Any()) { <tr><td colspan="3" class="empty-state"><p>No orders yet</p></td></tr> }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Inventory Alerts -->
+    <div class="data-card animate-fadeInUp-delay-4">
+        <div class="data-card-header">
+            <h5><i class="fas fa-warehouse" style="color:var(--warning);"></i> Low Stock Alerts</h5>
+            <a href="@Url.Action("Inventory")" style="font-size:0.8rem;">Stock Manager</a>
+        </div>
+        <table class="table-custom">
+            <thead><tr><th>Product</th><th>In Stock</th><th>Action</th></tr></thead>
+            <tbody>
+                @foreach (var p in Model.RecentProducts.Where(x => x.StockQuantity < 10))
+                {
+                    <tr>
+                        <td style="font-weight:600;">@p.Name</td>
+                        <td style="color:var(--danger); font-weight:700;">@p.StockQuantity</td>
+                        <td><a href="@Url.Action("EditProduct", new { id = p.Id })" class="btn btn-xs btn-outline-primary">Refill</a></td>
+                    </tr>
+                }
+                @if (!Model.RecentProducts.Any(x => x.StockQuantity < 10))
+                {
+                    <tr><td colspan="3" style="text-align:center; padding:2rem; color:var(--text-muted);">Stock levels are healthy!</td></tr>
+                }
             </tbody>
         </table>
     </div>
 </div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const revCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revCtx, {
+            type: 'line',
+            data: {
+                labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RevenueTrend.Select(r => r.Month))),
+                datasets: [{
+                    label: 'Revenue (₹)',
+                    data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RevenueTrend.Select(r => r.Amount))),
+                    borderColor: '#6366f1', fill: true, backgroundColor: 'rgba(99,102,241,0.1)', tension: 0.4, borderWidth:3
+                }]
+            },
+            options: { responsive: true, plugins: { legend: { display: false } } }
+        });
+
+        const catCtx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(catCtx, {
+            type: 'doughnut',
+            data: {
+                labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.CategoryDistribution.Select(c => c.Category))),
+                datasets: [{
+                    data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.CategoryDistribution.Select(c => c.Count))),
+                    backgroundColor: ['#6366f1', '#10b981', '#f59e0b', '#3b82f6', '#ec4899', '#8b5cf6'],
+                    borderWidth: 0
+                }]
+            },
+            options: { responsive: true, cutout: '70%', plugins: { legend: { position: 'bottom', labels: { padding: 15, boxWidth: 10 } } } }
+        });
+    </script>
+}

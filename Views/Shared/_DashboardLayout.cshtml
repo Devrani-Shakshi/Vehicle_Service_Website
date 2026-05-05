@@ -18,68 +18,102 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <h4><i class="fas fa-bolt"></i> ServicePlatform</h4>
-            <small>@dashTitle</small>
+            <h4><i class="fas fa-bolt"></i> @Configuration["GlobalSettings:AppName"]</h4>
+            <small data-i18n="dash_title_@(role.ToLower())">@dashTitle</small>
         </div>
         <ul class="sidebar-nav">
             @if (role == "Admin")
             {
-                <li class="sidebar-section-title">Overview</li>
-                <li><a href="@Url.Action("Index", "Admin")" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"><i class="fas fa-chart-pie"></i> Dashboard</a></li>
-                <li class="sidebar-section-title">Management</li>
-                <li><a href="@Url.Action("ServiceRequests", "Admin")"><i class="fas fa-clipboard-list"></i> Service Requests</a></li>
-                <li><a href="@Url.Action("Orders", "Admin")"><i class="fas fa-shopping-bag"></i> Orders</a></li>
-                <li><a href="@Url.Action("Payments", "Admin")"><i class="fas fa-credit-card"></i> Payments</a></li>
-                <li><a href="@Url.Action("Feedbacks", "Admin")"><i class="fas fa-comments"></i> Feedbacks</a></li>
+                <li class="sidebar-section-title" data-i18n="overview">Overview</li>
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fas fa-chart-pie"></i> <span data-i18n="dashboard">Dashboard</span></a></li>
+                <li class="sidebar-section-title" data-i18n="management">Management</li>
+                <li><a href="@Url.Action("Users", "Admin")"><i class="fas fa-users"></i> <span data-i18n="all_users">All Users</span></a></li>
+                <li><a href="@Url.Action("Users", "Admin", new { role = "ServiceProvider" })"><i class="fas fa-user-tie"></i> <span data-i18n="providers">Service Providers</span></a></li>
+                <li><a href="@Url.Action("Users", "Admin", new { role = "Shopkeeper" })"><i class="fas fa-store"></i> <span data-i18n="shopkeepers">Shopkeepers</span></a></li>
+                <li><a href="@Url.Action("Tickets", "Admin")"><i class="fas fa-ticket-alt"></i> <span>Dispute Tickets</span></a></li>
+                <li class="sidebar-section-title" data-i18n="financials">Financials</li>
+                <li><a href="@Url.Action("Commissions", "Admin")"><i class="fas fa-percentage"></i> <span data-i18n="commissions">Platform Revenue (5%)</span></a></li>
+                <li><a href="@Url.Action("VendorRevenue", "Admin")"><i class="fas fa-chart-line"></i> <span>Vendor Revenue</span></a></li>
+                <li><a href="@Url.Action("RevenueSettings", "Admin")"><i class="fas fa-sliders-h"></i> <span>Revenue Settings</span></a></li>
+                <li class="sidebar-section-title" data-i18n="system">System</li>
+                <li><a href="@Url.Action("ActivityLog", "Admin")"><i class="fas fa-history"></i> <span>Activity Log</span></a></li>
+                <li><a href="@Url.Action("DownloadReport", "Admin", new { type = "users" })"><i class="fas fa-file-download"></i> <span data-i18n="reports">Reports</span></a></li>
+                <li><a href="@Url.Action("Feedbacks", "Admin")"><i class="fas fa-comments"></i> <span data-i18n="feedbacks">Feedbacks</span></a></li>
+                <li><a href="@Url.Action("Settings", "Admin")"><i class="fas fa-cog"></i> <span data-i18n="settings">Settings</span></a></li>
+                <li><a href="@Url.Action("Policy", "Admin")"><i class="fas fa-shield-alt"></i> <span data-i18n="policy">Policy</span></a></li>
             }
             else if (role == "User")
             {
-                <li class="sidebar-section-title">Overview</li>
-                <li><a href="@Url.Action("Index", "UserDashboard")" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"><i class="fas fa-home"></i> Dashboard</a></li>
-                <li class="sidebar-section-title">Services</li>
-                <li><a href="@Url.Action("CreateRequest", "UserDashboard")"><i class="fas fa-plus-circle"></i> New Request</a></li>
-                <li><a href="@Url.Action("MyRequests", "UserDashboard")"><i class="fas fa-clipboard-list"></i> My Requests</a></li>
-                <li><a href="@Url.Action("BookAppointment", "UserDashboard")"><i class="fas fa-calendar-alt"></i> Book Appointment</a></li>
-                <li><a href="@Url.Action("MyAppointments", "UserDashboard")"><i class="fas fa-calendar-check"></i> Appointments</a></li>
-                <li class="sidebar-section-title">Shopping</li>
-                <li><a href="@Url.Action("Index", "Shop")"><i class="fas fa-store"></i> Shop</a></li>
-                <li><a href="@Url.Action("Cart", "Shop")"><i class="fas fa-shopping-cart"></i> Cart</a></li>
-                <li><a href="@Url.Action("MyOrders", "Shop")"><i class="fas fa-box"></i> My Orders</a></li>
-                <li class="sidebar-section-title">Account</li>
-                <li><a href="@Url.Action("PaymentHistory", "UserDashboard")"><i class="fas fa-receipt"></i> Payment History</a></li>
-                <li><a href="@Url.Action("Feedback", "UserDashboard")"><i class="fas fa-comment-dots"></i> Feedback</a></li>
-                <li><a href="@Url.Action("Policy", "UserDashboard")"><i class="fas fa-shield-alt"></i> Policy</a></li>
-                <li><a href="@Url.Action("Settings", "UserDashboard")"><i class="fas fa-cog"></i> Settings</a></li>
+                <li class="sidebar-section-title" data-i18n="overview">Overview</li>
+                <li><a href="@Url.Action("Index", "UserDashboard")"><i class="fas fa-home"></i> <span data-i18n="dashboard">Dashboard</span></a></li>
+                <li class="sidebar-section-title">My Garage</li>
+                <li><a href="@Url.Action("MyVehicles", "UserDashboard")"><i class="fas fa-car"></i> <span>My Vehicles</span></a></li>
+                <li><a href="@Url.Action("AddVehicle", "UserDashboard")"><i class="fas fa-plus"></i> <span>Add Vehicle</span></a></li>
+                <li><a href="@Url.Action("ServiceReminders", "UserDashboard")"><i class="fas fa-bell"></i> <span>Service Reminders</span></a></li>
+                <li class="sidebar-section-title" data-i18n="services">Services</li>
+                <li><a href="@Url.Action("CreateRequest", "UserDashboard")"><i class="fas fa-plus-circle"></i> <span data-i18n="new_request">New Request</span></a></li>
+                <li><a href="@Url.Action("MyRequests", "UserDashboard")"><i class="fas fa-clipboard-list"></i> <span data-i18n="my_requests">My Requests</span></a></li>
+                <li><a href="@Url.Action("BookAppointment", "UserDashboard")"><i class="fas fa-calendar-alt"></i> <span data-i18n="book_appointment">Book Appointment</span></a></li>
+                <li><a href="@Url.Action("MyAppointments", "UserDashboard")"><i class="fas fa-calendar-check"></i> <span data-i18n="appointments">Appointments</span></a></li>
+                <li class="sidebar-section-title" data-i18n="shopping">Shopping</li>
+                <li><a href="@Url.Action("Index", "Shop")"><i class="fas fa-store"></i> <span data-i18n="shop">Shop</span></a></li>
+                <li><a href="@Url.Action("Cart", "Shop")"><i class="fas fa-shopping-cart"></i> <span data-i18n="cart">Cart</span></a></li>
+                <li><a href="@Url.Action("MyOrders", "Shop")"><i class="fas fa-box"></i> <span data-i18n="my_orders">My Orders</span></a></li>
+                <li class="sidebar-section-title">Support & Bills</li>
+                <li><a href="@Url.Action("RaiseTicket", "UserDashboard")"><i class="fas fa-ticket-alt"></i> <span>Raise Ticket</span></a></li>
+                <li><a href="@Url.Action("MyTickets", "UserDashboard")"><i class="fas fa-headset"></i> <span>My Tickets</span></a></li>
+                <li><a href="@Url.Action("Invoice", "UserDashboard")"><i class="fas fa-file-invoice"></i> <span>Invoices</span></a></li>
+                <li class="sidebar-section-title" data-i18n="account">Account</li>
+                <li><a href="@Url.Action("PaymentHistory", "UserDashboard")"><i class="fas fa-receipt"></i> <span data-i18n="payment_history">Payment History</span></a></li>
+                <li><a href="@Url.Action("Feedback", "UserDashboard")"><i class="fas fa-comment-dots"></i> <span data-i18n="feedback">Feedback</span></a></li>
+                <li><a href="@Url.Action("Policy", "UserDashboard")"><i class="fas fa-shield-alt"></i> <span data-i18n="policy">Policy</span></a></li>
+                <li><a href="@Url.Action("Settings", "UserDashboard")"><i class="fas fa-cog"></i> <span data-i18n="settings">Settings</span></a></li>
             }
             else if (role == "ServiceProvider")
             {
-                <li class="sidebar-section-title">Overview</li>
-                <li><a href="@Url.Action("Index", "ServiceProvider")" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"><i class="fas fa-home"></i> Dashboard</a></li>
-                <li class="sidebar-section-title">Requests</li>
-                <li><a href="@Url.Action("PendingRequests", "ServiceProvider")"><i class="fas fa-clock"></i> Pending Requests</a></li>
-                <li><a href="@Url.Action("MyRequests", "ServiceProvider")"><i class="fas fa-tasks"></i> My Requests</a></li>
-                <li><a href="@Url.Action("CompletedRequests", "ServiceProvider")"><i class="fas fa-check-circle"></i> Completed</a></li>
-                <li class="sidebar-section-title">Shopping</li>
-                <li><a href="@Url.Action("Index", "Shop")"><i class="fas fa-store"></i> Shop</a></li>
-                <li><a href="@Url.Action("Cart", "Shop")"><i class="fas fa-shopping-cart"></i> Cart</a></li>
-                <li><a href="@Url.Action("MyOrders", "Shop")"><i class="fas fa-box"></i> My Orders</a></li>
-                <li class="sidebar-section-title">Profile</li>
-                <li><a href="@Url.Action("Ratings", "ServiceProvider")"><i class="fas fa-star"></i> Ratings & Reviews</a></li>
+                <li class="sidebar-section-title" data-i18n="overview">Overview</li>
+                <li><a href="@Url.Action("Index", "ServiceProvider")"><i class="fas fa-home"></i> <span data-i18n="dashboard">Dashboard</span></a></li>
+                <li class="sidebar-section-title" data-i18n="requests">Requests</li>
+                <li><a href="@Url.Action("PendingRequests", "ServiceProvider")"><i class="fas fa-clock"></i> <span data-i18n="pending_requests">Pending</span></a></li>
+                <li><a href="@Url.Action("MyRequests", "ServiceProvider")"><i class="fas fa-tasks"></i> <span data-i18n="my_requests">My Requests</span></a></li>
+                <li><a href="@Url.Action("CompletedRequests", "ServiceProvider")"><i class="fas fa-check-circle"></i> <span data-i18n="completed">Completed</span></a></li>
+                <li class="sidebar-section-title">Team & Fleet</li>
+                <li><a href="@Url.Action("Technicians", "ServiceProvider")"><i class="fas fa-users-cog"></i> <span>Technicians</span></a></li>
+                <li><a href="@Url.Action("AddTechnician", "ServiceProvider")"><i class="fas fa-user-plus"></i> <span>Add Technician</span></a></li>
+                <li><a href="@Url.Action("VehicleModels", "ServiceProvider")"><i class="fas fa-car-side"></i> <span>Fleet Management</span></a></li>
+                <li class="sidebar-section-title" data-i18n="shopping">Shopping</li>
+                <li><a href="@Url.Action("Index", "Shop")"><i class="fas fa-store"></i> <span data-i18n="shop">Shop</span></a></li>
+                <li><a href="@Url.Action("Cart", "Shop")"><i class="fas fa-shopping-cart"></i> <span data-i18n="cart">Cart</span></a></li>
+                <li><a href="@Url.Action("MyOrders", "Shop")"><i class="fas fa-box"></i> <span data-i18n="my_orders">My Orders</span></a></li>
+                <li class="sidebar-section-title" data-i18n="profile">Profile & Earnings</li>
+                <li><a href="@Url.Action("Earnings", "ServiceProvider")"><i class="fas fa-wallet"></i> <span>Earnings</span></a></li>
+                <li><a href="@Url.Action("Ratings", "ServiceProvider")"><i class="fas fa-star"></i> <span data-i18n="ratings_reviews">Ratings</span></a></li>
+                <li class="sidebar-section-title" data-i18n="system">System</li>
+                <li><a href="@Url.Action("Settings", "ServiceProvider")"><i class="fas fa-cog"></i> <span data-i18n="settings">Settings</span></a></li>
+                <li><a href="@Url.Action("Policy", "ServiceProvider")"><i class="fas fa-shield-alt"></i> <span data-i18n="policy">Policy</span></a></li>
             }
             else if (role == "Shopkeeper")
             {
-                <li class="sidebar-section-title">Overview</li>
-                <li><a href="@Url.Action("Index", "Shopkeeper")" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"><i class="fas fa-home"></i> Dashboard</a></li>
-                <li class="sidebar-section-title">Products</li>
-                <li><a href="@Url.Action("Products", "Shopkeeper")"><i class="fas fa-boxes-stacked"></i> My Products</a></li>
-                <li><a href="@Url.Action("AddProduct", "Shopkeeper")"><i class="fas fa-plus-circle"></i> Add Product</a></li>
-                <li class="sidebar-section-title">Orders</li>
-                <li><a href="@Url.Action("Orders", "Shopkeeper")"><i class="fas fa-shopping-bag"></i> Orders</a></li>
+                <li class="sidebar-section-title" data-i18n="store_overview">Store Overview</li>
+                <li><a href="@Url.Action("Index", "Shopkeeper")"><i class="fas fa-home"></i> <span data-i18n="dashboard">Dashboard</span></a></li>
+                <li class="sidebar-section-title" data-i18n="catalog_inventory">Catalog & Inventory</li>
+                <li><a href="@Url.Action("Products", "Shopkeeper")"><i class="fas fa-boxes-stacked"></i> <span data-i18n="my_products">My Products</span></a></li>
+                <li><a href="@Url.Action("AddProduct", "Shopkeeper")"><i class="fas fa-plus-circle"></i> <span data-i18n="add_product">Add Product</span></a></li>
+                <li><a href="@Url.Action("Inventory", "Shopkeeper")"><i class="fas fa-warehouse"></i> <span data-i18n="stock_manager">Stock Manager</span></a></li>
+                <li><a href="@Url.Action("LowStock", "Shopkeeper")"><i class="fas fa-exclamation-triangle"></i> <span>Low Stock Alerts</span></a></li>
+                <li><a href="@Url.Action("ProductReviews", "Shopkeeper")"><i class="fas fa-star-half-alt"></i> <span>Product Reviews</span></a></li>
+                <li class="sidebar-section-title" data-i18n="sales_logistics">Sales & Logistics</li>
+                <li><a href="@Url.Action("Orders", "Shopkeeper")"><i class="fas fa-shopping-bag"></i> <span data-i18n="manage_orders">Manage Orders</span></a></li>
+                <li><a href="@Url.Action("Returns", "Shopkeeper")"><i class="fas fa-undo-alt"></i> <span>Returns</span></a></li>
+                <li><a href="@Url.Action("Payments", "Shopkeeper")"><i class="fas fa-receipt"></i> <span data-i18n="payments_received">Payments</span></a></li>
+                <li class="sidebar-section-title" data-i18n="system">System</li>
+                <li><a href="@Url.Action("Settings", "Shopkeeper")"><i class="fas fa-cog"></i> <span data-i18n="settings">Settings</span></a></li>
+                <li><a href="@Url.Action("Policy", "Shopkeeper")"><i class="fas fa-shield-alt"></i> <span data-i18n="policy">Policy</span></a></li>
             }
 
             <li>
                 <button type="button" style="width:100%;text-align:left;border:none;background:none;padding:12px 20px;color:var(--danger);display:flex;align-items:center;gap:12px;font-size:0.95rem;cursor:pointer;transition:var(--transition);" onclick="showLogoutModal()" onmouseover="this.style.background='rgba(239, 68, 68, 0.1)';" onmouseout="this.style.background='none';">
-                    <i class="fas fa-sign-out-alt"></i> Logout
+                    <i class="fas fa-sign-out-alt"></i> <span data-i18n="logout">Logout</span>
                 </button>
             </li>
         </ul>
@@ -119,7 +153,7 @@
                 <div style="position:relative;">
                     <button class="user-profile-btn" onclick="toggleUserProfile()" id="userProfileBtn" style="background:transparent;border:none;display:flex;align-items:center;gap:10px;cursor:pointer;padding:4px 8px;border-radius:var(--radius-sm);transition:var(--transition);">
                         <div style="width:36px;height:36px;border-radius:50%;background:var(--primary-gradient);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.85rem;">
-                            @(user?.FullName?.Substring(0, 1).ToUpper() ?? "U")
+                            @(user?.FullName?.Length > 0 ? user.FullName[..1].ToUpper() : "U")
                         </div>
                         <div style="text-align:left;">
                             <div style="font-weight:600;font-size:0.85rem;color:var(--text-primary);">@(user?.FullName ?? "User")</div>
@@ -131,7 +165,7 @@
                     <div class="notification-dropdown" id="userDropdown" style="width:260px;padding:8px 0;">
                         <div style="padding:12px 16px;border-bottom:1px solid var(--border-color);display:flex;align-items:center;gap:12px;">
                             <div style="width:48px;height:48px;border-radius:50%;background:var(--primary-gradient);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.2rem;flex-shrink:0;">
-                                @(user?.FullName?.Substring(0, 1).ToUpper() ?? "U")
+                                @(user?.FullName?.Length > 0 ? user.FullName[..1].ToUpper() : "U")
                             </div>
                             <div style="overflow:hidden;">
                                 <div style="font-weight:600;font-size:0.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">@(user?.FullName ?? "User")</div>
@@ -143,15 +177,8 @@
                         </div>
                         
                         <div style="padding:8px 0;">
-                            @if(role == "Admin") {
-                                <a href="/Admin/Index" class="user-dropdown-item"><i class="fas fa-chart-pie"></i> Dashboard</a>
-                            } else if(role == "Shopkeeper") {
-                                <a href="/Shopkeeper/Index" class="user-dropdown-item"><i class="fas fa-home"></i> Dashboard</a>
-                            } else if(role == "ServiceProvider") {
-                                <a href="/ServiceProvider/Index" class="user-dropdown-item"><i class="fas fa-home"></i> Dashboard</a>
-                            } else {
-                                <a href="/UserDashboard/Settings" class="user-dropdown-item"><i class="fas fa-cog"></i> Account Settings</a>
-                            }
+                            <a href="javascript:void(0)" class="user-dropdown-item" onclick="showEditProfileModal()"><i class="fas fa-user-edit"></i> Edit Profile</a>
+                            <a href="@Url.Action("ChangePassword", "Account")" class="user-dropdown-item"><i class="fas fa-key"></i> Change Password</a>
                             <hr style="margin:8px 0;border-color:var(--border-color);opacity:0.5;" />
                             <button type="button" class="user-dropdown-item text-danger" style="width:100%;text-align:left;border:none;background:none;color:var(--danger);" onclick="showLogoutModal()">
                                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -203,6 +230,37 @@
     </div>
 </div>
 
+<!-- Edit Profile Modal -->
+<div id="editProfileModal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; backdrop-filter:blur(4px); align-items:center; justify-content:center;">
+    <div class="data-card animate-zoomIn" style="width:500px; padding:0; overflow:hidden;">
+        <div class="data-card-header" style="background:var(--primary-gradient); color:white; padding:1.25rem;">
+            <h5 style="margin:0;"><i class="fas fa-user-edit" style="margin-right:8px;"></i>Edit Profile</h5>
+            <button type="button" onclick="hideEditProfileModal()" style="background:none;border:none;color:white;font-size:1.2rem;cursor:pointer;"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="data-card-body" style="padding:1.5rem;">
+            <form asp-controller="UserDashboard" asp-action="Settings" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-floating-custom"><label>Full Name</label><input name="fullName" value="@(user?.FullName)" class="form-control" required /></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="form-floating-custom"><label>Email</label><input value="@(user?.Email)" class="form-control" disabled style="opacity:0.6;" /></div>
+                    <div class="form-floating-custom"><label>Mobile</label><input name="mobile" value="@(user?.Mobile)" class="form-control" /></div>
+                </div>
+                <div class="form-floating-custom">
+                    <label>State</label>
+                    <select name="state" class="form-control">
+                        @foreach (var s in ServicePlatform.Helpers.AppConstants.AllStates) { <option value="@s" selected="@(user?.State == s)">@s</option> }
+                    </select>
+                </div>
+                <div class="form-floating-custom"><label>Address</label><textarea name="address" class="form-control" rows="2">@(user?.Address)</textarea></div>
+                <div style="display:flex;gap:1rem;justify-content:flex-end;margin-top:0.5rem;">
+                    <button type="button" class="btn-outline-custom" onclick="hideEditProfileModal()" style="padding:10px 24px;">Cancel</button>
+                    <button type="submit" class="btn-primary-custom" style="padding:10px 24px;"><i class="fas fa-save"></i> Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script>
     function showLogoutModal() {
         document.getElementById('logoutModal').style.display = 'flex';
@@ -210,13 +268,58 @@
     function hideLogoutModal() {
         document.getElementById('logoutModal').style.display = 'none';
     }
-    // Close modal on click outside
-    window.onclick = function(event) {
-        let modal = document.getElementById('logoutModal');
-        if (event.target == modal) {
-            hideLogoutModal();
-        }
+    function showEditProfileModal() {
+        var ud = document.getElementById('userDropdown');
+        if (ud) ud.classList.remove('show');
+        document.getElementById('editProfileModal').style.display = 'flex';
     }
+    function hideEditProfileModal() {
+        document.getElementById('editProfileModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        let logoutModal = document.getElementById('logoutModal');
+        let editModal = document.getElementById('editProfileModal');
+        if (event.target == logoutModal) hideLogoutModal();
+        if (event.target == editModal) hideEditProfileModal();
+    }
+
+    // ===== Layout-specific Translation Map (uses data-i18n keys) =====
+    const layoutTranslations = {
+        en: { 
+            dashboard: "Dashboard", overview: "Overview", management: "Management", all_users: "All Users", providers: "Service Providers", shopkeepers: "Shopkeepers", financials: "Financials", payments: "Payments", commissions: "Commissions", system: "System", reports: "Reports", feedbacks: "Feedbacks", settings: "Settings", policy: "Policy", logout: "Logout",
+            services: "Services", new_request: "New Request", my_requests: "My Requests", book_appointment: "Book Appointment", appointments: "Appointments", shopping: "Shopping", shop: "Shop", cart: "Cart", my_orders: "My Orders", account: "Account", payment_history: "Payment History", feedback: "Feedback",
+            requests: "Requests", pending_requests: "Pending", completed: "Completed", profile: "Profile", ratings_reviews: "Ratings",
+            store_overview: "Store Overview", catalog_inventory: "Catalog & Inventory", my_products: "My Products", add_product: "Add Product", stock_manager: "Stock Manager", sales_logistics: "Sales & Logistics", manage_orders: "Manage Orders", payments_received: "Payments", store_settings: "Settings", vendor_policy: "Policy",
+            dash_title_admin: "Admin Dashboard", dash_title_serviceprovider: "Service Provider Hub", dash_title_shopkeeper: "Shopkeeper Dashboard", dash_title_user: "User Hub",
+            appearance: "Appearance", theme: "Theme", theme_desc: "Switch between dark and light mode", language: "Language", select_language: "Select Language", language_desc: "Choose your preferred language", invite_friends: "Invite Others", invite_desc: "Share platform with others!", copy_link: "Copy Link", help_center: "Support Center",
+            profile_info: "Profile Information", full_name: "Full Name", email: "Email", mobile: "Mobile", state: "State", address: "Address", save_profile: "Save Profile", email_support: "Email Support", contact_us: "Contact Us"
+        },
+        hi: { 
+            dashboard: "डैशबोर्ड", overview: "अवलोकन", management: "प्रबंधन", all_users: "सभी उपयोगकर्ता", providers: "सेवा प्रदाता", shopkeepers: "दुकानदार", financials: "वित्तीय", payments: "भुगतान", commissions: "कमीशन", system: "सिस्टम", reports: "रिपोर्ट", feedbacks: "फीडबैक", settings: "सेटिंग्स", policy: "नीति", logout: "लॉगआउट",
+            services: "सेवाएं", new_request: "नया अनुरोध", my_requests: "मेरे अनुरोध", book_appointment: "अपॉइंटमेंट बुक करें", appointments: "अपॉइंटमेंट", shopping: "शॉपिंग", shop: "दुकान", cart: "कार्ट", my_orders: "मेरे ऑर्डर", account: "खाता", payment_history: "भुगतान इतिहास", feedback: "फीडबैक",
+            requests: "अनुरोध", pending_requests: "लंबित", completed: "पूरा हुआ", profile: "प्रोफ़ाइल", ratings_reviews: "रेटिंग",
+            store_overview: "स्टोर अवलोकन", catalog_inventory: "कैटलॉग और इन्वेंट्री", my_products: "मेरे उत्पाद", add_product: "उत्पाद जोड़ें", stock_manager: "स्टॉक मैनेजर", sales_logistics: "बिक्री और रसद", manage_orders: "ऑर्डर प्रबंधित करें", payments_received: "भुगतान", store_settings: "सेटिंग्स", vendor_policy: "नीति",
+            dash_title_admin: "एडमिन डैशबोर्ड", dash_title_serviceprovider: "सेवा प्रदाता हब", dash_title_shopkeeper: "दुकानदार डैशबोर्ड", dash_title_user: "उपयोगकर्ता हब",
+            appearance: "दिखावट", theme: "थीम", theme_desc: "डार्क और लाइट मोड के बीच स्विच करें", language: "भाषा", select_language: "भाषा चुनें", language_desc: "अपनी पसंदीदा भाषा चुनें", invite_friends: "दूसरों को आमंत्रित करें", invite_desc: "दूसरों के साथ साझा करें!", copy_link: "लिंक कॉपी करें", help_center: "सहायता केंद्र",
+            profile_info: "प्रोफ़ाइल जानकारी", full_name: "पूरा नाम", email: "ईमेल", mobile: "मोबाइल", state: "राज्य", address: "पता", save_profile: "प्रोफ़ाइल सहेजें", email_support: "ईमेल सहायता", contact_us: "संपर्क करें"
+        }
+    };
+
+    function applyLayoutLanguage(lang) {
+        const trans = layoutTranslations[lang] || layoutTranslations['en'];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (trans[key]) el.innerHTML = trans[key];
+        });
+        const langSelect = document.getElementById('languageSelect');
+        if (langSelect) langSelect.value = lang;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedLang = localStorage.getItem('language') || 'en';
+        applyLayoutLanguage(savedLang);
+    });
 </script>
 
 @section Styles {
@@ -226,3 +329,4 @@
 @section Scripts {
     @RenderSection("Scripts", required: false)
 }
+

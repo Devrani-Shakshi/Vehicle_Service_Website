@@ -28,6 +28,11 @@ public class ApplicationUser : IdentityUser
     public bool IsActive { get; set; } = true;
     public bool IsDeleted { get; set; } = false;
 
+    // EV Expert Fields
+    public string? Certifications { get; set; } // e.g. "Tata Nexo Certified, Li-Ion Expert"
+    public string? Specializations { get; set; } // e.g. "Battery, Motor, Firmware"
+    public bool IsVerifiedExpert { get; set; }
+
     // Navigation properties
     public virtual ICollection<ServiceRequest> ServiceRequestsAsUser { get; set; } = new List<ServiceRequest>();
     public virtual ICollection<ServiceRequest> ServiceRequestsAsProvider { get; set; } = new List<ServiceRequest>();
@@ -41,4 +46,5 @@ public class ApplicationUser : IdentityUser
     public virtual ICollection<Rating> RatingsGiven { get; set; } = new List<Rating>();
     public virtual ICollection<Rating> RatingsReceived { get; set; } = new List<Rating>();
     public virtual ICollection<Notification> Notifications { get; set; } = new List<Notification>();
+    public virtual ICollection<VehicleModel> VehicleModels { get; set; } = new List<VehicleModel>();
 }

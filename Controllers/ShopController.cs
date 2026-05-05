@@ -16,6 +16,7 @@ public class ShopController : Controller
     private readonly IPaymentService _paymentService;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly ILogger<ShopController> _logger;
+    private readonly IConfiguration _configuration;
 
     public ShopController(
         IProductService productService,
@@ -23,7 +24,8 @@ public class ShopController : Controller
         IOrderService orderService,
         IPaymentService paymentService,
         UserManager<ApplicationUser> userManager,
-        ILogger<ShopController> logger)
+        ILogger<ShopController> logger,
+        IConfiguration configuration)
     {
         _productService = productService;
         _cartService = cartService;
@@ -31,6 +33,7 @@ public class ShopController : Controller
         _paymentService = paymentService;
         _userManager = userManager;
         _logger = logger;
+        _configuration = configuration;
     }
 
     private string UserId => _userManager.GetUserId(User)!;
@@ -190,13 +193,45 @@ public class ShopController : Controller
         {
             var payment = await _paymentService.GetByIdAsync(paymentId);
             if (payment == null || payment.UserId != UserId) return NotFound();
+
+            if (payment.Gateway == PaymentGateway.Razorpay)
+            {
+                string razorpayOrderId = await _paymentService.InitializeRazorpayOrderAsync(paymentId);
+                ViewBag.RazorpayKeyId = _configuration["PaymentSettings:Razorpay:KeyId"];
+            }
+            else if (payment.Gateway == PaymentGateway.Stripe)
+            {
+                var successUrl = Url.Action("StripeSuccess", "Shop", new { paymentId = payment.Id }, Request.Scheme) ?? "";
+                var cancelUrl = Url.Action("ProcessPayment", "Shop", new { paymentId = payment.Id }, Request.Scheme) ?? "";
+                string sessionId = await _paymentService.InitializeStripeSessionAsync(paymentId, successUrl, cancelUrl);
+                ViewBag.StripeSessionId = sessionId;
+                ViewBag.StripePublishableKey = _configuration["PaymentSettings:Stripe:PublishableKey"];
+            }
+
             _logger.LogInformation("User {UserId} processing payment {PaymentId}", UserId, paymentId);
             return View(payment);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error loading payment {PaymentId} for {UserId}", paymentId, UserId);
-            TempData["Error"] = "Failed to load payment page.";
+            TempData["Error"] = "Failed to initialize payment gateway.";
+            return RedirectToAction("MyOrders");
+        }
+    }
+
+    public async Task<IActionResult> StripeSuccess(int paymentId, string session_id)
+    {
+        try
+        {
+            _logger.LogInformation("Stripe success for payment {PaymentId}, session {SessionId}", paymentId, session_id);
+            await _paymentService.CompletePaymentAsync(paymentId, session_id);
+            TempData["Success"] = "Payment completed successfully!";
+            return RedirectToAction("OrderConfirmation", new { paymentId });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error completing Stripe payment {PaymentId}", paymentId);
+            TempData["Error"] = "Payment processing failed.";
             return RedirectToAction("MyOrders");
         }
     }
@@ -225,7 +260,7 @@ public class ShopController : Controller
         try
         {
             var payment = await _paymentService.GetByIdAsync(paymentId);
-            if (payment == null) return NotFound();
+            if (payment == null || payment.UserId != UserId) return NotFound();
             _logger.LogInformation("User {UserId} viewing order confirmation for payment {PaymentId}", UserId, paymentId);
             return View(payment);
         }
@@ -249,7 +284,7 @@ public class ShopController : Controller
         {
             _logger.LogError(ex, "Error loading orders for {UserId}", UserId);
             TempData["Error"] = "Failed to load orders.";
-            return View(new List<Order>());
+            return View(new List<ServicePlatform.Models.Order>());
         }
     }
 

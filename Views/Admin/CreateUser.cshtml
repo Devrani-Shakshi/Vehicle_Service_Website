@@ -1,0 +1,42 @@
+@model ServicePlatform.ViewModels.Admin.UserCreateViewModel
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Add New User"; }
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="data-card animate-fadeInUp">
+            <div class="data-card-header" style="background:var(--primary-gradient); color:white;">
+                <h5 style="margin:0;"><i class="fas fa-plus-circle" style="margin-right:8px;"></i>@ViewData["Title"]</h5>
+            </div>
+            <div class="data-card-body" style="padding:2rem;">
+                <form asp-action="CreateUser" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                    <div class="form-floating-custom"><label>Full Name</label><input asp-for="FullName" class="form-control" placeholder="Full Name" required /></div>
+                    <div class="form-floating-custom"><label>Email Address</label><input asp-for="Email" class="form-control" type="email" placeholder="Email Address" required /></div>
+                    
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                        <div class="form-floating-custom"><label>Mobile</label><input asp-for="Mobile" class="form-control" placeholder="Mobile" /></div>
+                        <div class="form-floating-custom"><label>State</label><select asp-for="State" class="form-control">@foreach (var s in ServicePlatform.Helpers.AppConstants.AllStates) { <option value="@s">@s</option> }</select></div>
+                    </div>
+
+                    <div class="form-floating-custom">
+                        <label>Role</label>
+                        <select asp-for="Role" class="form-control">
+                            <option value="User">Standard User</option>
+                            <option value="ServiceProvider">Service Provider</option>
+                            <option value="Shopkeeper">Shopkeeper</option>
+                        </select>
+                    </div>
+
+                    <div class="form-floating-custom"><label>Initial Password</label><input asp-for="Password" type="password" class="form-control" placeholder="Password" required /></div>
+
+                    <div style="margin-top:2rem; display:flex; gap:1rem;">
+                        <a href="@Url.Action("Users")" class="btn btn-outline-custom flex-grow-1">Cancel</a>
+                        <button type="submit" class="btn btn-primary-custom flex-grow-1"><i class="fas fa-save" style="margin-right:8px;"></i>Create User</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,12 +11,12 @@
         <tbody>
             @foreach (var r in Model)
             {
-                <tr>
+                <tr id="request-row-@r.Id">
                     <td style="font-weight:600;">@r.Title</td>
-                    <td><span class="badge-custom badge-@(r.RequestType == ServicePlatform.Models.ServiceRequestType.Urgent ? "danger" : "primary")">@r.RequestType</span></td>
+                    <td><span class="badge-custom badge-@(r.RequestType == ServicePlatform.Models.ServiceRequestType.Breakdown ? "danger" : "primary")">@r.RequestType</span></td>
                     <td>@(r.Category ?? "—")</td>
-                    <td><span class="badge-custom badge-@r.Status.ToString().ToLower()">@r.Status</span></td>
-                    <td>@(r.ServiceProvider?.FullName ?? "Not assigned")</td>
+                    <td><span id="request-status-@r.Id" class="badge-custom badge-@r.Status.ToString().ToLower()">@r.Status</span></td>
+                    <td id="request-provider-@r.Id">@(r.ServiceProvider?.FullName ?? "Not assigned")</td>
                     <td style="font-size:0.8rem;color:var(--text-muted);">@r.CreatedAt.ToString("MMM dd, yyyy")</td>
                     <td><a href="/UserDashboard/RequestDetails/@r.Id" class="btn-outline-custom" style="padding:6px 14px;font-size:0.8rem;">View</a></td>
                 </tr>

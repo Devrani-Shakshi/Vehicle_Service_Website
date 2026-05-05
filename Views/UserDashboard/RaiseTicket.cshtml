@@ -1,0 +1,25 @@
+@model ServicePlatform.Models.SupportTicket
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Raise Support Ticket"; }
+
+<div style="width:100%;max-width:600px;margin:0 auto;padding-bottom:2rem;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header"><h5><i class="fas fa-life-ring" style="color:var(--primary-light);margin-right:8px;"></i>Raise Support Ticket</h5></div>
+        <div class="data-card-body">
+            <form asp-action="RaiseTicket" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-floating-custom"><label asp-for="Subject">Subject</label><input asp-for="Subject" class="form-control" placeholder="Brief summary of your issue" /><span asp-validation-for="Subject" style="color:var(--danger);font-size:0.8rem;"></span></div>
+                <div class="form-floating-custom">
+                    <label asp-for="Category">Category</label>
+                    <select asp-for="Category" class="form-control">
+                        <option value="General">General</option>
+                        <option value="Payment">Payment Issue</option>
+                        <option value="ProductReturn">Product Return</option>
+                        <option value="ServiceComplaint">Service Complaint</option>
+                    </select>
+                </div>
+                <div class="form-floating-custom"><label asp-for="Description">Describe your issue</label><textarea asp-for="Description" class="form-control" rows="5" placeholder="Please provide as much detail as possible..."></textarea><span asp-validation-for="Description" style="color:var(--danger);font-size:0.8rem;"></span></div>
+                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Submit Ticket</button>
+            </form>
+        </div>
+    </div>
+</div>

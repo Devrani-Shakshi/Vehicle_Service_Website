@@ -29,7 +29,6 @@ public class ExceptionHandlingMiddleware
 
     private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
-        context.Response.ContentType = "application/json";
         var response = context.Response;
 
         var (statusCode, message) = exception switch
@@ -40,15 +39,17 @@ public class ExceptionHandlingMiddleware
             _ => (HttpStatusCode.InternalServerError, "An internal server error occurred")
         };
 
-        response.StatusCode = (int)statusCode;
-
-        if (context.Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+        if (context.Request.Headers["X-Requested-With"] == "XMLHttpRequest" || 
+            (context.Request.Headers["Accept"].ToString().Contains("application/json")))
         {
+            response.ContentType = "application/json";
+            response.StatusCode = (int)statusCode;
             await response.WriteAsJsonAsync(new { error = message, statusCode = (int)statusCode });
         }
         else
         {
-            context.Response.Redirect($"/Home/Error?message={Uri.EscapeDataString(message)}");
+            var redirectUrl = exception is UnauthorizedAccessException ? "/Account/Login" : $"/Home/Error?message={Uri.EscapeDataString(message)}";
+            context.Response.Redirect(redirectUrl);
         }
     }
 }

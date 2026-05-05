@@ -1,0 +1,17 @@
+@model ServicePlatform.Models.SubTechnician
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Add Technician"; }
+
+<div style="width:100%;max-width:600px;margin:0 auto;padding-bottom:2rem;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header"><h5><i class="fas fa-user-plus" style="color:var(--primary-light);margin-right:8px;"></i>Add Technician</h5></div>
+        <div class="data-card-body">
+            <form asp-action="AddTechnician" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-floating-custom"><label asp-for="Name">Full Name</label><input asp-for="Name" class="form-control" /><span asp-validation-for="Name" style="color:var(--danger);font-size:0.8rem;"></span></div>
+                <div class="form-floating-custom"><label asp-for="Mobile">Mobile Number</label><input asp-for="Mobile" class="form-control" placeholder="10-digit mobile" /></div>
+                <div class="form-floating-custom"><label asp-for="Specialization">Specialization</label><input asp-for="Specialization" class="form-control" placeholder="e.g. Battery, Motor, Software" /></div>
+                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;margin-top:1rem;"><i class="fas fa-plus"></i> Add Technician</button>
+            </form>
+        </div>
+    </div>
+</div>

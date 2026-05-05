@@ -7,9 +7,11 @@ public enum NotificationType
 {
     ServiceRequest,
     RequestAccepted,
+    RequestRejected,
     RequestCompleted,
     PaymentCompleted,
     OrderUpdate,
+    System,
     General
 }
 

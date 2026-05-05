@@ -44,7 +44,7 @@
                 <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem;">
                     <div>
                         <label style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:4px;">Request Type</label>
-                        <span class="badge-custom badge-@(Model.RequestType == ServicePlatform.Models.ServiceRequestType.Urgent ? "danger" : "primary")">@Model.RequestType</span>
+                        <span class="badge-custom badge-@(Model.RequestType == ServicePlatform.Models.ServiceRequestType.Breakdown ? "danger" : "primary")">@Model.RequestType</span>
                     </div>
                     <div>
                         <label style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:4px;">Created At</label>

@@ -1,0 +1,161 @@
+@model ServicePlatform.ViewModels.Admin.AdminDashboardViewModel
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Platform Reports & Analytics";
+}
+
+<div class="reports-page animate-fadeIn">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+        <div>
+            <h4 style="margin:0; font-weight:800; color:var(--text-primary);">Detailed Analytics</h4>
+            <p style="color:var(--text-muted); margin:0;">Platform performance and user growth metrics</p>
+        </div>
+        <div style="display:flex; gap:12px;">
+            <a href="@Url.Action("DownloadReport", "Admin", new { type = "users" })" class="btn-outline-custom" style="padding:10px 20px;">
+                <i class="fas fa-users"></i> Export Users CSV
+            </a>
+            <a href="@Url.Action("DownloadReport", "Admin", new { type = "payments" })" class="btn-outline-custom" style="padding:10px 20px;">
+                <i class="fas fa-receipt"></i> Export Payments CSV
+            </a>
+        </div>
+    </div>
+
+    <!-- Summary Stats -->
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.5rem; margin-bottom:2rem;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(37, 99, 235, 0.1); color:var(--primary);"><i class="fas fa-users"></i></div>
+            <div class="stat-info">
+                <h3>@Model.TotalUsers</h3>
+                <p>Registered Owners</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(16, 185, 129, 0.1); color:var(--success);"><i class="fas fa-tools"></i></div>
+            <div class="stat-info">
+                <h3>@Model.TotalServiceProviders</h3>
+                <p>Service Labs</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(245, 158, 11, 0.1); color:var(--warning);"><i class="fas fa-warehouse"></i></div>
+            <div class="stat-info">
+                <h3>@Model.TotalShopkeepers</h3>
+                <p>Spare Part Stores</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(99, 102, 241, 0.1); color:#818cf8;"><i class="fas fa-indian-rupee-sign"></i></div>
+            <div class="stat-info">
+                <h3>@Model.TotalPlatformRevenue.ToString("N0")</h3>
+                <p>Lifetime Revenue (5%)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div style="display:grid; grid-template-columns: 2fr 1fr; gap:1.5rem; margin-bottom:2rem;">
+        <div class="data-card">
+            <div class="data-card-header">
+                <h5><i class="fas fa-chart-area"></i> Revenue Trend (Last 6 Months)</h5>
+            </div>
+            <div class="data-card-body">
+                <canvas id="revenueChart" style="max-height:300px;"></canvas>
+            </div>
+        </div>
+        <div class="data-card">
+            <div class="data-card-header">
+                <h5><i class="fas fa-chart-pie"></i> User Distribution</h5>
+            </div>
+            <div class="data-card-body" style="display:flex; align-items:center;">
+                <canvas id="userDistChart" style="max-height:300px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Commissions Table -->
+    <div class="data-card">
+        <div class="data-card-header" style="display:flex; justify-content:space-between; align-items:center;">
+            <h5><i class="fas fa-file-invoice-dollar"></i> Recent Commission Entries</h5>
+            <a href="@Url.Action("Commissions", "Admin")" style="font-size:0.85rem;">View All</a>
+        </div>
+        <div class="data-card-body">
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Vendor Name</th>
+                        <th>Period</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var comm in Model.RecentCommissions)
+                    {
+                        <tr>
+                            <td>#@comm.Id</td>
+                            <td>@comm.VendorName</td>
+                            <td>@comm.MonthYear</td>
+                            <td class="fw-bold text-primary">₹@comm.Amount.ToString("N2")</td>
+                            <td>
+                                <span class="badge-custom badge-@(comm.Status == "Paid" ? "success" : "warning")">@comm.Status</span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Revenue Chart
+            const revCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revCtx, {
+                type: 'line',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.RevenueData.Select(d => d.Month))),
+                    datasets: [{
+                        label: 'Platform Revenue (₹)',
+                        data: @Html.Raw(Json.Serialize(Model.RevenueData.Select(d => d.Amount))),
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // User Distribution Chart
+            const distCtx = document.getElementById('userDistChart').getContext('2d');
+            new Chart(distCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Users', 'Providers', 'Shopkeepers'],
+                    datasets: [{
+                        data: [@Model.TotalUsers, @Model.TotalServiceProviders, @Model.TotalShopkeepers],
+                        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    cutout: '70%',
+                    plugins: { legend: { position: 'bottom', labels: { padding: 20, color: '#94a3b8' } } }
+                }
+            });
+        });
+    </script>
+}

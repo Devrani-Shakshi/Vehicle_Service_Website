@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ServicePlatform.Helpers;
@@ -6,6 +7,7 @@ using ServicePlatform.Models;
 using ServicePlatform.Services.Interfaces;
 using ServicePlatform.ViewModels.Account;
 using ServicePlatform.Data;
+using ServicePlatform.Repositories.Interfaces;
 
 namespace ServicePlatform.Controllers;
 
@@ -15,20 +17,23 @@ public class AccountController : Controller
     private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly IEmailService _emailService;
     private readonly ILogger<AccountController> _logger;
-    private readonly ApplicationDbContext _context;
+    private readonly ILoginHistoryRepository _loginHistoryRepo;
+    private readonly IOtpService _otpService;
 
     public AccountController(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
         IEmailService emailService,
         ILogger<AccountController> logger,
-        ApplicationDbContext context)
+        ILoginHistoryRepository loginHistoryRepo,
+        IOtpService otpService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _emailService = emailService;
         _logger = logger;
-        _context = context;
+        _loginHistoryRepo = loginHistoryRepo;
+        _otpService = otpService;
     }
 
     [HttpGet]
@@ -46,6 +51,15 @@ public class AccountController : Controller
         ViewBag.States = AppConstants.AllStates;
         if (!ModelState.IsValid) return View(model);
 
+        // Server-side State whitelist validation
+        if (!AppConstants.AllStates.Contains(model.State))
+        {
+            ModelState.AddModelError("State", "Invalid state selected.");
+            return View(model);
+        }
+
+        if (model.Email != null) model.Email = model.Email.ToLower().Trim();
+
         try
         {
             var user = new ApplicationUser
@@ -56,7 +70,8 @@ public class AccountController : Controller
                 Mobile = model.Mobile,
                 State = model.State,
                 EmailConfirmed = true,
-                IsActive = true
+                IsActive = true,
+                CreatedAt = DateTime.UtcNow
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -68,8 +83,8 @@ public class AccountController : Controller
                 await _userManager.AddToRoleAsync(user, role);
                 _logger.LogInformation("User {Email} registered with role {Role}", model.Email, role);
 
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                return RedirectToDashboard(role);
+                TempData["Success"] = "Account created successfully! Please sign in with your credentials.";
+                return RedirectToAction("Login");
             }
 
             foreach (var error in result.Errors)
@@ -94,35 +109,49 @@ public class AccountController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [EnableRateLimiting("auth")]
     public async Task<IActionResult> Login(LoginViewModel model, string? returnUrl = null)
     {
         if (!ModelState.IsValid) return View(model);
 
+        if (string.IsNullOrEmpty(model.Email))
+        {
+            ModelState.AddModelError(string.Empty, "Email is required.");
+            return View(model);
+        }
+
+        model.Email = model.Email.ToLower().Trim();
+
         try
         {
+            // Check if user exists first
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                _logger.LogWarning("Login attempt for non-existent user {Email}", model.Email);
+                ModelState.AddModelError(string.Empty, "User not found. Please register yourself first.");
+                return View(model);
+            }
+
             var result = await _signInManager.PasswordSignInAsync(
                 model.Email, model.Password, model.RememberMe, lockoutOnFailure: true);
 
             if (result.Succeeded)
             {
                 _logger.LogInformation("User {Email} logged in successfully", model.Email);
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user != null)
+                var loginHistory = new LoginHistory
                 {
-                    var loginHistory = new LoginHistory
-                    {
-                        UserId = user.Id,
-                        IpAddress = HttpContext.Connection.RemoteIpAddress?.ToString(),
-                        UserAgent = Request.Headers["User-Agent"].ToString()
-                    };
-                    _context.LoginHistories.Add(loginHistory);
-                    await _context.SaveChangesAsync();
+                    UserId = user.Id,
+                    IpAddress = HttpContext.Connection.RemoteIpAddress?.ToString(),
+                    UserAgent = Request.Headers["User-Agent"].ToString()
+                };
+                await _loginHistoryRepo.AddAsync(loginHistory);
+                await _loginHistoryRepo.SaveChangesAsync();
 
-                    var roles = await _userManager.GetRolesAsync(user);
-                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                        return Redirect(returnUrl);
-                    return RedirectToDashboard(roles.FirstOrDefault());
-                }
+                var roles = await _userManager.GetRolesAsync(user);
+                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                    return Redirect(returnUrl);
+                return RedirectToDashboard(roles.FirstOrDefault());
             }
 
             if (result.IsLockedOut)
@@ -174,6 +203,7 @@ public class AccountController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [EnableRateLimiting("auth")]
     public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
     {
         if (!ModelState.IsValid) return View(model);
@@ -182,12 +212,7 @@ public class AccountController : Controller
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
             
-            // Generate 6-digit OTP
-            var otp = new Random().Next(100000, 999999).ToString();
-
-            // Store OTP in session
-            HttpContext.Session.SetString($"OTP_{model.Email}", otp);
-            HttpContext.Session.SetString($"OTP_EXPIRY_{model.Email}", DateTime.UtcNow.AddMinutes(10).ToString("o"));
+            var otp = await _otpService.GenerateOtpAsync(model.Email);
 
             if (user == null)
             {
@@ -203,7 +228,7 @@ public class AccountController : Controller
             var emailBody = $@"
                 <div style='font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;max-width:500px;margin:0 auto;padding:40px;background-color:#ffffff;border:1px solid #e5e7eb;border-radius:12px;color:#1f2937;'>
                     <div style='text-align:center;margin-bottom:30px;'>
-                        <h1 style='color:#4f46e5;margin:0;font-size:24px;'>ServicePlatform</h1>
+                        <h1 style='color:#4f46e5;margin:0;font-size:24px;'>EV ServicePlatform</h1>
                     </div>
                     <h2 style='font-size:20px;font-weight:600;margin-bottom:16px;color:#111827;'>Password Reset Request</h2>
                     <p style='line-height:1.6;margin-bottom:24px;'>Hi {user.FullName},</p>
@@ -213,19 +238,26 @@ public class AccountController : Controller
                     </div>
                     <p style='font-size:14px;color:#6b7280;line-height:1.6;margin-bottom:24px;'>This code will expire in 10 minutes. If you did not request a password reset, you can safely ignore this email.</p>
                     <hr style='border:0;border-top:1px solid #e5e7eb;margin-bottom:24px;' />
-                    <p style='font-size:12px;color:#9ca3af;text-align:center;margin:0;'>&copy; {DateTime.Now.Year} ServicePlatform. All rights reserved.</p>
+                    <p style='font-size:12px;color:#9ca3af;text-align:center;margin:0;'>&copy; {DateTime.Now.Year} EV ServicePlatform. All rights reserved.</p>
                 </div>";
 
             try
             {
-                await _emailService.SendEmailAsync(model.Email, "ServicePlatform — Password Reset OTP", emailBody);
-                TempData["Success"] = $"An OTP has been sent to your registered email. (Demo OTP: {otp})";
+                await _emailService.SendEmailAsync(model.Email, "EV ServicePlatform — Password Reset OTP", emailBody);
+                TempData["Success"] = "An OTP has been sent to your registered email.";
+                
+                // Only show demo OTP if service is not configured
+                if (!_emailService.IsConfigured)
+                {
+                    TempData["DemoOTP"] = otp;
+                }
             }
             catch
             {
-                // If email fails, still redirect (OTP is in session for demo)
+                // If email fails, use session based demo fall-back
                 _logger.LogWarning("Email sending failed for {Email}, OTP stored in session for demo", model.Email);
-                TempData["Success"] = $"Email service unavailable. For demo, your OTP is: {otp}";
+                TempData["Success"] = "Unable to deliver email. Using demo mode.";
+                TempData["DemoOTP"] = otp;
             }
 
             return RedirectToAction("VerifyOtp", new { email = model.Email });
@@ -247,45 +279,22 @@ public class AccountController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult VerifyOtp(VerifyOtpViewModel model)
+    public async Task<IActionResult> VerifyOtp(VerifyOtpViewModel model)
     {
         if (!ModelState.IsValid) return View(model);
 
         try
         {
-            var storedOtp = HttpContext.Session.GetString($"OTP_{model.Email}");
-            var expiryStr = HttpContext.Session.GetString($"OTP_EXPIRY_{model.Email}");
+            var isValid = await _otpService.VerifyOtpAsync(model.Email, model.Otp);
 
-            if (string.IsNullOrEmpty(storedOtp) || string.IsNullOrEmpty(expiryStr))
+            if (!isValid)
             {
-                _logger.LogWarning("OTP verification attempt with no stored OTP for {Email}", model.Email);
-                TempData["Error"] = "OTP has expired. Please request a new one.";
-                return RedirectToAction("ForgotPassword");
-            }
-
-            var expiry = DateTime.Parse(expiryStr);
-            if (DateTime.UtcNow > expiry)
-            {
-                _logger.LogWarning("Expired OTP used for {Email}", model.Email);
-                HttpContext.Session.Remove($"OTP_{model.Email}");
-                HttpContext.Session.Remove($"OTP_EXPIRY_{model.Email}");
-                TempData["Error"] = "OTP has expired. Please request a new one.";
-                return RedirectToAction("ForgotPassword");
-            }
-
-            if (storedOtp != model.Otp)
-            {
-                _logger.LogWarning("Invalid OTP entered for {Email}", model.Email);
-                ModelState.AddModelError("Otp", "Invalid OTP. Please try again.");
+                _logger.LogWarning("Invalid or expired OTP entered for {Email}", model.Email);
+                ModelState.AddModelError("Otp", "Invalid or expired OTP. Please try again.");
                 return View(model);
             }
 
-            // OTP verified — allow password reset
             _logger.LogInformation("OTP verified successfully for {Email}", model.Email);
-            HttpContext.Session.SetString($"OTP_VERIFIED_{model.Email}", "true");
-            HttpContext.Session.Remove($"OTP_{model.Email}");
-            HttpContext.Session.Remove($"OTP_EXPIRY_{model.Email}");
-
             return RedirectToAction("ResetPassword", new { email = model.Email });
         }
         catch (Exception ex)
@@ -297,12 +306,12 @@ public class AccountController : Controller
     }
 
     [HttpGet]
-    public IActionResult ResetPassword(string email)
+    public async Task<IActionResult> ResetPassword(string email)
     {
         if (string.IsNullOrEmpty(email)) return RedirectToAction("ForgotPassword");
 
-        var verified = HttpContext.Session.GetString($"OTP_VERIFIED_{email}");
-        if (verified != "true")
+        var verified = await _otpService.IsVerifiedAsync(email);
+        if (!verified)
         {
             TempData["Error"] = "Please verify the OTP first.";
             return RedirectToAction("ForgotPassword");
@@ -319,10 +328,10 @@ public class AccountController : Controller
 
         try
         {
-            var verified = HttpContext.Session.GetString($"OTP_VERIFIED_{model.Email}");
-            if (verified != "true")
+            var verified = await _otpService.IsVerifiedAsync(model.Email);
+            if (!verified)
             {
-                TempData["Error"] = "Session expired. Please start over.";
+                TempData["Error"] = "Verification expired. Please start over.";
                 return RedirectToAction("ForgotPassword");
             }
 
@@ -340,7 +349,7 @@ public class AccountController : Controller
             if (result.Succeeded)
             {
                 _logger.LogInformation("Password reset successful for {Email}", model.Email);
-                HttpContext.Session.Remove($"OTP_VERIFIED_{model.Email}");
+                await _otpService.ClearVerificationAsync(model.Email);
                 TempData["Success"] = "Password has been reset successfully! Please sign in with your new password.";
                 return RedirectToAction("Login");
             }
@@ -380,5 +389,36 @@ public class AccountController : Controller
             "Shopkeeper" => RedirectToAction("Index", "Shopkeeper"),
             _ => RedirectToAction("Index", "UserDashboard")
         };
+    }
+
+    // ── Change Password Feature ──────────────────────────────
+
+    [HttpGet]
+    [Authorize]
+    public IActionResult ChangePassword() => View();
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize]
+    public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+    {
+        if (!ModelState.IsValid) return View(model);
+
+        var user = await _userManager.GetUserAsync(User);
+        if (user == null) return RedirectToAction("Login");
+
+        var result = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+        if (result.Succeeded)
+        {
+            await _signInManager.RefreshSignInAsync(user);
+            _logger.LogInformation("User {Email} changed their password successfully", user.Email);
+            TempData["Success"] = "Your password has been changed successfully!";
+            return RedirectToDashboard();
+        }
+
+        foreach (var error in result.Errors)
+            ModelState.AddModelError(string.Empty, error.Description);
+
+        return View(model);
     }
 }

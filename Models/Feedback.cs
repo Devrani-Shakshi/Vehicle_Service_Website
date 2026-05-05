@@ -8,11 +8,14 @@ public class Feedback
     [Key]
     public int Id { get; set; }
 
-    [Required, MaxLength(200)]
-    public string Subject { get; set; } = string.Empty;
+    [MaxLength(200)]
+    public string Subject { get; set; } = "User Feedback";
 
     [Required, MaxLength(2000)]
     public string Message { get; set; } = string.Empty;
+
+    [Range(1, 5)]
+    public int Rating { get; set; } = 5;
 
     [MaxLength(100)]
     public string? Category { get; set; }

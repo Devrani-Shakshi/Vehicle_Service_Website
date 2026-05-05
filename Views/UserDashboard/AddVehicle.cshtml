@@ -1,0 +1,22 @@
+@model ServicePlatform.Models.UserVehicle
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Add Vehicle"; }
+
+<div style="width:100%;max-width:600px;margin:0 auto;padding-bottom:2rem;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header"><h5><i class="fas fa-car-side" style="color:var(--primary-light);margin-right:8px;"></i>Register New EV</h5></div>
+        <div class="data-card-body">
+            <form asp-action="AddVehicle" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-floating-custom"><label asp-for="Make">Make (e.g. Tata, MG, Ola)</label><input asp-for="Make" class="form-control" /><span asp-validation-for="Make" style="color:var(--danger);font-size:0.8rem;"></span></div>
+                <div class="form-floating-custom"><label asp-for="Model">Model (e.g. Nexon EV, ZS EV)</label><input asp-for="Model" class="form-control" /><span asp-validation-for="Model" style="color:var(--danger);font-size:0.8rem;"></span></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="form-floating-custom"><label asp-for="Year">Year</label><input asp-for="Year" type="number" class="form-control" value="2024" /><span asp-validation-for="Year" style="color:var(--danger);font-size:0.8rem;"></span></div>
+                    <div class="form-floating-custom"><label asp-for="BatteryCapacityKWh">Battery (kWh)</label><input asp-for="BatteryCapacityKWh" type="number" class="form-control" /><span asp-validation-for="BatteryCapacityKWh" style="color:var(--danger);font-size:0.8rem;"></span></div>
+                </div>
+                <div class="form-floating-custom"><label asp-for="RegistrationNumber">Registration Number</label><input asp-for="RegistrationNumber" class="form-control" placeholder="e.g. DL01AB1234" /></div>
+                <div class="form-floating-custom" style="display:flex;align-items:center;gap:8px;"><input asp-for="IsPrimary" type="checkbox" /><label asp-for="IsPrimary" style="margin:0;">Set as Primary Vehicle</label></div>
+                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;margin-top:1rem;"><i class="fas fa-plus"></i> Register Vehicle</button>
+            </form>
+        </div>
+    </div>
+</div>

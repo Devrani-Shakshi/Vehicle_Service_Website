@@ -42,9 +42,24 @@ public class ShopkeeperDashboardViewModel
     public int PendingOrders { get; set; }
     public decimal TotalRevenue { get; set; }
     public decimal MonthlyRevenue { get; set; }
+    
+    public List<RevenueStat> RevenueTrend { get; set; } = new();
+    public List<CategoryStat> CategoryDistribution { get; set; } = new();
 
     public List<Product> RecentProducts { get; set; } = new();
     public List<Order> RecentOrders { get; set; } = new();
+    public List<Payment> RecentPayments { get; set; } = new();
+}
+
+public class RevenueStat { public string Month { get; set; } = ""; public decimal Amount { get; set; } }
+public class CategoryStat { public string Category { get; set; } = ""; public int Count { get; set; } }
+
+public class ShipmentUpdateViewModel
+{
+    public int OrderId { get; set; }
+    [Required] public string TrackingNumber { get; set; } = "";
+    [Required] public string Carrier { get; set; } = "";
+    public OrderStatus NewStatus { get; set; } = OrderStatus.Shipped;
 }
 
 public class CartViewModel

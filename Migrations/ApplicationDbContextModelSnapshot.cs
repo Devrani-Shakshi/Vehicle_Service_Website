@@ -348,6 +348,49 @@ namespace ServicePlatform.Migrations
                     b.ToTable("CartItems");
                 });
 
+            modelBuilder.Entity("ServicePlatform.Models.Commission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("AppliedPercentage")
+                        .HasColumnType("decimal(5,2)");
+
+                    b.Property<decimal>("CommissionAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsPaid")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Month")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("PaidAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TotalIncome")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Commissions");
+                });
+
             modelBuilder.Entity("ServicePlatform.Models.Feedback", b =>
                 {
                     b.Property<int>("Id")
@@ -377,6 +420,9 @@ namespace ServicePlatform.Migrations
                         .IsRequired()
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("ResolvedAt")
                         .HasColumnType("datetime2");
@@ -479,7 +525,14 @@ namespace ServicePlatform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Carrier")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeliveredDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("ExpectedDeliveryDate")
@@ -497,6 +550,9 @@ namespace ServicePlatform.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<DateTime?>("ShippedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ShippingAddress")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
@@ -512,6 +568,10 @@ namespace ServicePlatform.Migrations
 
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("TrackingNumber")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -784,74 +844,74 @@ namespace ServicePlatform.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 3, 28, 20, 25, 16, 627, DateTimeKind.Utc).AddTicks(9041),
-                            Description = "Plumbing and pipe repair services",
-                            Icon = "fas fa-wrench",
+                            CreatedAt = new DateTime(2026, 4, 9, 6, 35, 30, 140, DateTimeKind.Utc).AddTicks(9479),
+                            Description = "EV battery diagnostics, repair and replacement",
+                            Icon = "fas fa-car-battery",
                             IsActive = true,
-                            Name = "Plumbing"
+                            Name = "Battery Service"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 3, 28, 20, 25, 16, 627, DateTimeKind.Utc).AddTicks(9916),
-                            Description = "Electrical repair and installation",
-                            Icon = "fas fa-bolt",
+                            CreatedAt = new DateTime(2026, 4, 9, 6, 35, 30, 141, DateTimeKind.Utc).AddTicks(696),
+                            Description = "Electric motor diagnostics and repair",
+                            Icon = "fas fa-cogs",
                             IsActive = true,
-                            Name = "Electrical"
+                            Name = "Motor Repair"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 3, 28, 20, 25, 16, 627, DateTimeKind.Utc).AddTicks(9917),
-                            Description = "Woodwork and furniture repair",
-                            Icon = "fas fa-hammer",
+                            CreatedAt = new DateTime(2026, 4, 9, 6, 35, 30, 141, DateTimeKind.Utc).AddTicks(698),
+                            Description = "Charging port, cable and system repair",
+                            Icon = "fas fa-charging-station",
                             IsActive = true,
-                            Name = "Carpentry"
+                            Name = "Charging System"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 3, 28, 20, 25, 16, 627, DateTimeKind.Utc).AddTicks(9918),
-                            Description = "Home and office cleaning services",
-                            Icon = "fas fa-broom",
+                            CreatedAt = new DateTime(2026, 4, 9, 6, 35, 30, 141, DateTimeKind.Utc).AddTicks(700),
+                            Description = "Tyre replacement, alignment and balancing",
+                            Icon = "fas fa-tire",
                             IsActive = true,
-                            Name = "Cleaning"
+                            Name = "Tyre & Wheel"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 3, 28, 20, 25, 16, 627, DateTimeKind.Utc).AddTicks(9919),
-                            Description = "Interior and exterior painting",
-                            Icon = "fas fa-paint-roller",
+                            CreatedAt = new DateTime(2026, 4, 9, 6, 35, 30, 141, DateTimeKind.Utc).AddTicks(701),
+                            Description = "Brake pad, disc and regenerative braking repair",
+                            Icon = "fas fa-brake",
                             IsActive = true,
-                            Name = "Painting"
+                            Name = "Brake System"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 3, 28, 20, 25, 16, 627, DateTimeKind.Utc).AddTicks(9920),
-                            Description = "Heating, ventilation and air conditioning",
-                            Icon = "fas fa-fan",
+                            CreatedAt = new DateTime(2026, 4, 9, 6, 35, 30, 141, DateTimeKind.Utc).AddTicks(702),
+                            Description = "Electronic control unit and controller repair",
+                            Icon = "fas fa-microchip",
                             IsActive = true,
-                            Name = "HVAC"
+                            Name = "Controller / ECU"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 3, 28, 20, 25, 16, 627, DateTimeKind.Utc).AddTicks(9921),
-                            Description = "Home appliance repair services",
-                            Icon = "fas fa-tools",
+                            CreatedAt = new DateTime(2026, 4, 9, 6, 35, 30, 141, DateTimeKind.Utc).AddTicks(703),
+                            Description = "Body repair, dent removal and painting",
+                            Icon = "fas fa-spray-can",
                             IsActive = true,
-                            Name = "Appliance Repair"
+                            Name = "Body & Paint"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 3, 28, 20, 25, 16, 627, DateTimeKind.Utc).AddTicks(9922),
-                            Description = "Pest control and fumigation",
-                            Icon = "fas fa-bug",
+                            CreatedAt = new DateTime(2026, 4, 9, 6, 35, 30, 141, DateTimeKind.Utc).AddTicks(704),
+                            Description = "Routine EV maintenance and general servicing",
+                            Icon = "fas fa-tools",
                             IsActive = true,
-                            Name = "Pest Control"
+                            Name = "General Servicing"
                         });
                 });
 
@@ -865,6 +925,9 @@ namespace ServicePlatform.Migrations
 
                     b.Property<DateTime?>("AcceptedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("BatteryStateOfHealth")
+                        .HasColumnType("int");
 
                     b.Property<string>("Category")
                         .HasMaxLength(100)
@@ -883,6 +946,9 @@ namespace ServicePlatform.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<long?>("KilometersDriven")
+                        .HasColumnType("bigint");
 
                     b.Property<double?>("Latitude")
                         .HasColumnType("float");
@@ -919,6 +985,13 @@ namespace ServicePlatform.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("VehicleModelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VehicleModelName")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedAt");
@@ -929,7 +1002,64 @@ namespace ServicePlatform.Migrations
 
                     b.HasIndex("UserId");
 
+                    b.HasIndex("VehicleModelId");
+
                     b.ToTable("ServiceRequests");
+                });
+
+            modelBuilder.Entity("ServicePlatform.Models.VehicleModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModelNumber")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("ReleaseYear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ServiceProviderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ModelNumber")
+                        .IsUnique();
+
+                    b.HasIndex("ServiceProviderId");
+
+                    b.ToTable("VehicleModels");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1016,6 +1146,17 @@ namespace ServicePlatform.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ServicePlatform.Models.Commission", b =>
+                {
+                    b.HasOne("ServicePlatform.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -1158,9 +1299,27 @@ namespace ServicePlatform.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("ServicePlatform.Models.VehicleModel", "VehicleModel")
+                        .WithMany("ServiceRequests")
+                        .HasForeignKey("VehicleModelId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.Navigation("ServiceProvider");
 
                     b.Navigation("User");
+
+                    b.Navigation("VehicleModel");
+                });
+
+            modelBuilder.Entity("ServicePlatform.Models.VehicleModel", b =>
+                {
+                    b.HasOne("ServicePlatform.Models.ApplicationUser", "ServiceProvider")
+                        .WithMany("VehicleModels")
+                        .HasForeignKey("ServiceProviderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ServiceProvider");
                 });
 
             modelBuilder.Entity("ServicePlatform.Models.ApplicationUser", b =>
@@ -1188,6 +1347,8 @@ namespace ServicePlatform.Migrations
                     b.Navigation("ServiceRequestsAsProvider");
 
                     b.Navigation("ServiceRequestsAsUser");
+
+                    b.Navigation("VehicleModels");
                 });
 
             modelBuilder.Entity("ServicePlatform.Models.Order", b =>
@@ -1209,6 +1370,11 @@ namespace ServicePlatform.Migrations
                     b.Navigation("Payment");
 
                     b.Navigation("Ratings");
+                });
+
+            modelBuilder.Entity("ServicePlatform.Models.VehicleModel", b =>
+                {
+                    b.Navigation("ServiceRequests");
                 });
 #pragma warning restore 612, 618
         }

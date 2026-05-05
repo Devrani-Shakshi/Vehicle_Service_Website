@@ -1,0 +1,32 @@
+@model IEnumerable<ServicePlatform.Models.UserVehicle>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "My Vehicles"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header">
+        <h5><i class="fas fa-car" style="color:var(--primary-light);margin-right:8px;"></i>My Vehicles</h5>
+        <a href="/UserDashboard/AddVehicle" class="btn-primary-custom" style="padding:8px 20px;font-size:0.85rem;"><i class="fas fa-plus"></i> Add Vehicle</a>
+    </div>
+    <table class="table-custom">
+        <thead><tr><th>Make</th><th>Model</th><th>Year</th><th>Battery (kWh)</th><th>Reg. No.</th><th>Primary</th><th>Actions</th></tr></thead>
+        <tbody>
+            @foreach (var v in Model)
+            {
+                <tr>
+                    <td style="font-weight:600;">@v.Make</td>
+                    <td>@v.Model</td>
+                    <td>@v.Year</td>
+                    <td>@v.BatteryCapacityKWh kWh</td>
+                    <td>@(v.RegistrationNumber ?? "—")</td>
+                    <td>@(v.IsPrimary ? "⭐ Yes" : "No")</td>
+                    <td>
+                        <form asp-action="DeleteVehicle" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@v.Id" />@Html.AntiForgeryToken()
+                            <button type="submit" class="btn-danger-custom" style="padding:6px 14px;font-size:0.8rem;" onclick="return confirm('Remove this vehicle?')"><i class="fas fa-trash"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="7" class="empty-state"><i class="fas fa-car-side"></i><h5>No vehicles added</h5><p>Register your first EV</p></td></tr> }
+        </tbody>
+    </table>
+</div>

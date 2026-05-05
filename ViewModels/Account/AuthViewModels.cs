@@ -15,7 +15,7 @@ public class RegisterViewModel
     public string Email { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "Mobile number is required")]
-    [RegularExpression(@"^\d{10}$", ErrorMessage = "Mobile number must be exactly 10 digits")]
+    [RegularExpression(@"^[6-9]\d{9}$", ErrorMessage = "Mobile number must be 10 digits and start with 6-9")]
     [Display(Name = "Mobile Number")]
     public string Mobile { get; set; } = string.Empty;
 
@@ -92,4 +92,42 @@ public class ResetPasswordViewModel
     [Compare("NewPassword", ErrorMessage = "Passwords do not match")]
     [Display(Name = "Confirm Password")]
     public string ConfirmPassword { get; set; } = string.Empty;
+}
+
+public class ChangePasswordViewModel
+{
+    [Required(ErrorMessage = "Current password is required")]
+    [DataType(DataType.Password)]
+    [Display(Name = "Current Password")]
+    public string CurrentPassword { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "New password is required")]
+    [DataType(DataType.Password)]
+    [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", ErrorMessage = "Password must have at least 8 chars, 1 uppercase, 1 lowercase, 1 number, and 1 special character")]
+    [Display(Name = "New Password")]
+    public string NewPassword { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Please confirm your password")]
+    [DataType(DataType.Password)]
+    [Compare("NewPassword", ErrorMessage = "Passwords do not match")]
+    [Display(Name = "Confirm Password")]
+    public string ConfirmPassword { get; set; } = string.Empty;
+}
+
+public class ProfileSettingsViewModel
+{
+    [Required(ErrorMessage = "Full name is required")]
+    [MaxLength(100)]
+    public string FullName { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Mobile number is required")]
+    [RegularExpression(@"^[6-9]\d{9}$", ErrorMessage = "Mobile number must be 10 digits and start with 6-9")]
+    public string Mobile { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "State is required")]
+    [MaxLength(100)]
+    public string State { get; set; } = string.Empty;
+
+    [MaxLength(500)]
+    public string? Address { get; set; }
 }

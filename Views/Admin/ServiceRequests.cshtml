@@ -9,16 +9,19 @@
                 <option value="">All Status</option>
                 @foreach (var status in Enum.GetValues(typeof(ServicePlatform.Models.ServiceRequestStatus)))
                 {
-                    <option value="@status.ToString().ToLower()">@status</option>
+                    <option value="@status?.ToString()?.ToLower()">@status</option>
                 }
             </select>
-            <select id="categoryFilter" class="form-select form-select-sm" style="width:130px; border-radius:20px;">
+            <select id="categoryFilter" class="form-select form-select-sm" style="width:160px; border-radius:20px;">
                 <option value="">All Categories</option>
-                <option value="plumbing">Plumbing</option>
-                <option value="electrical">Electrical</option>
-                <option value="carpentry">Carpentry</option>
-                <option value="cleaning">Cleaning</option>
-                <option value="painting">Painting</option>
+                <option value="battery service">Battery Service</option>
+                <option value="motor repair">Motor Repair</option>
+                <option value="charging system">Charging System</option>
+                <option value="tyre & wheel">Tyre & Wheel</option>
+                <option value="brake system">Brake System</option>
+                <option value="controller / ecu">Controller / ECU</option>
+                <option value="body & paint">Body & Paint</option>
+                <option value="general servicing">General Servicing</option>
             </select>
             <div style="position:relative;">
                 <i class="fas fa-search" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted); font-size:0.9rem;"></i>
@@ -34,8 +37,8 @@
             {
                 <tr data-status="@r.Status.ToString().ToLower()" data-category="@(r.Category?.ToLower() ?? "general")">
                     <td style="font-weight:600;">@r.Title</td>
-                    <td>@r.User.FullName</td>
-                    <td><span class="badge-custom badge-@(r.RequestType.ToString().ToLower() == "urgent" ? "danger" : "primary")">@r.RequestType</span></td>
+                    <td>@(r.User?.FullName ?? "Unknown")</td>
+                    <td><span class="badge-custom badge-@(r.RequestType.ToString().ToLower() == "urgent" ? "urgent" : "primary")">@r.RequestType</span></td>
                     <td class="cat-cell">@(r.Category ?? "General")</td>
                     <td><span class="badge-custom badge-@r.Status.ToString().ToLower()">@r.Status</span></td>
                     <td style="font-size:0.8rem;color:var(--text-muted);">@r.CreatedAt.ToString("MMM dd, yyyy")</td>
@@ -47,6 +50,14 @@
             @if (!Model.Any()) { <tr><td colspan="7" class="empty-state"><p>No requests found</p></td></tr> }
         </tbody>
     </table>
+    
+    <!-- Pagination -->
+    <div style="padding:1.5rem;display:flex;justify-content:center;gap:0.5rem;border-top:1px solid var(--border-color);">
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <a href="/Admin/ServiceRequests?page=@i" class="btn-outline-custom @(i == ViewBag.CurrentPage ? "active" : "")" style="padding:8px 16px;text-decoration:none;">@i</a>
+        }
+    </div>
 </div>
 
 @section Scripts {

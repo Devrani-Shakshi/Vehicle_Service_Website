@@ -31,4 +31,11 @@ public static class AppConstants
         "Ladakh", "Lakshadweep", "Dadra and Nagar Haveli",
         "Andaman and Nicobar Islands"
     };
+
+    public static readonly string[] ProductCategories = new[]
+    {
+        "Battery & Power", "Charging Accessories", "Spare Parts", 
+        "Car Care", "Tools & Accessories", "Lighting & Electrical", 
+        "Maintenance Kits", "Other Parts"
+    };
 }

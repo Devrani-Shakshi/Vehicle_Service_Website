@@ -1,0 +1,49 @@
+@model IEnumerable<ServicePlatform.Models.ApplicationUser>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Find EV Experts"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header" style="display:block;padding:1.5rem;">
+        <h5 style="margin-bottom:1rem;"><i class="fas fa-search-location" style="color:var(--primary-light);margin-right:8px;"></i>Find Verified EV Service Providers</h5>
+        <form method="get" asp-action="FindProviders" style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;">
+            <input type="text" name="specialization" class="form-control" placeholder="Specialization (Battery, Motor...)" style="width:auto;min-width:180px;" value="@Context.Request.Query["specialization"]" />
+            <input type="text" name="certification" class="form-control" placeholder="Certification (Tata Nexon...)" style="width:auto;min-width:180px;" value="@Context.Request.Query["certification"]" />
+            <label style="display:flex;align-items:center;gap:6px;margin:0;"><input type="checkbox" name="verifiedOnly" value="true" @(Context.Request.Query["verifiedOnly"] == "true" ? "checked" : "") /> Verified Only</label>
+            <button type="submit" class="btn-primary-custom" style="padding:8px 20px;font-size:0.85rem;"><i class="fas fa-search"></i> Search</button>
+        </form>
+    </div>
+    <div class="data-card-body" style="padding:1.5rem;">
+        @if (Model.Any())
+        {
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;">
+                @foreach (var p in Model)
+                {
+                    <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:1.5rem;">
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
+                            <div style="width:48px;height:48px;border-radius:50%;background:var(--primary-gradient);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.1rem;">@p.FullName[0]</div>
+                            <div>
+                                <p style="font-weight:700;margin:0;">@p.FullName @if (p.IsVerifiedExpert) { <i class="fas fa-check-circle" style="color:var(--success);" title="Verified Expert"></i> }</p>
+                                <p style="color:var(--text-muted);font-size:0.8rem;margin:0;">@(p.State ?? "India")</p>
+                            </div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(p.Specializations))
+                        {
+                            <p style="font-size:0.8rem;margin:0 0 0.5rem;"><strong>Specializations:</strong> @p.Specializations</p>
+                        }
+                        @if (!string.IsNullOrEmpty(p.Certifications))
+                        {
+                            <p style="font-size:0.8rem;margin:0;"><strong>Certifications:</strong> @p.Certifications</p>
+                        }
+                        @if (string.IsNullOrEmpty(p.Specializations) && string.IsNullOrEmpty(p.Certifications))
+                        {
+                            <p style="font-size:0.85rem;color:var(--text-muted);">General EV servicing</p>
+                        }
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="empty-state" style="text-align:center;padding:3rem;"><i class="fas fa-user-slash" style="font-size:3rem;color:var(--text-muted);margin-bottom:1rem;"></i><h5>No providers found</h5><p>Try adjusting your search filters</p></div>
+        }
+    </div>
+</div>

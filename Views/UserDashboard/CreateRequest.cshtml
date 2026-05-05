@@ -1,7 +1,7 @@
 @model ServicePlatform.ViewModels.Service.ServiceRequestViewModel
 @{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "New Service Request"; }
 
-<div style="max-width:700px;">
+<div style="width: 100%; padding-bottom: 2rem;">
     <div class="data-card animate-fadeInUp">
         <div class="data-card-header">
             <h5><i class="fas fa-plus-circle" style="color:var(--primary-light);margin-right:8px;"></i>Submit Service Request</h5>
@@ -26,39 +26,123 @@
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
                     <div class="form-floating-custom" style="margin-bottom:0;">
                         <label asp-for="RequestType">Urgency Level</label>
-                        <select asp-for="RequestType" class="form-control" asp-items="Html.GetEnumSelectList<ServicePlatform.Models.ServiceRequestType>()"></select>
+                        <select asp-for="RequestType" class="form-control">
+                            <option value="General">General</option>
+                            <option value="Breakdown">Breakdown</option>
+                        </select>
                     </div>
+                    <div class="form-floating-custom" style="margin-bottom:0;">
+                        <label asp-for="VehicleModelId">Select Your EV Model</label>
+                        <select asp-for="VehicleModelId" class="form-control">
+                            <option value="">-- Select Registered Model --</option>
+                            @if (ViewBag.VehicleModels != null)
+                            {
+                                foreach (var m in (IEnumerable<ServicePlatform.Models.VehicleModel>)ViewBag.VehicleModels)
+                                {
+                                    <option value="@m.Id">@m.Name (@m.Type) - @m.ServiceProvider.FullName</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="VehicleModelId" style="color:var(--danger);font-size:0.8rem;"></span>
+                    </div>
+                </div>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
                     <div class="form-floating-custom" style="margin-bottom:0;">
                         <label asp-for="Category">Service Category</label>
                         <select asp-for="Category" class="form-control">
                             <option value="">Select Category</option>
-                            <option value="Plumbing">Plumbing</option>
-                            <option value="Electrical">Electrical</option>
-                            <option value="Carpentry">Carpentry</option>
-                            <option value="Cleaning">Cleaning</option>
-                            <option value="Painting">Painting</option>
-                            <option value="HVAC">HVAC</option>
-                            <option value="Appliance Repair">Appliance Repair</option>
-                            <option value="Pest Control">Pest Control</option>
+                            <optgroup label="Core Components">
+                                <option value="Battery Service">Battery Service</option>
+                                <option value="Motor Repair">Motor Repair</option>
+                                <option value="Charging System">Charging System</option>
+                                <option value="Controller / ECU">Controller / ECU</option>
+                            </optgroup>
+                            <optgroup label="Mechanical">
+                                <option value="Tyre & Wheel">Tyre & Wheel</option>
+                                <option value="Brake System">Brake System</option>
+                                <option value="General Servicing">General Servicing</option>
+                            </optgroup>
                         </select>
+                    </div>
+                    <div class="form-floating-custom" style="margin-bottom:0;">
+                        <label asp-for="BatteryStateOfHealth">Battery Health (%)</label>
+                        <input asp-for="BatteryStateOfHealth" type="number" class="form-control" placeholder="Estimate %" min="0" max="100" />
+                    </div>
+                    <div class="form-floating-custom" style="margin-bottom:0;">
+                        <label asp-for="KilometersDriven">KiloMeters Driven</label>
+                        <input asp-for="KilometersDriven" type="number" class="form-control" placeholder="Current Odometer" />
                     </div>
                 </div>
 
-                <div class="form-floating-custom">
-                    <label>Location Address</label>
-                    <input asp-for="LocationAddress" class="form-control" placeholder="Enter your address" />
+                <!-- Location Mode Selector -->
+                <div class="form-floating-custom" style="margin-bottom:1rem;">
+                    <label style="margin-bottom:12px;">How would you like to set your location?</label>
+                    <div style="display:flex;gap:12px;">
+                        <button type="button" class="btn-outline-custom location-mode-btn active" id="btnCurrentLocation" onclick="selectLocationMode('current')" style="flex:1;justify-content:center;padding:12px;">
+                            <i class="fas fa-crosshairs"></i> Use Current Location
+                        </button>
+                        <button type="button" class="btn-outline-custom location-mode-btn" id="btnManualLocation" onclick="selectLocationMode('manual')" style="flex:1;justify-content:center;padding:12px;">
+                            <i class="fas fa-edit"></i> Enter Manually
+                        </button>
+                    </div>
                 </div>
 
-                <!-- Location capture -->
-                <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:1.5rem;align-items:end;margin-bottom:1.5rem;">
-                    <div class="form-floating-custom" style="margin-bottom:0;"><label>Latitude</label><input asp-for="Latitude" id="lat" class="form-control" readonly /></div>
-                    <div class="form-floating-custom" style="margin-bottom:0;"><label>Longitude</label><input asp-for="Longitude" id="lng" class="form-control" readonly /></div>
-                    <button type="button" class="btn-outline-custom" onclick="getLocation()" style="height:56px;padding:0 24px;">
-                        <i class="fas fa-crosshairs"></i> Detect
-                    </button>
+                <!-- Current Location Section -->
+                <div id="currentLocationSection">
+                    <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:1.5rem;align-items:end;margin-bottom:1.5rem;">
+                        <div class="form-floating-custom" style="margin-bottom:0;"><label>Latitude</label><input asp-for="Latitude" id="lat" class="form-control" readonly /></div>
+                        <div class="form-floating-custom" style="margin-bottom:0;"><label>Longitude</label><input asp-for="Longitude" id="lng" class="form-control" readonly /></div>
+                        <button type="button" class="btn-outline-custom" onclick="getLocation()" style="height:56px;padding:0 24px;">
+                            <i class="fas fa-crosshairs"></i> Detect
+                        </button>
+                    </div>
+                    <div class="form-floating-custom">
+                        <label>Detected Address</label>
+                        <input asp-for="LocationAddress" id="detectedAddress" class="form-control" placeholder="Click Detect to auto-fill" />
+                    </div>
+                    <div id="miniMap" class="map-container" style="height:250px;margin-bottom:1.5rem;display:none;"></div>
                 </div>
 
-                <div id="miniMap" class="map-container" style="height:250px;margin-bottom:1.5rem;display:none;"></div>
+                <!-- Manual Location Section -->
+                <div id="manualLocationSection" style="display:none;">
+                    <div class="form-floating-custom">
+                        <label>House / Flat / Building No.</label>
+                        <input type="text" id="manualHouse" class="form-control" placeholder="e.g., Flat 201, Sunshine Apartments" />
+                    </div>
+                    <div class="form-floating-custom">
+                        <label>Street / Road / Locality</label>
+                        <input type="text" id="manualStreet" class="form-control" placeholder="e.g., MG Road, Sector 15" />
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                        <div class="form-floating-custom">
+                            <label>Landmark (Optional)</label>
+                            <input type="text" id="manualLandmark" class="form-control" placeholder="e.g., Near City Mall" />
+                        </div>
+                        <div class="form-floating-custom">
+                            <label>Area / Colony</label>
+                            <input type="text" id="manualArea" class="form-control" placeholder="e.g., Andheri West" />
+                        </div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+                        <div class="form-floating-custom">
+                            <label>City</label>
+                            <input type="text" id="manualCity" class="form-control" placeholder="e.g., Mumbai" required />
+                        </div>
+                        <div class="form-floating-custom">
+                            <label>State</label>
+                            <input type="text" id="manualState" class="form-control" placeholder="e.g., Maharashtra" required />
+                        </div>
+                        <div class="form-floating-custom">
+                            <label>Pincode</label>
+                            <input type="text" id="manualPincode" class="form-control" placeholder="e.g., 400001" pattern="[0-9]{6}" maxlength="6" required />
+                        </div>
+                    </div>
+                    <!-- Hidden field for combined address -->
+                    <input type="hidden" asp-for="LocationAddress" id="manualAddressCombined" />
+                    <input type="hidden" asp-for="Latitude" id="manualLat" />
+                    <input type="hidden" asp-for="Longitude" id="manualLng" />
+                </div>
 
                 <div class="form-floating-custom">
                     <label asp-for="Notes">Additional Notes</label>
@@ -75,25 +159,118 @@
 
 @section Styles {
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .location-mode-btn.active {
+            background: var(--primary-gradient) !important;
+            color: white !important;
+            border-color: transparent !important;
+        }
+    </style>
 }
 
 @section Scripts {
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         let miniMap, marker;
+        let locationMode = 'current';
+
+        function selectLocationMode(mode) {
+            locationMode = mode;
+            const currentSection = document.getElementById('currentLocationSection');
+            const manualSection = document.getElementById('manualLocationSection');
+            const btnCurrent = document.getElementById('btnCurrentLocation');
+            const btnManual = document.getElementById('btnManualLocation');
+
+            if (mode === 'current') {
+                currentSection.style.display = 'block';
+                manualSection.style.display = 'none';
+                btnCurrent.classList.add('active');
+                btnManual.classList.remove('active');
+                // Enable current location fields, disable manual hidden fields
+                document.getElementById('lat').name = 'Latitude';
+                document.getElementById('lng').name = 'Longitude';
+                document.getElementById('detectedAddress').name = 'LocationAddress';
+                document.getElementById('manualLat').name = '';
+                document.getElementById('manualLng').name = '';
+                document.getElementById('manualAddressCombined').name = '';
+            } else {
+                currentSection.style.display = 'none';
+                manualSection.style.display = 'block';
+                btnCurrent.classList.remove('active');
+                btnManual.classList.add('active');
+                // Enable manual hidden fields, disable current location fields
+                document.getElementById('lat').name = '';
+                document.getElementById('lng').name = '';
+                document.getElementById('detectedAddress').name = '';
+                document.getElementById('manualLat').name = 'Latitude';
+                document.getElementById('manualLng').name = 'Longitude';
+                document.getElementById('manualAddressCombined').name = 'LocationAddress';
+            }
+        }
+
+        // Auto-combine manual address fields
+        function combineManualAddress() {
+            const house = document.getElementById('manualHouse')?.value || '';
+            const street = document.getElementById('manualStreet')?.value || '';
+            const landmark = document.getElementById('manualLandmark')?.value || '';
+            const area = document.getElementById('manualArea')?.value || '';
+            const city = document.getElementById('manualCity')?.value || '';
+            const state = document.getElementById('manualState')?.value || '';
+            const pincode = document.getElementById('manualPincode')?.value || '';
+
+            const parts = [house, street, landmark, area, city, state, pincode].filter(p => p.trim() !== '');
+            document.getElementById('manualAddressCombined').value = parts.join(', ');
+        }
+
+        // Attach input listeners to manual fields
+        document.addEventListener('DOMContentLoaded', function() {
+            ['manualHouse', 'manualStreet', 'manualLandmark', 'manualArea', 'manualCity', 'manualState', 'manualPincode'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('input', combineManualAddress);
+            });
+
+            // Initialize the mode
+            selectLocationMode('current');
+        });
+
         function getLocation() {
             if (!navigator.geolocation) { alert('Geolocation not supported'); return; }
             navigator.geolocation.getCurrentPosition(function(pos) {
                 document.getElementById('lat').value = pos.coords.latitude.toFixed(6);
                 document.getElementById('lng').value = pos.coords.longitude.toFixed(6);
                 showMiniMap(pos.coords.latitude, pos.coords.longitude);
+                reverseGeocode(pos.coords.latitude, pos.coords.longitude);
             }, function() {
                 // Default to Mumbai if denied
                 document.getElementById('lat').value = '19.076090';
                 document.getElementById('lng').value = '72.877426';
                 showMiniMap(19.076090, 72.877426);
+                reverseGeocode(19.076090, 72.877426);
             });
         }
+
+        function reverseGeocode(lat, lng) {
+            // Rate Limit Warning: Nominatim is free but has strict usage policies.
+            // In production, please use a paid API like Google Maps, Mapbox, or LocationIQ.
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+                .then(r => {
+                    if (r.status === 429) {
+                        alert("Map rate limit reached. Please enter address manually or try again in a moment.");
+                        return null;
+                    }
+                    return r.json();
+                })
+                .then(data => {
+                    if (data && data.display_name) {
+                        document.getElementById('detectedAddress').value = data.display_name;
+                    }
+                })
+                .catch(err => {
+                    console.error("Geocoding error:", err);
+                    showToast("Could not determine address automatically. Please enter manually.", "error");
+                });
+        }
+
         function showMiniMap(lat, lng) {
             document.getElementById('miniMap').style.display = 'block';
             if (!miniMap) {

@@ -17,6 +17,7 @@ public class UserDashboardController : Controller
     private readonly IPaymentService _paymentService;
     private readonly IRatingService _ratingService;
     private readonly INotificationService _notificationService;
+    private readonly IVehicleService _vehicleService;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly ILogger<UserDashboardController> _logger;
 
@@ -28,6 +29,7 @@ public class UserDashboardController : Controller
         IPaymentService paymentService,
         IRatingService ratingService,
         INotificationService notificationService,
+        IVehicleService vehicleService,
         UserManager<ApplicationUser> userManager,
         ILogger<UserDashboardController> logger)
     {
@@ -38,6 +40,7 @@ public class UserDashboardController : Controller
         _paymentService = paymentService;
         _ratingService = ratingService;
         _notificationService = notificationService;
+        _vehicleService = vehicleService;
         _userManager = userManager;
         _logger = logger;
     }
@@ -55,14 +58,18 @@ public class UserDashboardController : Controller
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error loading user dashboard for {UserId}", UserId);
-            TempData["Error"] = "Failed to load dashboard.";
+            TempData["Error"] = "Failed to load dashboard: " + ex.Message;
             return View();
         }
     }
 
     // ---- Service Requests ----
     [HttpGet]
-    public IActionResult CreateRequest() => View();
+    public async Task<IActionResult> CreateRequest()
+    {
+        ViewBag.VehicleModels = await _vehicleService.GetAllActiveModelsAsync();
+        return View();
+    }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -96,7 +103,7 @@ public class UserDashboardController : Controller
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error loading service requests for {UserId}", UserId);
-            TempData["Error"] = "Failed to load your requests.";
+            TempData["Error"] = "Failed to load your requests: " + ex.Message;
             return View(new List<ServiceRequest>());
         }
     }
@@ -113,7 +120,7 @@ public class UserDashboardController : Controller
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error loading request details {RequestId} for {UserId}", id, UserId);
-            TempData["Error"] = "Failed to load request details.";
+            TempData["Error"] = "Failed to load request details: " + ex.Message;
             return RedirectToAction("MyRequests");
         }
     }
@@ -154,7 +161,7 @@ public class UserDashboardController : Controller
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error loading appointments for {UserId}", UserId);
-            TempData["Error"] = "Failed to load appointments.";
+            TempData["Error"] = "Failed to load appointments: " + ex.Message;
             return View(new List<Appointment>());
         }
     }
@@ -187,12 +194,14 @@ public class UserDashboardController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Feedback(string subject, string message, string? category)
+    public async Task<IActionResult> Feedback(ViewModels.Admin.FeedbackViewModel model)
     {
+        if (!ModelState.IsValid) return View(model);
+
         try
         {
-            _logger.LogInformation("User {UserId} submitting feedback: {Subject}", UserId, subject);
-            await _feedbackService.CreateFeedbackAsync(UserId, subject, message, category);
+            _logger.LogInformation("User {UserId} submitting feedback with rating {Rating}", UserId, model.Rating);
+            await _feedbackService.CreateFeedbackAsync(UserId, model.Message, model.Rating);
             TempData["Success"] = "Feedback submitted successfully!";
             return RedirectToAction("MyFeedback");
         }
@@ -200,7 +209,7 @@ public class UserDashboardController : Controller
         {
             _logger.LogError(ex, "Error submitting feedback for {UserId}", UserId);
             TempData["Error"] = "Failed to submit feedback.";
-            return View();
+            return View(model);
         }
     }
 
@@ -215,7 +224,7 @@ public class UserDashboardController : Controller
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error loading feedbacks for {UserId}", UserId);
-            TempData["Error"] = "Failed to load feedback history.";
+            TempData["Error"] = "Failed to load feedback history: " + ex.Message;
             return View(new List<Feedback>());
         }
     }
@@ -225,14 +234,18 @@ public class UserDashboardController : Controller
     {
         try
         {
-            _logger.LogInformation("User {UserId} viewing payment history", UserId);
-            var payments = await _paymentService.GetUserPaymentsAsync(UserId);
-            return View(payments);
+            var userId = UserId;
+            if (string.IsNullOrEmpty(userId)) return RedirectToAction("Login", "Account");
+
+            _logger.LogInformation("User {UserId} viewing payment history", userId);
+            var payments = await _paymentService.GetUserPaymentsAsync(userId);
+            
+            return View(payments ?? new List<Payment>());
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error loading payment history for {UserId}", UserId);
-            TempData["Error"] = "Failed to load payment history.";
+            TempData["Error"] = "An internal error occurred while fetching your payment records.";
             return View(new List<Payment>());
         }
     }
@@ -252,24 +265,33 @@ public class UserDashboardController : Controller
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error loading settings for {UserId}", UserId);
-            TempData["Error"] = "Failed to load settings.";
+            TempData["Error"] = "Failed to load settings: " + ex.Message;
             return View();
         }
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Settings(string fullName, string mobile, string state, string? address)
+    public async Task<IActionResult> Settings(ViewModels.Account.ProfileSettingsViewModel model)
     {
+        if (!ModelState.IsValid) return View(model);
+
+        // State Whitelist Validation
+        if (!Helpers.AppConstants.AllStates.Contains(model.State))
+        {
+            ModelState.AddModelError("State", "Invalid state selected.");
+            return View(model);
+        }
+
         try
         {
             var user = await _userManager.FindByIdAsync(UserId);
             if (user == null) return NotFound();
 
-            user.FullName = fullName;
-            user.Mobile = mobile;
-            user.State = state;
-            user.Address = address;
+            user.FullName = model.FullName;
+            user.Mobile = model.Mobile;
+            user.State = model.State;
+            user.Address = model.Address;
             user.UpdatedAt = DateTime.UtcNow;
 
             await _userManager.UpdateAsync(user);
@@ -283,5 +305,106 @@ public class UserDashboardController : Controller
         }
 
         return RedirectToAction("Settings");
+    }
+
+    public async Task<IActionResult> Invoice(int id)
+    {
+        var payment = await _paymentService.GetByIdAsync(id);
+        if (payment == null || payment.UserId != UserId) return NotFound();
+        return View(payment);
+    }
+
+    public async Task<IActionResult> ServiceReminders()
+    {
+        var requests = await _requestService.GetUserRequestsAsync(UserId);
+        var reminders = requests.Where(r => r.Status == ServiceRequestStatus.Completed && r.CompletedAt < DateTime.UtcNow.AddMonths(-6));
+        return View(reminders);
+    }
+
+    // ---- Vehicle Profile ----
+    public async Task<IActionResult> MyVehicles()
+    {
+        var db = HttpContext.RequestServices.GetRequiredService<Data.ApplicationDbContext>();
+        var vehicles = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions
+            .ToListAsync(db.UserVehicles.Where(v => v.UserId == UserId));
+        return View(vehicles);
+    }
+
+    [HttpGet]
+    public IActionResult AddVehicle() => View();
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> AddVehicle(UserVehicle vehicle)
+    {
+        vehicle.UserId = UserId;
+        if (!ModelState.IsValid) return View(vehicle);
+
+        var db = HttpContext.RequestServices.GetRequiredService<Data.ApplicationDbContext>();
+        await db.UserVehicles.AddAsync(vehicle);
+        await db.SaveChangesAsync();
+        TempData["Success"] = "Vehicle added successfully!";
+        return RedirectToAction("MyVehicles");
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteVehicle(int id)
+    {
+        var db = HttpContext.RequestServices.GetRequiredService<Data.ApplicationDbContext>();
+        var vehicle = await db.UserVehicles.FindAsync(id);
+        if (vehicle == null || vehicle.UserId != UserId) return NotFound();
+        db.UserVehicles.Remove(vehicle);
+        await db.SaveChangesAsync();
+        TempData["Success"] = "Vehicle removed.";
+        return RedirectToAction("MyVehicles");
+    }
+
+    // ---- Support Tickets ----
+    [HttpGet]
+    public IActionResult RaiseTicket() => View();
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> RaiseTicket(SupportTicket model)
+    {
+        model.UserId = UserId;
+        if (!ModelState.IsValid) return View(model);
+
+        var db = HttpContext.RequestServices.GetRequiredService<Data.ApplicationDbContext>();
+        await db.SupportTickets.AddAsync(model);
+        await db.SaveChangesAsync();
+        TempData["Success"] = "Support ticket submitted!";
+        return RedirectToAction("MyTickets");
+    }
+
+    public async Task<IActionResult> MyTickets()
+    {
+        var db = HttpContext.RequestServices.GetRequiredService<Data.ApplicationDbContext>();
+        var tickets = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions
+            .ToListAsync(db.SupportTickets.Where(t => t.UserId == UserId).OrderByDescending(t => t.CreatedAt));
+        return View(tickets);
+    }
+
+    // ---- Return Request ----
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> RequestReturn(int orderId, string reason)
+    {
+        var db = HttpContext.RequestServices.GetRequiredService<Data.ApplicationDbContext>();
+        var order = await db.Orders.FindAsync(orderId);
+        if (order == null || order.UserId != UserId) return NotFound();
+        if (order.Status != OrderStatus.Delivered)
+        {
+            TempData["Error"] = "Only delivered orders can be returned.";
+            return RedirectToAction("PaymentHistory");
+        }
+
+        order.ReturnReason = reason;
+        order.ReturnRequestedAt = DateTime.UtcNow;
+        order.Status = OrderStatus.Returned;
+        await db.SaveChangesAsync();
+        TempData["Success"] = "Return request submitted!";
+        return RedirectToAction("PaymentHistory");
     }
 }

@@ -51,8 +51,21 @@
     </table>
 </div>
 
+
+<!-- Analytics Row -->
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin-top:1.5rem;">
+    <div class="data-card animate-fadeInUp-delay-4">
+        <div class="data-card-header"><h5><i class="fas fa-chart-pie" style="color:var(--primary-light);margin-right:8px;"></i>Service Distribution</h5></div>
+        <div class="data-card-body" style="height:300px;"><canvas id="categoryChart"></canvas></div>
+    </div>
+    <div class="data-card animate-fadeInUp-delay-4">
+        <div class="data-card-header"><h5><i class="fas fa-chart-area" style="color:var(--success);margin-right:8px;"></i>Revenue Trend</h5></div>
+        <div class="data-card-body" style="height:300px;"><canvas id="revenueTrendChart"></canvas></div>
+    </div>
+</div>
+
 <!-- Active Requests -->
-<div class="data-card animate-fadeInUp-delay-3">
+<div class="data-card animate-fadeInUp-delay-3" style="margin-top:1.5rem;">
     <div class="data-card-header">
         <h5 style="display:flex;align-items:center;gap:8px;"><i class="fas fa-tasks" style="color:var(--info);"></i>Active Requests</h5>
         <input type="text" id="activeSearch" class="form-control" placeholder="Search active..." style="width:150px;padding:6px 12px;font-size:0.8rem;" />
@@ -81,10 +94,56 @@
 </div>
 
 @section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             initTableSearch('pendingSearch', 'pendingTable');
             initTableSearch('activeSearch', 'activeTable');
+
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const textColor = isDark ? '#94a3b8' : '#64748b';
+            const gridColor = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)';
+
+            // Category Chart
+            const catCtx = document.getElementById('categoryChart').getContext('2d');
+            new Chart(catCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.CategoryStats.Select(s => s.Category))),
+                    datasets: [{
+                        data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.CategoryStats.Select(s => s.Count))),
+                        backgroundColor: ['#6366f1', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'],
+                        borderWidth: 0
+                    }]
+                },
+                options: { 
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { color: textColor } } }
+                }
+            });
+
+            // Revenue Chart
+            const revCtx = document.getElementById('revenueTrendChart').getContext('2d');
+            new Chart(revCtx, {
+                type: 'line',
+                data: {
+                    labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RevenueTrend.Select(s => s.Month))),
+                    datasets: [{
+                        label: 'Earnings (₹)',
+                        data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RevenueTrend.Select(s => s.Amount))),
+                        borderColor: '#10b981', tension: 0.4, fill: true,
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)'
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { display: false }, ticks: { color: textColor } },
+                        y: { grid: { color: gridColor }, ticks: { color: textColor } }
+                    }
+                }
+            });
         });
     </script>
 }

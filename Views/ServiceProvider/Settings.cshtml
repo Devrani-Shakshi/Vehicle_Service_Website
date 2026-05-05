@@ -1,0 +1,177 @@
+@model ServicePlatform.Models.ApplicationUser
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Account Settings"; }
+
+<div style="width: 100%; padding-bottom: 2rem;">
+    <!-- Profile Information -->
+    <!-- <div class="data-card animate-fadeInUp">
+        <div class="data-card-header"><h5><i class="fas fa-user-circle" style="color:var(--primary-light);margin-right:8px;"></i><span data-i18n="profile_info">Profile Information</span></h5></div>
+        <div class="data-card-body">
+            <form action="@Url.Action("Settings")" method="post">
+                @Html.AntiForgeryToken()
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+                    <div class="form-floating-custom">
+                        <label data-i18n="full_name">Full Name</label>
+                        <input name="fullName" value="@Model.FullName" class="form-control" required />
+                    </div>
+                    <div class="form-floating-custom">
+                        <label data-i18n="email">Email Address</label>
+                        <input value="@Model.Email" class="form-control" disabled style="opacity:0.6;" />
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+                    <div class="form-floating-custom">
+                        <label data-i18n="mobile">Mobile Number</label>
+                        <input name="mobile" value="@Model.Mobile" class="form-control" />
+                    </div>
+                    <div class="form-floating-custom">
+                        <label data-i18n="state">State</label>
+                        <select name="state" class="form-control">
+                            @foreach (var s in ServicePlatform.Helpers.AppConstants.AllStates) { <option value="@s" selected="@(Model.State == s)">@s</option> }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-floating-custom" style="margin-bottom:1.5rem;">
+                    <label data-i18n="address">Residential Address</label>
+                    <textarea name="address" class="form-control" rows="2">@Model.Address</textarea>
+                </div>
+                <button type="submit" class="btn-primary-custom" style="padding:10px 30px;"><i class="fas fa-save"></i> <span data-i18n="save_profile">Save Profile</span></button>
+            </form>
+        </div>
+    </div> -->
+
+    <!-- Appearance / Theme -->
+    <div class="data-card animate-fadeInUp" style="margin-top:1.5rem;">
+        <div class="data-card-header"><h5><i class="fas fa-palette" style="color:var(--primary-light);margin-right:8px;"></i><span data-i18n="appearance">Appearance</span></h5></div>
+        <div class="data-card-body">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;">
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <i class="fas fa-moon" style="font-size:1.2rem;color:var(--primary-light);"></i>
+                    <div>
+                        <div style="font-weight:600;" data-i18n="theme">Theme</div>
+                        <small style="color:var(--text-muted);" data-i18n="theme_desc">Switch between dark and light mode</small>
+                    </div>
+                </div>
+                <div style="display:flex;gap:8px;">
+                    <button type="button" class="btn-outline-custom theme-option" id="btnDarkTheme" onclick="setTheme('dark')" style="padding:8px 20px;font-size:0.85rem;">
+                        <i class="fas fa-moon"></i> Dark
+                    </button>
+                    <button type="button" class="btn-outline-custom theme-option" id="btnLightTheme" onclick="setTheme('light')" style="padding:8px 20px;font-size:0.85rem;">
+                        <i class="fas fa-sun"></i> Light
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language -->
+    <div class="data-card animate-fadeInUp" style="margin-top:1.5rem;">
+        <div class="data-card-header"><h5><i class="fas fa-language" style="color:var(--primary-light);margin-right:8px;"></i><span data-i18n="language">Language</span></h5></div>
+        <div class="data-card-body">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;">
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <i class="fas fa-globe" style="font-size:1.2rem;color:var(--primary-light);"></i>
+                    <div>
+                        <div style="font-weight:600;" data-i18n="select_language">Select Language</div>
+                        <small style="color:var(--text-muted);" data-i18n="language_desc">Choose your preferred language for the website</small>
+                    </div>
+                </div>
+                <select id="languageSelect" class="form-control" style="width:auto;min-width:160px;" onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी (Hindi)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invite Friends -->
+    <div class="data-card animate-fadeInUp" style="margin-top:1.5rem;">
+        <div class="data-card-header"><h5><i class="fas fa-user-plus" style="color:var(--primary-light);margin-right:8px;"></i><span data-i18n="invite_friends">Invite Others</span></h5></div>
+        <div class="data-card-body">
+            <p style="color:var(--text-secondary);margin-bottom:1rem;" data-i18n="invite_desc">Share ServicePlatform with your friends and family!</p>
+            <div style="display:flex;gap:10px;align-items:center;margin-bottom:1rem;">
+                <input type="text" id="inviteLink" class="form-control" readonly style="flex:1;" />
+                <button type="button" class="btn-primary-custom" onclick="copyInviteLink()" style="padding:10px 20px;white-space:nowrap;">
+                    <i class="fas fa-copy"></i> <span data-i18n="copy_link">Copy Link</span>
+                </button>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <button type="button" class="btn-outline-custom" onclick="shareWhatsApp()" style="padding:8px 16px;color:#25D366;border-color:#25D366;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </button>
+                <button type="button" class="btn-outline-custom" onclick="shareTelegram()" style="padding:8px 16px;color:#0088cc;border-color:#0088cc;">
+                    <i class="fab fa-telegram"></i> Telegram
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Center -->
+    <div class="data-card animate-fadeInUp" style="margin-top:1.5rem;">
+        <div class="data-card-header"><h5><i class="fas fa-headset" style="color:var(--primary-light);margin-right:8px;"></i><span data-i18n="help_center">Support Center</span></h5></div>
+        <div class="data-card-body" style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+            <div style="display:flex;align-items:center;gap:16px;padding:16px;background:var(--bg-card);border-radius:var(--radius-sm);border:1px solid var(--border-color);">
+                <i class="fas fa-envelope" style="color:var(--primary-light);font-size:1.2rem;"></i>
+                <div>
+                     <div style="font-weight:600;" data-i18n="email_support">Email Support</div>
+                     <small>support@serviceplatform.com</small>
+                </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:16px;background:var(--bg-card);border-radius:var(--radius-sm);border:1px solid var(--border-color);">
+                <i class="fas fa-phone-alt" style="color:#10b981;font-size:1.2rem;"></i>
+                <div>
+                     <div style="font-weight:600;" data-i18n="contact_us">Contact Us</div>
+                     <small>+91 1800-444-5555</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Use Global Theme logic from layout if possible, but keep local for immediate feedback
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateThemeButtons();
+            const themeIcon = document.getElementById('themeIcon');
+            if (themeIcon) themeIcon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        function updateThemeButtons() {
+            const current = document.documentElement.getAttribute('data-theme') || 'dark';
+            const btnDark = document.getElementById('btnDarkTheme');
+            const btnLight = document.getElementById('btnLightTheme');
+            if (btnDark && btnLight) {
+                if (current === 'dark') {
+                    btnDark.style.background = 'var(--primary-gradient)'; btnDark.style.color = 'white'; btnDark.style.borderColor = 'transparent';
+                    btnLight.style.background = ''; btnLight.style.color = ''; btnLight.style.borderColor = '';
+                } else {
+                    btnLight.style.background = 'var(--primary-gradient)'; btnLight.style.color = 'white'; btnLight.style.borderColor = 'transparent';
+                    btnDark.style.background = ''; btnDark.style.color = ''; btnDark.style.borderColor = '';
+                }
+            }
+        }
+        
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            if (typeof applyGlobalLanguage === 'function') applyGlobalLanguage(lang);
+            if (typeof applyLayoutLanguage === 'function') applyLayoutLanguage(lang);
+        }
+
+        function getInviteLink() { return window.location.origin; }
+        function copyInviteLink() {
+            navigator.clipboard.writeText(getInviteLink()).then(() => showToast('Link copied!', 'success'));
+        }
+        function shareWhatsApp() { window.open(`https://wa.me/?text=${encodeURIComponent('Check out ServicePlatform! ' + getInviteLink())}`, '_blank'); }
+        function shareTelegram() { window.open(`https://t.me/share/url?url=${encodeURIComponent(getInviteLink())}&text=${encodeURIComponent('Check out ServicePlatform!')}`, '_blank'); }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const inviteInput = document.getElementById('inviteLink');
+            if (inviteInput) inviteInput.value = getInviteLink();
+            updateThemeButtons();
+            const savedLang = localStorage.getItem('language') || 'en';
+            if (typeof applyGlobalLanguage === 'function') applyGlobalLanguage(savedLang);
+            if (typeof applyLayoutLanguage === 'function') applyLayoutLanguage(savedLang);
+        });
+    </script>
+}

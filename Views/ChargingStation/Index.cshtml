@@ -1,0 +1,79 @@
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Find Charging Stations"; }
+
+<div style="width: 100%; padding-bottom: 2rem;">
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header" style="display:flex; justify-content:space-between; align-items:center;">
+            <h5><i class="fas fa-bolt" style="color:var(--warning);margin-right:8px;"></i>EV Charging Network</h5>
+            <div class="badge-custom badge-success"><i class="fas fa-wifi"></i> Real-time Active</div>
+        </div>
+        <div class="data-card-body">
+            <div id="chargingMap" class="map-container" style="height:550px; border-radius:var(--radius-lg); margin-bottom:1.5rem;"></div>
+            
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1rem;">
+                <div class="stat-card" style="padding:1rem;">
+                    <div class="stat-icon warning"><i class="fas fa-charging-station"></i></div>
+                    <div class="stat-info"><h4 id="stationCount">0</h4><p>Nearby Stations</p></div>
+                </div>
+                <div class="stat-card" style="padding:1rem;">
+                    <div class="stat-icon info"><i class="fas fa-plug"></i></div>
+                    <div class="stat-info"><h4>32</h4><p>Available Plugs</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .station-popup { font-family: 'Inter', sans-serif; }
+        .station-popup h6 { margin: 0 0 5px; color: var(--primary-light); font-weight: 700; }
+        .station-popup p { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
+        .station-popup .status-tag { 
+            display: inline-block; padding: 2px 8px; border-radius: 4px; 
+            font-size: 0.7rem; margin-top: 8px; font-weight: 600;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const map = L.map('chargingMap').setView([19.076090, 72.877426], 12);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+
+            const stations = [
+                { name: "Supercharge Hub - Mumbai North", lat: 19.1136, lng: 72.8697, type: "DC Fast (60kW)", status: "Available" },
+                { name: "EcoCharge - Bandra West", lat: 19.0596, lng: 72.8295, type: "Level 2 (22kW)", status: "Occupied" },
+                { name: "Jio-BP Pulse - Worli", lat: 19.0176, lng: 72.8161, type: "DC Fast (120kW)", status: "Available" },
+                { name: "Tata Power EZ - Andheri", lat: 19.1136, lng: 72.8697, type: "Level 2 (7.4kW)", status: "Available" },
+                { name: "Statiq Station - Navi Mumbai", lat: 19.0330, lng: 73.0297, type: "DC Fast (50kW)", status: "Under Maintenance" }
+            ];
+
+            document.getElementById('stationCount').innerText = stations.length;
+
+            stations.forEach(s => {
+                const markerColor = s.status === "Available" ? "#10b981" : (s.status === "Occupied" ? "#f59e0b" : "#ef4444");
+                const markerIcon = L.divIcon({
+                    className: 'custom-div-icon',
+                    html: `<div style="background-color:${markerColor}; width:15px; height:15px; border-radius:50%; border:2px solid white; box-shadow:0 0 10px ${markerColor};"></div>`,
+                    iconSize: [15, 15],
+                    iconAnchor: [7, 7]
+                });
+
+                L.marker([s.lat, s.lng], { icon: markerIcon })
+                    .addTo(map)
+                    .bindPopup(`
+                        <div class="station-popup">
+                            <h6>${s.name}</h6>
+                            <p><i class="fas fa-bolt"></i> ${s.type}</p>
+                            <span class="status-tag" style="background:${markerColor}20; color:${markerColor}; border:1px solid ${markerColor}40;">${s.status}</span>
+                        </div>
+                    `);
+            });
+        });
+    </script>
+}

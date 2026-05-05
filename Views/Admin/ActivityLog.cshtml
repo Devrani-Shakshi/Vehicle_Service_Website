@@ -1,0 +1,21 @@
+@model IEnumerable<ServicePlatform.Models.ActivityLog>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Activity Log"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header"><h5><i class="fas fa-history" style="color:var(--primary-light);margin-right:8px;"></i>Activity Audit Log</h5></div>
+    <table class="table-custom" id="activityTable">
+        <thead><tr><th>Time</th><th>Action</th><th>Performed By</th><th>Details</th></tr></thead>
+        <tbody>
+            @foreach (var log in Model)
+            {
+                <tr>
+                    <td>@log.CreatedAt.ToString("dd MMM yyyy HH:mm")</td>
+                    <td><span class="badge-custom badge-accepted">@log.Action</span></td>
+                    <td style="font-weight:600;">@log.PerformedBy</td>
+                    <td style="max-width:300px;white-space:normal;font-size:0.85rem;">@log.Details</td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="4" class="empty-state"><i class="fas fa-clipboard-check"></i><h5>No logs yet</h5><p>Administrative actions will appear here</p></td></tr> }
+        </tbody>
+    </table>
+</div>

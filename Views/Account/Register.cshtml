@@ -22,56 +22,77 @@
 
             <div class="form-floating-custom">
                 <label asp-for="FullName">Full Name</label>
-                <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
-                <i class="fas fa-user input-icon"></i>
+                <div class="input-group-custom">
+                    <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
+                    <i class="fas fa-user input-icon"></i>
+                </div>
                 <span asp-validation-for="FullName" style="color:var(--danger);font-size:0.8rem;"></span>
             </div>
 
             <div class="form-floating-custom">
                 <label asp-for="Email">Email Address</label>
-                <input asp-for="Email" type="email" class="form-control" placeholder="your@email.com" />
-                <i class="fas fa-envelope input-icon"></i>
+                <div class="input-group-custom">
+                    <input asp-for="Email" type="email" class="form-control" placeholder="your@email.com" oninput="validateStrictEmail(this)" />
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
                 <span asp-validation-for="Email" style="color:var(--danger);font-size:0.8rem;"></span>
             </div>
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
                 <div class="form-floating-custom">
                     <label asp-for="Mobile">Mobile</label>
-                    <input asp-for="Mobile" class="form-control" placeholder="9876543210" />
+                    <div class="input-group-custom">
+                        <input asp-for="Mobile" class="form-control" placeholder="9876543210" />
+                        <i class="fas fa-phone input-icon"></i>
+                    </div>
                     <span asp-validation-for="Mobile" style="color:var(--danger);font-size:0.8rem;"></span>
                 </div>
                 <div class="form-floating-custom">
                     <label asp-for="State">State</label>
-                    <select asp-for="State" class="form-control">
-                        <option value="">Select State</option>
-                        @foreach (var state in ViewBag.States as string[])
-                        {
-                            <option value="@state">@state</option>
-                        }
-                    </select>
+                    <div class="input-group-custom">
+                        <select asp-for="State" class="form-control">
+                            <option value="">Select State</option>
+                            @foreach (var state in (ViewBag.States as string[]) ?? Array.Empty<string>())
+                            {
+                                <option value="@state">@state</option>
+                            }
+                        </select>
+                        <i class="fas fa-map-marker-alt input-icon"></i>
+                    </div>
                     <span asp-validation-for="State" style="color:var(--danger);font-size:0.8rem;"></span>
                 </div>
             </div>
 
             <div class="form-floating-custom">
                 <label asp-for="Role">Register As</label>
-                <select asp-for="Role" class="form-control">
-                    <option value="User">User</option>
-                    <option value="ServiceProvider">Service Provider</option>
-                    <option value="Shopkeeper">Shopkeeper</option>
-                </select>
+                <div class="input-group-custom">
+                    <select asp-for="Role" class="form-control">
+                        <option value="User">User</option>
+                        <option value="ServiceProvider">Service Provider</option>
+                        <option value="Shopkeeper">Shopkeeper</option>
+                    </select>
+                    <i class="fas fa-user-tag input-icon"></i>
+                </div>
                 <span asp-validation-for="Role" style="color:var(--danger);font-size:0.8rem;"></span>
             </div>
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
                 <div class="form-floating-custom">
                     <label asp-for="Password">Password</label>
-                    <input asp-for="Password" type="password" class="form-control" placeholder="Min 8 characters" />
+                    <div class="input-group-custom">
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Min 8 characters" id="reg-password" />
+                        <i class="fas fa-lock input-icon"></i>
+                        <i class="fas fa-eye password-toggle" onclick="togglePasswordVisibility('reg-password', this)"></i>
+                    </div>
                     <span asp-validation-for="Password" style="color:var(--danger);font-size:0.8rem;"></span>
                 </div>
                 <div class="form-floating-custom">
                     <label asp-for="ConfirmPassword">Confirm</label>
-                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Re-enter password" />
+                    <div class="input-group-custom">
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Re-enter password" id="reg-confirm" />
+                        <i class="fas fa-lock input-icon"></i>
+                        <i class="fas fa-eye password-toggle" onclick="togglePasswordVisibility('reg-confirm', this)"></i>
+                    </div>
                     <span asp-validation-for="ConfirmPassword" style="color:var(--danger);font-size:0.8rem;"></span>
                 </div>
             </div>
@@ -81,9 +102,32 @@
             </button>
         </form>
 
-        <p style="text-align:center;margin-top:1.5rem;color:var(--text-secondary);font-size:0.9rem;">
-            Already have an account? <a href="/Account/Login">Sign in</a><br/>
-            <a href="/Account/ForgotPassword" style="font-size:0.8rem;margin-top:8px;display:inline-block;">Forgot Password?</a>
         </p>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const emailInput = document.querySelector('input[type="email"]');
+            
+            if (emailInput) {
+                emailInput.addEventListener('input', function () {
+                    validateStrictEmail(this);
+                });
+            }
+
+            // Register toggles
+            window.togglePasswordVisibility = function(inputId, icon) {
+                const input = document.getElementById(inputId);
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.replace('fa-eye', 'fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.replace('fa-eye-slash', 'fa-eye');
+                }
+            };
+        });
+    </script>
+}

@@ -1,0 +1,98 @@
+@model ServicePlatform.Models.Order
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Order Details: " + Model.OrderNumber; }
+
+<div style="display:grid; grid-template-columns: 2fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+    <!-- Order Information -->
+    <div class="data-card animate-fadeInUp">
+        <div class="data-card-header" style="display:flex; justify-content:space-between; align-items:center;">
+             <h5 style="margin:0;"><i class="fas fa-shopping-bag" style="margin-right:8px; color:var(--primary-light);"></i>Order #@Model.OrderNumber</h5>
+             <span class="badge-custom badge-@Model.Status.ToString().ToLower()">@Model.Status</span>
+        </div>
+        <div class="data-card-body">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:2rem; padding:1rem; background:rgba(0,0,0,0.02); border-radius:8px;">
+                <div>
+                     <p style="margin:0; font-size:0.75rem; color:var(--text-muted);">Customer</p>
+                     <p style="margin:0; font-weight:700;">@Model.User?.FullName</p>
+                     <p style="margin:4px 0 0; font-size:0.85rem;">@Model.User?.Email</p>
+                     <p style="margin:0; font-size:0.85rem;">@Model.User?.Mobile</p>
+                </div>
+                <div>
+                     <p style="margin:0; font-size:0.75rem; color:var(--text-muted);">Shipping Address</p>
+                     <p style="margin:0; font-size:0.95rem; font-weight:600; line-height:1.4;">@Model.ShippingAddress</p>
+                </div>
+            </div>
+
+            <h6 style="margin-bottom:1rem; font-weight:700; color:var(--primary);">Order Items</h6>
+            <table class="table-custom">
+                <thead><tr><th>Image</th><th>Product</th><th>Price</th><th>Qty</th><th>Total</th></tr></thead>
+                <tbody>
+                    @foreach (var item in Model.OrderItems)
+                    {
+                        <tr>
+                            <td><img src="@item.Product?.ImageUrl" style="width:40px; height:40px; object-fit:cover; border-radius:4px;" /></td>
+                            <td><p style="margin:0; font-weight:600;">@item.Product?.Name</p><small style="color:var(--text-muted);">SKU: @item.Product?.SKU</small></td>
+                            <td>₹@item.UnitPrice.ToString("N0")</td>
+                            <td>×@item.Quantity</td>
+                            <td style="font-weight:700;">₹@item.TotalPrice.ToString("N0")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+            <div style="margin-top:2rem; display:flex; justify-content:flex-end; gap:2rem; padding:1.5rem; border-top:1px solid var(--border-color);">
+                <div style="text-align:right;">
+                    <p style="margin:0; color:var(--text-muted);">Subtotal: ₹@Model.TotalAmount.ToString("N0")</p>
+                    <p style="margin:4px 0 0; color:var(--text-muted);">Shipping: ₹0</p>
+                    <h4 style="margin:8px 0 0; font-weight:800; color:var(--success);">Grand Total: ₹@Model.TotalAmount.ToString("N0")</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logistics & Tracking -->
+    <div class="data-card animate-fadeInUp-delay-1">
+        <div class="data-card-header"><h5><i class="fas fa-truck" style="color:var(--primary-light);"></i> Logistics & Fulfillment</h5></div>
+        <div class="data-card-body">
+            @if (Model.Status == OrderStatus.Pending || Model.Status == OrderStatus.Confirmed || Model.Status == OrderStatus.Processing)
+            {
+                <form asp-action="UpdateShippingInfo" method="post" style="padding:1rem;">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="OrderId" value="@Model.Id" />
+                    <div class="form-group mb-3">
+                        <label class="form-label" style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">CARRIER</label>
+                        <input name="Carrier" value="@Model.Carrier" class="form-control" placeholder=" FedEx, BlueDart, Delhivery..." required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">TRACKING ID</label>
+                        <input name="TrackingNumber" value="@Model.TrackingNumber" class="form-control" placeholder=" Enter tracking number..." required />
+                    </div>
+                    <div class="form-group mb-4">
+                        <label class="form-label" style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">NEW STATUS</label>
+                        <select name="NewStatus" class="form-control">
+                            <option value="Shipped">Mark as Shipped</option>
+                            <option value="Delivered">Mark as Delivered</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary-custom w-100"><i class="fas fa-paper-plane" style="margin-right:8px;"></i> Update & Dispatch</button>
+                    <p style="font-size:0.75rem; text-align:center; margin-top:1rem; color:var(--text-muted);">Customer will be notified on status change.</p>
+                </form>
+            }
+            else
+            {
+                <div style="padding:1.5rem; text-align:center;">
+                    <div style="width:64px; height:64px; border-radius:50%; background:rgba(16,185,129,0.1); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+                        <i class="fas fa-truck-fast" style="color:var(--success); font-size:1.5rem;"></i>
+                    </div>
+                    <h6 style="font-weight:700; margin-bottom:8px;">Shipping Active</h6>
+                    <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:4px;">Carrier: <strong>@Model.Carrier</strong></p>
+                    <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1.5rem;">Tracking: <strong>@Model.TrackingNumber</strong></p>
+                    <div style="padding:12px; background:rgba(0,0,0,0.02); border-radius:8px; font-size:0.8rem; text-align:left;">
+                        &bull; Dispached: @Model.ShippedDate?.ToString("MMM dd, yyyy HH:mm")<br />
+                        @if (Model.DeliveredDate.HasValue) { <span>&bull; Delivered: @Model.DeliveredDate?.ToString("MMM dd, yyyy HH:mm")</span> }
+                        else { <span>&bull; Expected: @Model.ExpectedDeliveryDate?.ToString("MMM dd, yyyy")</span> }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

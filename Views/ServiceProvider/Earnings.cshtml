@@ -1,0 +1,37 @@
+@model IEnumerable<ServicePlatform.Models.ServiceRequest>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Earnings Analytics"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header"><h5><i class="fas fa-chart-line" style="color:var(--success);margin-right:8px;"></i>Earnings Analytics</h5></div>
+    <div class="data-card-body" style="padding:1.5rem;">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;">
+            <div style="background:var(--bg-secondary);border-radius:var(--radius-md);padding:1.25rem;text-align:center;">
+                <p style="color:var(--text-muted);font-size:0.8rem;margin:0;">Total Jobs</p>
+                <p style="font-size:1.8rem;font-weight:700;margin:0.25rem 0 0;color:var(--primary-light);">@Model.Count()</p>
+            </div>
+            <div style="background:var(--bg-secondary);border-radius:var(--radius-md);padding:1.25rem;text-align:center;">
+                <p style="color:var(--text-muted);font-size:0.8rem;margin:0;">This Month</p>
+                <p style="font-size:1.8rem;font-weight:700;margin:0.25rem 0 0;color:var(--success);">@Model.Count(r => r.CompletedAt?.Month == DateTime.UtcNow.Month)</p>
+            </div>
+            <div style="background:var(--bg-secondary);border-radius:var(--radius-md);padding:1.25rem;text-align:center;">
+                <p style="color:var(--text-muted);font-size:0.8rem;margin:0;">Categories Served</p>
+                <p style="font-size:1.8rem;font-weight:700;margin:0.25rem 0 0;color:var(--warning);">@Model.Select(r => r.Category).Distinct().Count()</p>
+            </div>
+        </div>
+        <table class="table-custom">
+            <thead><tr><th>Job</th><th>Category</th><th>Completed</th><th>Customer</th></tr></thead>
+            <tbody>
+                @foreach (var r in Model.OrderByDescending(r => r.CompletedAt))
+                {
+                    <tr>
+                        <td style="font-weight:600;">@r.Title</td>
+                        <td>@(r.Category ?? "General")</td>
+                        <td>@r.CompletedAt?.ToString("dd MMM yyyy")</td>
+                        <td>@(r.User?.FullName ?? "—")</td>
+                    </tr>
+                }
+                @if (!Model.Any()) { <tr><td colspan="4" class="empty-state"><i class="fas fa-chart-bar"></i><h5>No earnings yet</h5><p>Complete service requests to see revenue</p></td></tr> }
+            </tbody>
+        </table>
+    </div>
+</div>

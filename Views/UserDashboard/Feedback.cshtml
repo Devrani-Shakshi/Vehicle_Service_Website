@@ -1,22 +1,70 @@
+@model ServicePlatform.ViewModels.Admin.FeedbackViewModel
 @{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Feedback & Suggestions"; }
 
-<div style="max-width:700px;">
+<div style="width: 100%; padding-bottom: 2rem;">
     <div class="data-card animate-fadeInUp">
         <div class="data-card-header"><h5><i class="fas fa-comment-dots" style="color:var(--primary-light);margin-right:8px;"></i>Send Feedback</h5></div>
         <div class="data-card-body">
             <form asp-action="Feedback" method="post">
-                @Html.AntiForgeryToken()
-                <div class="form-floating-custom"><label>Subject</label><input name="subject" class="form-control" required placeholder="Feedback subject" /></div>
-                <div class="form-floating-custom">
-                    <label>Category</label>
-                    <select name="category" class="form-control">
-                        <option value="">General</option><option>Service Quality</option><option>Product Issue</option>
-                        <option>App Bug</option><option>Feature Request</option><option>Other</option>
-                    </select>
+                <div asp-validation-summary="ModelOnly" class="text-danger" style="margin-bottom:1rem;font-size:0.9rem;"></div>
+
+                <!-- Star Rating -->
+                <div class="form-floating-custom" style="margin-bottom:1.5rem;">
+                    <label style="margin-bottom:12px;">Rating</label>
+                    <div id="starRating" style="display:flex;gap:8px;font-size:2rem;cursor:pointer;">
+                        <i class="fas fa-star" data-value="1" style="color:var(--text-muted);transition:color 0.2s;"></i>
+                        <i class="fas fa-star" data-value="2" style="color:var(--text-muted);transition:color 0.2s;"></i>
+                        <i class="fas fa-star" data-value="3" style="color:var(--text-muted);transition:color 0.2s;"></i>
+                        <i class="fas fa-star" data-value="4" style="color:var(--text-muted);transition:color 0.2s;"></i>
+                        <i class="fas fa-star" data-value="5" style="color:var(--text-muted);transition:color 0.2s;"></i>
+                    </div>
+                    <input type="hidden" asp-for="Rating" id="ratingValue" value="5" />
+                    <span asp-validation-for="Rating" class="text-danger" style="font-size:0.8rem;"></span>
                 </div>
-                <div class="form-floating-custom"><label>Message</label><textarea name="message" class="form-control" rows="5" required placeholder="Your feedback..."></textarea></div>
-                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
+
+                <div class="form-floating-custom">
+                    <label>Your Feedback</label>
+                    <textarea asp-for="Message" class="form-control" rows="5" placeholder="Write your feedback here..."></textarea>
+                    <span asp-validation-for="Message" class="text-danger" style="font-size:0.8rem;"></span>
+                </div>
+                <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;margin-top:1rem;"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
             </form>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('#starRating i');
+            const ratingInput = document.getElementById('ratingValue');
+            let currentRating = 5;
+
+            // Set initial state (5 stars)
+            updateStars(5);
+
+            stars.forEach(star => {
+                star.addEventListener('mouseover', function() {
+                    updateStars(parseInt(this.dataset.value));
+                });
+
+                star.addEventListener('mouseout', function() {
+                    updateStars(currentRating);
+                });
+
+                star.addEventListener('click', function() {
+                    currentRating = parseInt(this.dataset.value);
+                    ratingInput.value = currentRating;
+                    updateStars(currentRating);
+                });
+            });
+
+            function updateStars(rating) {
+                stars.forEach(star => {
+                    const val = parseInt(star.dataset.value);
+                    star.style.color = val <= rating ? '#f59e0b' : 'var(--text-muted)';
+                });
+            }
+        });
+    </script>
+}

@@ -14,9 +14,11 @@ public class Product
     [MaxLength(2000)]
     public string? Description { get; set; }
 
+    [Range(0, 1000000, ErrorMessage = "Price must be between 0 and 1,000,000")]
     [Column(TypeName = "decimal(18,2)")]
     public decimal Price { get; set; }
 
+    [Range(0, 1000000, ErrorMessage = "Discount Price must be between 0 and 1,000,000")]
     [Column(TypeName = "decimal(18,2)")]
     public decimal? DiscountPrice { get; set; }
 
@@ -26,6 +28,7 @@ public class Product
     [MaxLength(500)]
     public string? ImageUrl { get; set; }
 
+    [Range(0, 10000, ErrorMessage = "Stock cannot be negative")]
     public int StockQuantity { get; set; } = 0;
 
     [MaxLength(50)]
@@ -36,6 +39,12 @@ public class Product
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; set; }
+
+    [MaxLength(2000)]
+    public string? CompatibleVehicleModels { get; set; } // e.g. "Ather 450X, Ola S1 Pro"
+    
+    [Timestamp]
+    public byte[] RowVersion { get; set; } = null!;
 
     // Foreign key - Shopkeeper
     [Required]

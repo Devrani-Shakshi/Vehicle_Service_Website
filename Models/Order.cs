@@ -44,6 +44,20 @@ public class Order
     public DateTime? UpdatedAt { get; set; }
     public bool IsDeleted { get; set; } = false;
 
+    // Shipping Details
+    [MaxLength(100)]
+    public string? TrackingNumber { get; set; }
+    [MaxLength(100)]
+    public string? Carrier { get; set; }
+    public DateTime? ShippedDate { get; set; }
+    public DateTime? DeliveredDate { get; set; }
+
+    // Return Management
+    [MaxLength(1000)]
+    public string? ReturnReason { get; set; }
+    public DateTime? ReturnRequestedAt { get; set; }
+    public bool? IsReturnApproved { get; set; }
+
     // Foreign key
     [Required]
     public string UserId { get; set; } = string.Empty;

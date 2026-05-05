@@ -53,4 +53,13 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         await _context.SaveChangesAsync();
 
     public virtual IQueryable<T> Query() => _dbSet.AsQueryable();
+
+    public virtual async Task<Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction> BeginTransactionAsync() =>
+        await _context.Database.BeginTransactionAsync();
+
+    public virtual async Task CommitTransactionAsync(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction transaction) =>
+        await transaction.CommitAsync();
+
+    public virtual async Task RollbackTransactionAsync(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction transaction) =>
+        await transaction.RollbackAsync();
 }

@@ -18,7 +18,7 @@ public class NotificationService : INotificationService
         _hubContext = hubContext;
     }
 
-    public async Task CreateNotificationAsync(string userId, string title, string message, NotificationType type, string? link = null)
+    public async Task CreateNotificationAsync(string userId, string title, string message, NotificationType type, string? link = null, object? extraData = null)
     {
         var notification = new Notification
         {
@@ -33,16 +33,27 @@ public class NotificationService : INotificationService
         await _repository.SaveChangesAsync();
 
         // Push real-time notification via SignalR
-        await _hubContext.Clients.User(userId).SendAsync("ReceiveNotification", new
+        var signalRPayload = new Dictionary<string, object?>
         {
-            notification.Id,
-            notification.Title,
-            notification.Message,
-            Type = notification.Type.ToString(),
-            notification.Link,
-            CreatedAt = notification.CreatedAt.ToString("MMM dd, yyyy HH:mm"),
-            notification.IsRead
-        });
+            { "id", notification.Id },
+            { "title", notification.Title },
+            { "message", notification.Message },
+            { "type", notification.Type.ToString() },
+            { "link", notification.Link },
+            { "createdAt", notification.CreatedAt.ToString("MMM dd, yyyy HH:mm") },
+            { "isRead", notification.IsRead }
+        };
+
+        if (extraData != null)
+        {
+            var properties = extraData.GetType().GetProperties();
+            foreach (var prop in properties)
+            {
+                signalRPayload[prop.Name.ToLower()] = prop.GetValue(extraData);
+            }
+        }
+
+        await _hubContext.Clients.User(userId).SendAsync("ReceiveNotification", signalRPayload);
     }
 
     public async Task<IEnumerable<Notification>> GetUserNotificationsAsync(string userId, int count = 20) =>
@@ -84,12 +95,13 @@ public class FeedbackService : IFeedbackService
 
     public FeedbackService(IGenericRepository<Feedback> repository) => _repository = repository;
 
-    public async Task<Feedback> CreateFeedbackAsync(string userId, string subject, string message, string? category = null)
+    public async Task<Feedback> CreateFeedbackAsync(string userId, string message, int rating, string? subject = null, string? category = null)
     {
         var feedback = new Feedback
         {
-            Subject = subject,
+            Subject = subject ?? "User Feedback",
             Message = message,
+            Rating = rating,
             Category = category,
             UserId = userId
         };

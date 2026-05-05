@@ -1,0 +1,52 @@
+@model IEnumerable<ServicePlatform.Models.Product>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Stock Manager"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header" style="display:flex; justify-content:space-between; align-items:center;">
+        <h5 style="margin:0;"><i class="fas fa-warehouse" style="margin-right:8px; color:var(--primary-light);"></i>Inventory & Stock Control</h5>
+        <div style="display:flex; gap:12px;">
+            <a href="@Url.Action("DownloadReport", new { type = "inventory" })" class="btn btn-sm btn-outline-primary"><i class="fas fa-file-download"></i> Export Inventory</a>
+            <a href="@Url.Action("AddProduct")" class="btn btn-sm btn-primary-custom"><i class="fas fa-plus"></i> Add New Product</a>
+        </div>
+    </div>
+    <div class="data-card-body">
+        <table class="table-custom">
+            <thead>
+                <tr>
+                    <th>SKU</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock Level</th>
+                    <th>Status</th>
+                    <th style="text-align:right;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td style="font-family:monospace;font-size:0.85rem;color:var(--text-muted);">@p.SKU</td>
+                        <td style="font-weight:600;">@p.Name</td>
+                        <td><span class="badge-custom badge-info">@p.Category</span></td>
+                        <td style="font-weight:700;">₹@p.Price.ToString("N0")</td>
+                        <td>
+                            <form asp-action="UpdateStock" method="post" style="display:flex; gap:4px; align-items:center;">
+                                <input type="hidden" name="productId" value="@p.Id" />
+                                <input type="number" name="quantity" value="@p.StockQuantity" class="form-control" style="width:70px; padding:4px 8px; font-weight:700; color:@(p.StockQuantity < 10 ? "var(--danger)" : "inherit");" />
+                                <button type="submit" class="btn btn-xs btn-primary-custom" title="Update Stock"><i class="fas fa-save"></i></button>
+                            </form>
+                        </td>
+                        <td><span class="badge-custom badge-@(p.IsActive ? "success" : "danger")">@(p.IsActive ? "Published" : "Hidden")</span></td>
+                        <td style="text-align:right;">
+                            <a href="@Url.Action("EditProduct", new { id = p.Id })" class="btn btn-xs btn-outline-primary"><i class="fas fa-edit"></i> Edit</a>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Any()) {
+                    <tr><td colspan="7" class="empty-state">No products found in your inventory. <a href="@Url.Action("AddProduct")">Add one now!</a></td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

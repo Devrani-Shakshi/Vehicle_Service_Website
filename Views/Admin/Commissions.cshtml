@@ -1,0 +1,117 @@
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ServicePlatform.Models.ApplicationUser> UserManager
+@inject IConfiguration Configuration
+@model IEnumerable<ServicePlatform.Models.Commission>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Platform Revenue (Commissions)"; var commRate = Configuration.GetValue<int>("GlobalSettings:CommissionRate", 5); }
+
+<div class="data-card animate-fadeInUp" id="printableArea">
+    <div class="data-card-header" style="display:flex; justify-content:space-between; align-items:center;">
+        <h5 style="margin:0;"><i class="fas fa-percentage" style="margin-right:8px; color:var(--primary-light);"></i>Platform Revenue (@commRate%)</h5>
+        <div style="display:flex; gap:12px;" class="no-print">
+            <button onclick="window.print()" class="btn-outline-custom" style="padding:6px 12px; font-size:0.85rem;"><i class="fas fa-file-pdf"></i> Download PDF</button>
+            <a href="@Url.Action("DownloadReport", "Admin", new { type = "commissions" })" class="btn-outline-custom" style="padding:6px 12px; font-size:0.85rem;"><i class="fas fa-file-csv"></i> Download CSV</a>
+            <form asp-action="Commissions" method="get" style="display:inline;">
+                <button type="submit" class="btn-primary-custom" style="padding:6px 12px; font-size:0.85rem;"><i class="fas fa-sync-alt"></i> Refresh</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="data-card-body">
+        <p class="print-only" style="display:none; margin-bottom:1rem; font-weight:bold;">Platform Revenue Report - @DateTime.Now.ToString("dd MMM yyyy")</p>
+        <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">This report displays the @commRate% platform charge collected from both Service Providers and Shopkeepers based on verified monthly systemic income.</p>
+        
+        <table class="table-custom">
+            <thead>
+                <tr>
+                    <th>Vendor Name</th>
+                    <th>Vendor Profile</th>
+                    <th>Billing Month</th>
+                    <th>Systematic Income</th>
+                    <th>Platform Dues (@commRate%)</th>
+                    <th>Status</th>
+                    <th style="text-align:right;" class="no-print">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model)
+                {
+                    // Since Admin shouldn't know the specifics of orders or appointments dynamically, 
+                    // this view serves strictly for financial auditing.
+                    var userRoles = c.User != null ? string.Join(", ", UserManager.GetRolesAsync(c.User).Result) : "Unknown Vendor";
+                    <tr>
+                        <td style="font-weight:600;">@c.User?.FullName</td>
+                        <td><span class="badge-custom badge-info">@userRoles</span></td>
+                        <td>@(new DateTime(c.Year, c.Month, 1).ToString("MMMM yyyy"))</td>
+                        <td style="color:var(--success); font-weight:600;">₹@c.TotalIncome.ToString("N0")</td>
+                        <td style="font-weight:700; color:var(--primary);">₹@c.CommissionAmount.ToString("N0")</td>
+                        <td>
+                            <span class="badge-custom badge-@(c.IsPaid ? "success" : "warning")">
+                                @(c.IsPaid ? "Paid" : "Pending")
+                            </span>
+                        </td>
+                        <td style="text-align:right;" class="no-print">
+                            @if (!c.IsPaid)
+                            {
+                                <form asp-action="MarkCommissionPaid" asp-route-id="@c.Id" method="post" style="display:inline;">
+                                    <button type="submit" class="btn-success-custom" style="padding:4px 10px; font-size:0.75rem;"><i class="fas fa-check"></i> Mark Paid</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <span style="font-size:0.75rem; color:var(--text-muted);">Paid: @c.PaidAt?.ToString("dd MMM, yy")</span>
+                            }
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Any()) {
+                    <tr><td colspan="7" class="empty-state">No revenue records found. Platform dues are calculated automatically from completed transactions at the end of each month.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    /* Print specific styles for PDF download */
+    @@media print {
+        body * {
+            visibility: hidden;
+        }
+        #printableArea, #printableArea * {
+            visibility: visible;
+        }
+        #printableArea {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+        }
+        .no-print {
+            display: none !important;
+        }
+        .print-only {
+            display: block !important;
+        }
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table-custom th, .table-custom td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            color: black !important;
+        }
+        .table-custom th {
+            background-color: #f2f2f2;
+        }
+        .data-card-body {
+            color: black;
+        }
+        .badge-custom {
+            border: 1px solid #333;
+            color: #333;
+            background: none;
+        }
+    }
+</style>

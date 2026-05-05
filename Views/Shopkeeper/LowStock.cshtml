@@ -1,0 +1,25 @@
+@model IEnumerable<ServicePlatform.Models.Product>
+@{ Layout = "~/Views/Shared/_DashboardLayout.cshtml"; ViewData["Title"] = "Low Stock Alert"; }
+
+<div class="data-card animate-fadeInUp">
+    <div class="data-card-header">
+        <h5><i class="fas fa-exclamation-triangle" style="color:var(--warning);margin-right:8px;"></i>Low Stock Products (Qty &lt; 5)</h5>
+    </div>
+    <table class="table-custom">
+        <thead><tr><th>Product</th><th>SKU</th><th>Category</th><th>Stock</th><th>Price</th><th>Action</th></tr></thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td style="font-weight:600;">@p.Name</td>
+                    <td>@(p.SKU ?? "—")</td>
+                    <td>@(p.Category ?? "—")</td>
+                    <td><span class="badge-custom badge-danger">@p.StockQuantity left</span></td>
+                    <td style="color:var(--success);font-weight:600;">₹@p.Price.ToString("N0")</td>
+                    <td><a href="/Shopkeeper/EditProduct/@p.Id" class="btn-outline-custom" style="padding:6px 14px;font-size:0.8rem;"><i class="fas fa-edit"></i> Restock</a></td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="6" class="empty-state"><i class="fas fa-check-circle" style="color:var(--success);"></i><h5>All Stocked!</h5><p>No products below threshold</p></td></tr> }
+        </tbody>
+    </table>
+</div>
